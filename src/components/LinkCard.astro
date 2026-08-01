@@ -44,11 +44,11 @@ const skewDir = colorIndex % 2 === 0 ? -6 : 6;
     justify-content: space-between;
     padding: 1.35rem 1.75rem;
     background: var(--card-color);
-    border: 3px solid var(--black, #1a1a1a);
+    border: 3px solid var(--accent-ink, #1a1a1a);
     text-decoration: none;
-    color: var(--black, #1a1a1a);
+    color: var(--accent-ink, #1a1a1a);
     transform: skewX(var(--skew));
-    box-shadow: 3px 3px 0 var(--black, #1a1a1a);
+    box-shadow: 3px 3px 0 var(--accent-ink, #1a1a1a);
     transition: transform 0.1s cubic-bezier(0.2, 0, 0, 1),
                 box-shadow 0.1s cubic-bezier(0.2, 0, 0, 1);
     overflow: hidden;
@@ -56,19 +56,19 @@ const skewDir = colorIndex % 2 === 0 ? -6 : 6;
 
   .link-card:hover {
     transform: skewX(var(--skew)) translate(-3px, -3px);
-    box-shadow: 5px 5px 0 var(--black, #1a1a1a);
+    box-shadow: 5px 5px 0 var(--accent-ink, #1a1a1a);
   }
 
   .link-card:active {
     transform: skewX(var(--skew)) translate(1px, 1px);
-    box-shadow: 2px 2px 0 var(--black, #1a1a1a);
+    box-shadow: 2px 2px 0 var(--accent-ink, #1a1a1a);
     transition-duration: 0.05s;
   }
 
   /* Diagonal slashes */
   .slash {
     position: absolute;
-    background: var(--black, #1a1a1a);
+    background: var(--accent-ink, #1a1a1a);
     pointer-events: none;
   }
 

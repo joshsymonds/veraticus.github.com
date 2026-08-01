@@ -2,6 +2,7 @@
 import Base from "./Base.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ImageLightbox from "../components/blog/ImageLightbox.astro";
 
 interface Props {
   readonly frontmatter: {
@@ -35,6 +36,7 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
       </header>
       <slot />
     </article>
+    <ImageLightbox />
   </main>
   <Footer />
 </Base>
@@ -52,7 +54,7 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
   .post-header {
     margin-block-end: 2.5rem;
     padding-block-end: 1.5rem;
-    border-block-end: 3px solid var(--black);
+    border-block-end: 3px solid var(--divider);
     position: relative;
   }
 
@@ -60,12 +62,13 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -6px;
+    bottom: -1.5px;
     width: 10px;
     height: 10px;
     background: var(--teal);
-    border: 2px solid var(--black);
+    border: 2px solid var(--divider);
     border-radius: 50%;
+    transform: translate(-50%, 50%);
   }
 
   .post-header h1 {
@@ -137,7 +140,7 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
   }
 
   .prose :global(pre) {
-    background: #f0f0ec;
+    background: var(--code-bg);
     border: 2px solid var(--black);
     border-radius: var(--radius-md);
     padding: 1.25rem;
@@ -162,7 +165,7 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
   }
 
   .prose :global(:not(pre) > code) {
-    background: #f0f0ec;
+    background: var(--code-bg);
     padding: 0.15em 0.35em;
     border-radius: var(--radius-sm);
     border: 2px solid var(--black);
@@ -174,7 +177,7 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
     padding-inline-start: 1.25rem;
     margin-inline: 0;
     margin-block: 1.5rem;
-    background: #f0f0ec;
+    background: var(--bg-surface-hover);
     padding: 1rem 1.25rem;
     color: var(--text-muted);
     font-style: italic;
@@ -184,13 +187,13 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
   .prose :global(blockquote)::before {
     content: "";
     position: absolute;
-    top: -4px;
-    left: -4px;
+    top: 0;
+    left: -2px;
     width: 8px;
     height: 8px;
     background: var(--coral);
-    border: 2px solid var(--black);
-    transform: rotate(45deg);
+    border: 2px solid var(--divider);
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 
   .prose :global(img) {
@@ -198,6 +201,116 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
     height: auto;
     border: 2px solid var(--black);
     margin-block: 1.5rem;
+  }
+
+  .prose :global(.evidence) {
+    margin: 2rem 0;
+  }
+
+  .prose :global(.evidence--wide) {
+    width: min(92vw, 68rem);
+    margin-inline-start: 50%;
+    transform: translateX(-50%);
+  }
+
+  .prose :global(.evidence a) {
+    display: block;
+    cursor: zoom-in;
+  }
+
+  .prose :global(.evidence img) {
+    margin: 0;
+    background: white;
+    box-shadow: 4px 4px 0 var(--black);
+  }
+
+  .prose :global(.evidence figcaption) {
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  .prose :global(.evidence-strip) {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(17rem, 21rem);
+    align-items: start;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding: 0.35rem 0.35rem 1rem;
+    scroll-padding-inline: 0.35rem;
+    scroll-snap-type: inline mandatory;
+    scrollbar-color: var(--teal) var(--bg-surface-hover);
+  }
+
+  .prose :global(.evidence-strip a) {
+    scroll-snap-align: start;
+  }
+
+  .prose :global(.evidence-strip img) {
+    width: 100%;
+  }
+
+  .prose :global(.evidence-pair) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 20rem));
+    align-items: start;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .prose :global(.evidence-pair img) {
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    .prose :global(.evidence-pair) {
+      grid-template-columns: minmax(0, 21rem);
+    }
+  }
+
+  .prose :global(.stat-callout) {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-block: 2rem;
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    background: var(--bg-surface);
+    border: 3px solid var(--black);
+    box-shadow: 5px 5px 0 var(--teal);
+  }
+
+  .prose :global(.stat-callout)::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -6px;
+    right: -6px;
+    background: var(--coral);
+    border: 2px solid var(--black);
+    transform: rotate(45deg);
+  }
+
+  .prose :global(.stat-value) {
+    flex-shrink: 0;
+    color: var(--teal);
+    font-family: var(--font-heading);
+    font-size: clamp(2.75rem, 8vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+  }
+
+  .prose :global(.stat-label) {
+    max-width: 28ch;
+    color: var(--black);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.35;
   }
 
   .prose :global(p) {
@@ -218,7 +331,7 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
   .prose :global(hr) {
     border: none;
     height: 3px;
-    background: var(--black);
+    background: var(--divider);
     margin-block: 2rem;
     position: relative;
   }
@@ -232,7 +345,7 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
     width: 10px;
     height: 10px;
     background: var(--yellow);
-    border: 2px solid var(--black);
+    border: 2px solid var(--divider);
     border-radius: 50%;
   }
 
@@ -243,14 +356,14 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
     border-spacing: 0;
     border: 3px solid var(--black);
     box-shadow: 4px 4px 0 var(--black);
-    background: var(--white);
+    background: var(--bg-surface);
     margin-block: 2rem;
     font-family: var(--font-body);
   }
 
   .prose :global(thead) {
     /* Soft tinted teal; full-strength --teal was too dark behind bold text. */
-    background: color-mix(in srgb, var(--teal) 45%, white);
+    background: color-mix(in srgb, var(--teal) 35%, var(--bg-surface));
   }
 
   .prose :global(th) {
@@ -269,8 +382,8 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
 
   .prose :global(td) {
     padding: 0.55rem 0.9rem;
-    border-top: 2px solid rgba(26, 26, 26, 0.12);
-    border-right: 2px solid rgba(26, 26, 26, 0.12);
+    border-top: 2px solid var(--table-grid);
+    border-right: 2px solid var(--table-grid);
     color: var(--black);
     font-family: var(--font-mono);
     font-size: 0.9rem;
@@ -282,7 +395,7 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
     border-right: none;
   }
   .prose :global(tbody tr:nth-child(even)) {
-    background: rgba(26, 26, 26, 0.03);
+    background: var(--table-stripe);
   }
 
   .prose :global(td:first-child) {
@@ -297,6 +410,7 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
     padding: 0.05em 0.4em;
     border: 2px solid var(--black);
     box-shadow: 2px 2px 0 var(--black);
+    color: var(--accent-ink);
     font-weight: 700;
     font-family: var(--font-mono);
     line-height: 1.2;

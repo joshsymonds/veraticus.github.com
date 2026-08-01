@@ -19,8 +19,9 @@ const currentYear = new Date().getFullYear();
     margin-top: auto;
     padding: 2rem 1rem;
     text-align: center;
-    border-top: 3px solid #1a1a1a;
-    background: #fff;
+    border-top: 3px solid var(--divider);
+    background: var(--header-bg);
+    transition: background-color var(--transition-base), border-color var(--transition-base);
   }
 
   .footer-flair {
@@ -35,7 +36,7 @@ const currentYear = new Date().getFullYear();
     width: 8px;
     height: 8px;
     background: var(--coral, #ff6b6b);
-    border: 2px solid #1a1a1a;
+    border: 2px solid var(--black);
     border-radius: 50%;
   }
 
@@ -43,12 +44,12 @@ const currentYear = new Date().getFullYear();
     width: 7px;
     height: 7px;
     background: var(--yellow, #ffd166);
-    border: 2px solid #1a1a1a;
+    border: 2px solid var(--black);
     transform: rotate(45deg);
   }
 
   .site-footer p {
-    color: #1a1a1a;
+    color: var(--black);
     font-size: 0.9rem;
     font-weight: 600;
     margin: 0;

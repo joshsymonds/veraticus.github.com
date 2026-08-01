@@ -17,12 +17,12 @@
   <!-- Black squiggles - top and left -->
   <div class="memphis-shape squiggle" style="top: 3%; left: 55%; --delay: -1.5s; --duration: 10s;">
     <svg width="80" height="20" viewBox="0 0 80 20" fill="none">
-      <path d="M2 10 C12 2, 22 18, 32 10 C42 2, 52 18, 62 10 C72 2, 78 14, 78 10" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M2 10 C12 2, 22 18, 32 10 C42 2, 52 18, 62 10 C72 2, 78 14, 78 10" stroke="var(--black, #1a1a1a)" stroke-width="3" stroke-linecap="round" fill="none"/>
     </svg>
   </div>
   <div class="memphis-shape squiggle" style="top: 50%; left: 2%; --delay: -4s; --duration: 8.5s;">
     <svg width="70" height="18" viewBox="0 0 70 18" fill="none">
-      <path d="M2 9 C10 2, 18 16, 26 9 C34 2, 42 16, 50 9 C58 2, 66 14, 68 9" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <path d="M2 9 C10 2, 18 16, 26 9 C34 2, 42 16, 50 9 C58 2, 66 14, 68 9" stroke="var(--black, #1a1a1a)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
     </svg>
   </div>
 
@@ -67,7 +67,7 @@
     height: var(--size);
     border-radius: 50%;
     background: #2ec4b6;
-    border: 2.5px solid #1a1a1a;
+    border: 2.5px solid var(--black, #1a1a1a);
   }
 
   /* --- Coral triangles --- */
@@ -86,8 +86,8 @@
   .diamond {
     width: var(--size);
     height: var(--size);
-    background: #ffe600;
-    border: 2.5px solid #1a1a1a;
+    background: var(--yellow, #ffe600);
+    border: 2.5px solid var(--black, #1a1a1a);
     transform: rotate(45deg);
     animation: memphis-float var(--duration, 7s) ease-in-out infinite,
                memphis-wiggle var(--duration, 7s) ease-in-out infinite;
@@ -113,7 +113,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #1a1a1a;
+    background: var(--black, #1a1a1a);
     display: block;
   }
 
@@ -121,10 +121,10 @@
   .halftone-rect {
     width: 40px;
     height: 24px;
-    background: #ff6b6b;
-    border: 2px solid #1a1a1a;
+    background: var(--coral, #ff6b6b);
+    border: 2px solid var(--black, #1a1a1a);
     opacity: 0.6;
-    background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+    background-image: radial-gradient(circle, var(--black, #1a1a1a) 1px, transparent 1px);
     background-size: 5px 5px;
   }
 

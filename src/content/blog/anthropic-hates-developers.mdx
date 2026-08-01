@@ -1,0 +1,254 @@
+---
+title: "Anthropic Hates Developers"
+date: 2026-07-31 12:00:00 -0700
+tags: [ai, business, anthropic]
+---
+
+import ConnectorReviewTimeline from '../../components/blog/ConnectorReviewTimeline.astro';
+import TrustPathDiagram from '../../components/blog/TrustPathDiagram.astro';
+
+<ConnectorReviewTimeline />
+
+> Anthropic's enterprise account team and Platform Operations both explicitly assured me my MCP was proceeding through the normal review queue. Four months after my first submission, an automated email admitted that the queue had been abandoned and told me to start over. My support requests went unanswered despite $800 per month in personal spending, a six-figure enterprise relationship I helped drive, and open-source tooling I maintain for Claude Code. Claude is extraordinary. The company surrounding it is quite the opposite. Receipts follow.
+
+Anthropic hates developers.
+
+I do not mean that its employees wake up each morning wondering how to make programmers miserable. I mean that institutions reveal their priorities through what they fund, what they measure, and what failures they are willing to tolerate.
+
+Anthropic appears to value developers when we consume tokens, improve benchmark scores, advocate for Claude, and build free infrastructure around its products. The moment we need reliability, transparency, support, or basic reciprocity, Anthropic disappears.
+
+Let me explain:
+
+I maintain four Claude Max 20x accounts personally, representing $800 per month in personal spending. At work, my advocacy helped drive a substantial six-figure annual relationship with Anthropic spanning employee adoption and API usage.
+
+I am quite confident that this does not make me Anthropic's largest customer. It should, however, be enough to establish that I am not casually kicking the tires. In almost any other vendor relationship involving this much money, I would expect a support channel, a recognizable escalation path, and some minimally coherent service expectations.
+
+Instead, my requests are lost, shuffled between departments, answered inaccurately, and often simply ignored. And my experience outside of requests is one of frustration, absent ownership and accountability, and degraded service.
+
+Anthropic's commitment to developers seems to begin and end with making increasingly capable models and releasing them into the world. I love better models -- Claude is an extraordinary piece of software! That is why I have spent so much money on it and invested so much time building around it.
+
+But the experience of depending on an AI platform does not end at model intelligence: it includes availability, tooling, documentation, support, billing, quotas, communication, ecosystem stewardship, and the ability to report a serious defect without arguing with a chatbot that insists the defect does not exist.
+
+And everything surrounding Claude is so consistently hostile and alienating that "Anthropic hates developers" has become the most parsimonious explanation for me.
+
+How can I say this? I am so glad you asked.
+
+## Four Months in a Queue Anthropic Abandoned
+
+I created an application called [Savecraft](https://savecraft.gg/). I am proud of it!
+
+I am not shilling Savecraft here, but a discussion of its basic capabilities is germane, so please bear with me.
+
+Savecraft connects games to AI assistants. It can read save files, retrieve character and inventory data, consult game documentation, and give an assistant enough context to provide useful advice without requiring the player to manually transcribe everything into a chat window.
+
+Savecraft is an MCP server at its core. When Anthropic and OpenAI announced connector directories, I was excited about publishing it through both. I especially liked the possibility of building rich interfaces that could appear directly inside AI conversations (and I think I succeeded materially, to be un-humble).
+
+I submitted Savecraft to Anthropic's connector directory on March 22, eight days before I submitted it to OpenAI. At the time, Anthropic's submission mechanism was a Google Form. There was no dashboard, status page, or reliable confirmation that the application had reached the correct place.
+
+On March 30, after a substantial expansion of Savecraft's UI and capabilities, I filled out the entire Anthropic form again so the reviewers would have current information. That same day, I submitted Savecraft to OpenAI's connector directory.
+
+OpenAI approved it on April 28: 29 days from submission to acceptance. Since then, it has attracted meaningful traffic through ChatGPT, and I have developed a responsive relationship with OpenAI's platform team around subsequent reviews and improvements.
+
+My experience with Anthropic was... rather different.
+
+When I opened a support request to ask whether Anthropic had received it, its automated support system suggested that I submit the form again. And so, I did.
+
+Then I waited.
+
+Months passed without a status update. I was willing to be patient -- Anthropic was growing quickly, MCP was new, and I assumed the directory team had a large backlog. I believed in good faith that my application was waiting its turn.
+
+And I waited.
+
+I submitted another support request asking what the status of my review was. I received an automated response from the Anthropic support bot that was, in a word, unhelpful.
+
+<figure class="evidence evidence--wide evidence--thread">
+  <div class="evidence-strip" aria-label="Four screenshots from an Anthropic support conversation">
+    <a href="/images/anthropic-directory/april-support-conversation-1.png">
+      <img src="/images/anthropic-directory/april-support-conversation-1.png" width="535" height="729" loading="lazy" decoding="async" alt="Anthropic's support bot saying it cannot see the status of two Connector Directory submissions" />
+    </a>
+    <a href="/images/anthropic-directory/april-support-conversation-2.png">
+      <img src="/images/anthropic-directory/april-support-conversation-2.png" width="544" height="495" loading="lazy" decoding="async" alt="Anthropic's support bot offering to connect the conversation to a human after being asked whether the submissions were in the pipeline" />
+    </a>
+    <a href="/images/anthropic-directory/april-support-conversation-3-redacted.png">
+      <img src="/images/anthropic-directory/april-support-conversation-3-redacted.png" width="543" height="537" loading="lazy" decoding="async" alt="Anthropic's support bot promising an email from a human support agent; the conversation ID is redacted" />
+    </a>
+    <a href="/images/anthropic-directory/april-support-conversation-4.png">
+      <img src="/images/anthropic-directory/april-support-conversation-4.png" width="545" height="624" loading="lazy" decoding="async" alt="A later automated Anthropic support message apologizing for high request volume and asking whether help is still needed" />
+    </a>
+  </div>
+  <figcaption>Note that the promised human handoff never occurred.</figcaption>
+</figure>
+
+So, more waiting.
+
+Because my employer spends many thousands per month with Anthropic, I have a direct email address for our enterprise account contact. I dislike using a professional relationship to escalate a personal project, but after months of waiting -- I must admit, reader, I did.
+
+In May, I asked my work's enterprise support contact whether she could find out what had happened to my submission. She checked internally and told me that Anthropic had received the submission and that it was proceeding through the standard approval process. While she said there was no shareable timeline, the application was supposedly present and waiting.
+
+<figure class="evidence evidence--wide">
+  <a href="/images/anthropic-directory/may-standard-process-redacted.png">
+    <img src="/images/anthropic-directory/may-standard-process-redacted.png" width="1128" height="383" loading="lazy" decoding="async" alt="A May 26 email confirming that Anthropic received the submission and that it was going through the standard approval process; the sender's name, email address, and portrait are redacted" />
+  </a>
+  <figcaption>And, dear reader, I believed her!</figcaption>
+</figure>
+
+Then, on June 15, I received this message directly from Anthropic's Platform Operations team:
+
+<figure class="evidence evidence--wide">
+  <a href="/images/anthropic-directory/june-review-queue-redacted.png">
+    <img src="/images/anthropic-directory/june-review-queue-redacted.png" width="1528" height="463" loading="lazy" decoding="async" alt="A June 15 email from Anthropic Platform Operations saying that Savecraft's submission had been received and was in the review queue; the sender's name is redacted" />
+  </a>
+  <figcaption>Months of waiting and lack of communication... finally over?</figcaption>
+</figure>
+
+That seemed definitive! Savecraft was in the queue. Anthropic had confirmed it twice, through my enterprise contact and an email. I continued waiting with bated breath.
+
+On July 30, I saw a developer on Reddit report that their connector had been submitted on July 10 and approved on July 30: twenty days from submission to acceptance.
+
+Savecraft had been waiting since March 22.
+
+I emailed our enterprise contact again and asked whether someone could determine what was happening.
+
+A few hours later, I received this automated message:
+
+<figure class="evidence">
+  <a href="/images/thanks-for-building-for-claude.png">
+    <img src="/images/thanks-for-building-for-claude.png" width="1532" height="525" loading="lazy" decoding="async" alt="Anthropic's automated July 30 email acknowledging that Savecraft had sat in its connector review queue too long, announcing that the older queue was being closed, and asking for a fresh submission" />
+  </a>
+  <figcaption>"Thanks for building for Claude."</figcaption>
+</figure>
+
+After more than four months, multiple customer-support requests, and two explicit assurances that my application was waiting in Anthropic's review process, the company informed me through an automated email that the process had failed, the old queue was being discarded, and I should begin again.
+
+There was *no*:
+
+- personal apology;
+- attempt to preserve the priority of my original submission;
+- migration into the new system;
+- named owner or contact to try to help me;
+- acknowledgment that I had repeatedly asked whether the application was stuck and had repeatedly been told that it was not.
+
+Just: oh well, try again! And of course, "thanks for building for Claude."
+
+Why, you're welcome!
+
+Of course I replied directly to the directory team. I replied to the Platform Operations employee who had told me in June that Savecraft was in the queue. I copied our enterprise contact and contacted her separately. I explained my personal spending, our professional spending, my open-source work, and the extent to which I had advocated for Anthropic and built around its platform.
+
+As of publication, I have received no response -- not even a perfunctory, "Gosh, that sucks! We're looking into this internally and will respond as soon as we are able." Despite making as much noise as I reasonably could, I could not obtain even basic acknowledgment that anyone had read what I wrote.
+
+## This Is Not an Isolated Failure
+
+Savecraft is my cleanest example of this unbalanced relationship, but it is not the only one.
+
+### joshsymonds/nix-config
+
+I maintain a [public Nix configuration](https://github.com/joshsymonds/nix-config) with hundreds of GitHub stars. It includes extensive tooling and documentation for installing and managing Claude Code on NixOS and other Nix-managed systems, and has appeared in several community collections of useful Claude Code projects.
+
+I submitted it to Anthropic's Claude for Open Source program because it seemed almost comically aligned with the program's stated purpose. Yet: I received neither a rejection nor an acceptance, a request for more information, or even confirmation that anyone reviewed it. I do not know whether it remains in another abandoned queue or whether the application form was connected to anything at all.
+
+Anthropic says it values open-source developers. My experience is that it solicits their work and then provides no evidence that anyone is listening.
+
+### Platform Bugs
+
+Several months ago, chats on Claude.ai began inserting an inaccurate token counter into a subset of user prompts. They looked like this:
+
+```xml
+<total_tokens>10000 tokens left</total_tokens>
+```
+
+The number of tokens was constant and seemingly unrelated to any actual quota; as a result, the model would end all conversation turns immediately, saying that the user should start another one. Of course, as this bad message was in ALL conversations, all conversations were ended immediately. Other users reported the same behavior at the same time.
+
+When I reported this to Anthropic, its support bot repeatedly insisted that I was seeing a display problem, a Claude Code warning, a browser-cache issue, or a configuration error. I explained that it happened in Claude.ai, occurred across the browser and mobile applications, was visible to the model itself, and was being reported by multiple users.
+
+The bot continued telling me that what I was directly observing was not occurring.
+
+Eventually, after I explicitly demanded escalation, it promised to connect me with a human support agent.
+
+No human ever contacted me.
+
+<figure class="evidence evidence--wide">
+  <div class="evidence-pair" aria-label="Two screenshots from the support conversation about the token counter defect">
+    <a href="/images/anthropic-directory/token-counter-support-1.png">
+      <img src="/images/anthropic-directory/token-counter-support-1.png" width="504" height="680" loading="lazy" decoding="async" alt="Anthropic's support bot promising to transition the token counter report to a human support agent" />
+    </a>
+    <a href="/images/anthropic-directory/token-counter-support-2.png">
+      <img src="/images/anthropic-directory/token-counter-support-2.png" width="509" height="742" loading="lazy" decoding="async" alt="The later automated response asking whether the unresolved token counter problem had resolved itself" />
+    </a>
+  </div>
+  <figcaption>"We'll email you as soon as an agent has responded." The only follow-up was another automated message asking whether the problem had somehow resolved itself.</figcaption>
+</figure>
+
+This is a particularly impressive failure for an AI company: its AI support agent hallucinated about its own product, argued with a technically competent customer who had already isolated the problem, and then routed the incident into oblivion.
+
+Interestingly, other people also experienced this error, [as Reddit documents](https://www.reddit.com/r/ClaudeAI/comments/1shwkbu/total_tokens_in_user_prompts_invisible/). To my knowledge, Anthropic has never acknowledged that this problem occurred or tried to reach out to the people affected by it.
+
+### Fable Replies Are Lost in Claude Code
+
+More recently, users discovered that Fable's supposedly terse personality is at least partly a serious message-delivery defect. See [Reddit](https://www.reddit.com/r/ClaudeAI/comments/1uzec0l/what_everyone_calls_fable_being_quiet_is/) for the full details, but tl;dr (too late):
+
+Fable generates text during agentic work that never reaches the user. The model behaves as though it delivered the text, but the client transcript contains nothing. It may refer to an explanation, warning, list, or question that the user never saw. It may then execute tools based on the assumption that both parties share context that only the model possesses.
+
+A community-developed script can detect one specific signature of this failure in local Claude Code session data.
+
+When I ran it against my own sessions, the result was not subtle:
+
+<aside class="stat-callout" aria-label="Approximately 23 percent of my Fable messages showed evidence of dropped text">
+  <span class="stat-value">~23%</span>
+  <span class="stat-label">of my Fable messages showed evidence of dropped text</span>
+</aside>
+
+Other users have reported rates around 25 to 26 percent. When measuring only the mid-turn text blocks vulnerable to the defect, some users found that the majority were lost.
+
+So, to state this clearly: the model and operator can leave a turn with different beliefs about what was communicated. This undermines approvals, debugging, handoffs, and any claim that the visible transcript is an accurate record of the agent's behavior. It also means that output I pay a premium to receive is simply invisible to me.
+
+There are open public reports of the problem. As far as I can tell, Anthropic has not meaningfully acknowledged it.
+
+I would like to report my data directly to Anthropic. I would like to provide session counts, affected examples, and reproduction details.
+
+I would also sooner walk barefoot into the sea across a bed of hot coals than open another Anthropic support ticket.
+
+### Fable and the Missing Trust Path
+
+Fable's maddeningly broad cybersecurity and biological safeguards expose the same institutional failure from another direction. Ordinary security work can trigger Claude Code to switch the request automatically to Opus, sometimes based on repository or chat context before the user has asked anything remotely dangerous.
+
+Anthropic does provide an escape hatch: setting `switchModelsOnFlag` to `false` makes Claude Code stop and ask before switching. But automatic product substitution remains the default. (Apparently consent is an advanced configuration option...)
+
+Worse, the override is sticky: once Claude Code moves the conversation to Opus, the rest of the conversation continues there. To get Fable back, I have to notice the substitution, accept the context cost of resending the conversation to Fable, and risk having the classifier bounce it straight back to Opus.
+
+The safety policy itself is not my complaint. If Anthropic believes unrestricted access to Fable presents unusual cybersecurity and biological risks, fine! Then establish a meaningful trust system.
+
+I am a Director of SRE; legitimate cybersecurity work is an unavoidable part of my job. Anthropic knows my billing history, my employer, our enterprise organization, and a great deal about my usage. Money does not entitle me to unrestricted model access. It should, however, make it possible for Anthropic to know who I am, evaluate my legitimate use, and explain what options exist. Instead, it still treats me as an anonymous, unverified account.
+
+<TrustPathDiagram />
+
+Anthropic's own documentation directs organizations needing reliable access to ask about a "trusted access" program. Despite our enterprise relationship, nobody at Anthropic has ever mentioned it, offered identity verification, or established enough of an account relationship to evaluate me or my company.
+
+OpenAI, by contrast, verified both me and my organization with an automated process by simply scanning my driver's license. As a result I can ask basically anything of any of its models.
+
+Anthropic's position appears to be that Fable is too dangerous to provide reliably to ordinary developers, but also that it's too difficult to decide who is an ordinary developer and who isn't. As Théoden so famously asked, "What can men do against such reckless hate?"
+
+Verify me! Verify my organization! Log my usage! Review suspicious requests! But do not accept thousands of dollars, offer no functioning trust process, and then treat the model I selected as merely a suggestion. Like, honestly, this process feels optimized to produce user frustration.
+
+---
+
+## The Model Is Not the Product
+
+Claude is often brilliant. Claude Code has changed the way I work. Fable, when it is available and when its messages successfully survive the trip to my terminal, is truly extraordinary.
+
+But the model is not the whole product. The developer platform is the product -- and measured against that standard, Anthropic has failed to build a good one. Indeed, the platform often seems designed to frustrate, demean, and insult its own users.
+
+A developer platform must have predictable access, honest metering, stable model selection, functional support, accurate transcripts, trustworthy status communication, and an ecosystem team capable of recognizing that developers are not merely unpaid distribution channels.
+
+Anthropic appears to have invested heavily in making good models and treats everything else as optional.
+
+I have tried repeatedly to participate in its ecosystem. I have paid for four premium accounts. I have driven substantial enterprise adoption. I have built open-source tooling around Claude Code. I have submitted applications to Anthropic's developer programs. I have built a connector specifically for Claude. I have reported real product defects and supplied external corroboration.
+
+In return, I have received opaque quotas, unstable access, materially false status assurances, abandoned submissions, automated support denial, and, honestly, WORST of all, silence.
+
+Anthropic does not need to flatter developers. It does not need to send me a hat, although at this point a hat would be darkly funny. And, to be clear, I will happily update this post if Anthropic deigns to get in touch. But it does need to clear a minimum bar that is currently buried somewhere near the Earth's core.
+
+I suspect Anthropic has been able to neglect everything surrounding Claude because the quality of its models generated such overwhelming demand that support, account management, and developer relations seemed ancillary. But that period is ending. Credible competitors to Opus and Fable are emerging from vendors with better support, clearer trust systems, and far more coherent developer experiences.
+
+Does Anthropic really believe developers will forget how they were treated once Claude is no longer the only model worth enduring all this for?
+
+Anthropic's models demonstrate extraordinary intelligence -- and frankly, the company surrounding them should try doing the same.

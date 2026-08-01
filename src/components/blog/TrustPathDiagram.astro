@@ -1,0 +1,578 @@
+<figure
+  class="trust-path"
+  aria-label="A security review request made with Fable selected. Anthropic's customer record identifies Josh Symonds and contains extensive billing, professional, enterprise, and conversation information, but that account context is not connected to Anthropic's request classifier, which labels him a suspicious user and automatically overrides Fable with Opus. The rest of the conversation then remains in Opus unless the user notices and attempts to switch back."
+>
+  <figcaption>
+    <strong>Known Enough to Bill. Unknown Enough to Trust.</strong>
+    <span>One ordinary security request</span>
+  </figcaption>
+
+  <div class="diagram-body">
+    <section class="request-card" aria-label="Example security review request">
+      <blockquote>"Thoroughly examine the attached code for any security flaws."</blockquote>
+      <span class="model-selected">
+        <small>MODEL SELECTED</small>
+        <strong>Fable</strong>
+      </span>
+    </section>
+
+    <div class="request-connector" aria-label="The request and selected model are sent to Anthropic's request classifier">
+      <span class="flow-arrow request-arrow" aria-hidden="true"></span>
+    </div>
+
+    <div class="decision-grid">
+      <section class="customer-record" aria-label="Anthropic customer record for Josh Symonds">
+        <span class="eyebrow">ANTHROPIC'S CUSTOMER RECORD</span>
+        <strong class="section-title">Josh Symonds</strong>
+        <dl>
+          <div><dt>Accounts</dt><dd>4 Max 20x</dd></div>
+          <div><dt>Personal spend</dt><dd>$800/month</dd></div>
+          <div><dt>Profession</dt><dd>Director of SRE</dd></div>
+          <div><dt>Organization</dt><dd>Enterprise customer</dd></div>
+          <div><dt>Relationship</dt><dd>Six figures annually</dd></div>
+          <div><dt>Usage history</dt><dd>Complete record</dd></div>
+          <div class="rainbow-row">
+            <dt>Conversation topics</dt>
+            <dd><span class="rainbow" aria-hidden="true"></span>Extremely gay</dd>
+          </div>
+        </dl>
+      </section>
+
+      <div class="disconnect" aria-label="Account context is not connected to the request classifier">
+        <span class="flow-name">ACCOUNT CONTEXT</span>
+        <span class="blocked-path" aria-hidden="true"><b>×</b></span>
+        <strong>NOT PASSED TO CLASSIFIER</strong>
+      </div>
+
+      <div class="classifier-column">
+        <section class="classifier-record" aria-label="Anthropic request classifier decision">
+          <span class="eyebrow">ANTHROPIC'S REQUEST CLASSIFIER</span>
+          <strong class="section-title suspicious">Suspicious User</strong>
+          <dl>
+            <div><dt>Topic</dt><dd>Cybersecurity</dd></div>
+            <div><dt>Task</dt><dd>Repository review</dd></div>
+            <div class="verdict"><dt>Classifier</dt><dd>FLAGGED</dd></div>
+          </dl>
+          <span class="classifier-stamp">LEGITIMATE INTENT NOT FOUND</span>
+        </section>
+
+        <div class="classifier-output" aria-label="The flagged classifier result triggers the automatic safety override">
+          <span class="flow-arrow flagged-arrow" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+
+    <section class="override" aria-label="Automatic safety override and its consequences">
+      <div class="override-result">
+        <span>Fable =&gt; Opus</span>
+      </div>
+
+      <div class="sticky-consequence">
+        <span class="consequence-label">WHAT HAPPENS NEXT</span>
+        <strong>Every subsequent turn remains in Opus.</strong>
+        <p>To return to Fable, you must:</p>
+        <ol>
+          <li><span><b>Realize the model changed.</b> Claude Code did not stop to ask.</span></li>
+          <li><span><b>Resend the conversation.</b> Fable must ingest the accumulated context again.</span></li>
+          <li><span><b>Pass classification again.</b> The same context may immediately send you back to Opus.</span></li>
+        </ol>
+      </div>
+    </section>
+
+  </div>
+</figure>
+
+<style>
+  .trust-path {
+    margin: 2.25rem 0;
+    overflow: hidden;
+    background: var(--bg-surface);
+    border: 3px solid var(--black);
+    box-shadow: 6px 6px 0 var(--teal);
+  }
+
+  figcaption {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    background: var(--yellow);
+    border-bottom: 3px solid var(--black);
+    color: var(--accent-ink);
+  }
+
+  figcaption strong {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  figcaption span,
+  .eyebrow,
+  .model-selected small,
+  .classifier-stamp,
+  .flow-name,
+  .disconnect > strong {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .diagram-body {
+    padding: 0.75rem;
+  }
+
+  .request-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 6.2rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0;
+    padding: 0.55rem 0.7rem;
+    background: color-mix(in srgb, var(--yellow) 16%, var(--bg-surface));
+    border: 2px solid var(--black);
+  }
+
+  .request-card blockquote {
+    grid-column: 1 / 3;
+    margin: 0;
+    padding: 0.55rem 0.75rem;
+    color: var(--black);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .model-selected {
+    grid-column: 3;
+    min-width: 6.5rem;
+    display: grid;
+    justify-items: center;
+    position: relative;
+    padding: 0.45rem 0.65rem;
+    background: var(--teal);
+    border: 2px solid var(--black);
+    color: var(--accent-ink);
+    line-height: 1;
+  }
+
+  .model-selected strong {
+    margin-top: 0.25rem;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 900;
+  }
+
+  .decision-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 6.2rem minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .request-connector {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 6.2rem minmax(0, 1fr);
+  }
+
+  .request-arrow {
+    grid-column: 3;
+    --arrow-color: var(--teal);
+    --arrow-top: -1rem;
+  }
+
+  .classifier-column {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .classifier-output {
+    min-height: 4.2rem;
+    display: grid;
+    flex: 1;
+  }
+
+  .flagged-arrow {
+    min-height: 100%;
+    grid-column: 1;
+    --arrow-color: var(--coral);
+  }
+
+  .flow-arrow {
+    min-height: 4.2rem;
+    position: relative;
+  }
+
+  .flow-arrow::before {
+    content: "";
+    width: 1.65rem;
+    position: absolute;
+    left: 50%;
+    top: var(--arrow-top, 0);
+    bottom: 0;
+    background: var(--arrow-color);
+    clip-path: polygon(35% 0, 65% 0, 65% 72%, 100% 72%, 50% 100%, 0 72%, 35% 72%);
+    transform: translateX(-50%);
+  }
+
+  .customer-record,
+  .classifier-record {
+    min-width: 0;
+    padding: 0.7rem;
+    border: 2px solid var(--black);
+  }
+
+  .customer-record {
+    background: color-mix(in srgb, var(--teal) 24%, var(--bg-surface));
+    transform: translateY(-2.5rem);
+  }
+
+  .classifier-record {
+    background: color-mix(in srgb, var(--coral) 18%, var(--bg-surface));
+  }
+
+  .eyebrow {
+    display: block;
+    color: var(--text-muted);
+  }
+
+  .section-title {
+    display: block;
+    margin: 0.18rem 0 0.55rem;
+    color: var(--black);
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .suspicious {
+    color: var(--coral);
+    text-transform: uppercase;
+  }
+
+  dl {
+    display: grid;
+    gap: 0.24rem;
+    margin: 0;
+  }
+
+  dl div {
+    display: grid;
+    grid-template-columns: minmax(5.2rem, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.4rem;
+    background: var(--bg-surface);
+    border: 2px solid var(--table-grid);
+    font-size: 0.76rem;
+    line-height: 1.15;
+  }
+
+  dt {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 0;
+    color: var(--black);
+    font-weight: 800;
+  }
+
+  .rainbow-row dd {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .rainbow {
+    width: 1.5rem;
+    height: 0.68rem;
+    flex: 0 0 auto;
+    border: 1px solid var(--black);
+    border-radius: 999px 999px 0 0;
+    background: linear-gradient(
+      to bottom,
+      #e40303 0 16.6%,
+      #ff8c00 16.6% 33.2%,
+      #ffed00 33.2% 49.8%,
+      #008026 49.8% 66.4%,
+      #004dff 66.4% 83%,
+      #750787 83% 100%
+    );
+  }
+
+  .verdict {
+    border-color: var(--coral);
+  }
+
+  .verdict dd {
+    color: var(--coral);
+    font-family: var(--font-mono);
+    font-weight: 900;
+  }
+
+  .classifier-stamp {
+    display: block;
+    margin-top: 0.5rem;
+    padding: 0.35rem;
+    border: 3px double var(--coral);
+    color: var(--coral);
+    text-align: center;
+    transform: rotate(-1deg);
+  }
+
+  .disconnect {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 0.35rem;
+    padding-inline: 0.25rem;
+    transform: translateY(-2.5rem);
+  }
+
+  .flow-name {
+    position: relative;
+    z-index: 2;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .blocked-path {
+    width: 100%;
+    height: 4px;
+    position: relative;
+    background: repeating-linear-gradient(90deg, var(--coral) 0 8px, transparent 8px 13px);
+  }
+
+  .blocked-path::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    border-block: 5px solid transparent;
+    border-left: 7px solid var(--coral);
+    transform: translateY(-50%);
+  }
+
+  .blocked-path b {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 0;
+    color: var(--coral);
+    font-family: var(--font-heading);
+    font-size: 4.25rem;
+    font-weight: 900;
+    line-height: 1;
+    opacity: 0.28;
+    transform: translate(-50%, -50%);
+  }
+
+  .disconnect > strong {
+    max-width: 12ch;
+    position: relative;
+    z-index: 2;
+    color: var(--coral);
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .override {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    margin-top: 0;
+    padding: 0.6rem;
+    background: color-mix(in srgb, var(--coral) 22%, var(--bg-surface));
+    border: 3px solid var(--black);
+  }
+
+  .override-result {
+    min-height: 4.4rem;
+    display: grid;
+    padding: 5px;
+    position: relative;
+    overflow: hidden;
+    background: repeating-linear-gradient(
+      135deg,
+      var(--coral) 0 11px,
+      var(--yellow) 11px 22px,
+      var(--coral) 22px 33px
+    );
+    background-size: 47px 47px;
+    border: 3px solid var(--black);
+    color: var(--accent-ink);
+    animation: alarm-border 850ms linear infinite;
+  }
+
+  .override-result span {
+    display: grid;
+    place-items: center;
+    background: var(--coral);
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .sticky-consequence {
+    min-width: 0;
+    padding: 0.25rem 0.4rem 0.15rem;
+    text-align: center;
+  }
+
+  .sticky-consequence > strong {
+    display: block;
+    margin: 0.18rem 0 0.3rem;
+    color: var(--black);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 900;
+  }
+
+  .consequence-label {
+    display: block;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .sticky-consequence > p {
+    margin: 0 0 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+
+  .sticky-consequence ol {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: consequence;
+    text-align: left;
+  }
+
+  .sticky-consequence li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem;
+    background: var(--bg-surface);
+    border: 2px solid var(--table-grid);
+    color: var(--black);
+    font-size: 0.75rem;
+    line-height: 1.25;
+    counter-increment: consequence;
+  }
+
+  .sticky-consequence li::before {
+    content: counter(consequence, upper-alpha);
+    width: 1.25rem;
+    height: 1.25rem;
+    display: grid;
+    place-items: center;
+    background: var(--yellow);
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    color: var(--accent-ink);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 900;
+  }
+
+  .sticky-consequence li b {
+    color: var(--black);
+    font-weight: 900;
+  }
+
+  @keyframes alarm-border {
+    to { background-position: 47px 0; }
+  }
+
+  @media (max-width: 720px) {
+    figcaption {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .request-card,
+    .override {
+      grid-template-columns: 1fr;
+    }
+
+    .override-result {
+      min-height: 4rem;
+    }
+
+    .model-selected {
+      grid-column: 1;
+      justify-self: center;
+    }
+
+    .decision-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .request-connector {
+      grid-template-columns: 1fr;
+    }
+
+    .request-arrow {
+      grid-column: 1;
+    }
+
+    .flagged-arrow {
+      min-height: 4.2rem;
+    }
+
+    .disconnect {
+      min-height: 7rem;
+      padding-block: 0.4rem;
+      transform: none;
+    }
+
+    .customer-record {
+      transform: none;
+    }
+
+    .blocked-path {
+      width: 4px;
+      height: 3rem;
+      background: repeating-linear-gradient(180deg, var(--coral) 0 9px, transparent 9px 15px);
+    }
+
+    .blocked-path::after {
+      right: auto;
+      left: 50%;
+      top: auto;
+      bottom: -6px;
+      border-inline: 5px solid transparent;
+      border-top: 7px solid var(--coral);
+      border-bottom: 0;
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .override-result {
+      animation: none;
+    }
+  }
+
+</style>

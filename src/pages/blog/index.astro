@@ -91,7 +91,7 @@ const sortedYears = [...postsByYear.keys()].sort((a, b) => b - a);
     color: var(--teal);
     margin-block-end: 1rem;
     padding-block-end: 0.5rem;
-    border-block-end: 3px solid var(--black);
+    border-block-end: 3px solid var(--divider);
     position: relative;
   }
 
@@ -99,12 +99,12 @@ const sortedYears = [...postsByYear.keys()].sort((a, b) => b - a);
     content: "";
     position: absolute;
     right: 0;
-    bottom: -3px;
+    bottom: -1.5px;
     width: 8px;
     height: 8px;
     background: var(--coral);
-    border: 2px solid var(--black);
-    transform: rotate(45deg);
+    border: 2px solid var(--divider);
+    transform: translate(50%, 50%) rotate(45deg);
   }
 
   .posts-list {
@@ -118,7 +118,7 @@ const sortedYears = [...postsByYear.keys()].sort((a, b) => b - a);
     font-size: 0.85rem;
     color: var(--black);
     opacity: 0.6;
-    border-top: 2px solid var(--black);
+    border-top: 2px solid var(--divider);
     display: flex;
     align-items: center;
     gap: 0.6rem;

@@ -154,22 +154,22 @@
 
 .pill-teal {
   background: var(--teal);
-  color: var(--black);
+  color: var(--accent-ink);
 }
 
 .pill-coral {
   background: var(--coral);
-  color: var(--white);
+  color: var(--accent-ink);
 }
 
 .pill-pink {
   background: var(--pink);
-  color: var(--black);
+  color: var(--accent-ink);
 }
 
 .pill-yellow {
   background: var(--yellow);
-  color: var(--black);
+  color: var(--accent-ink);
 }
 
 /* ==========================================================================

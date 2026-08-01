@@ -61,7 +61,7 @@
     display: inline-block;
     width: 2.25rem;
     height: 1.1rem;
-    background: rgba(26, 26, 26, 0.15);
+    background: var(--ink-muted, rgba(26, 26, 26, 0.15));
     border: 2px solid var(--black);
     position: relative;
     transition: background 180ms ease;

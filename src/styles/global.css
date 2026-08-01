@@ -5,14 +5,25 @@
 
 /* --- Custom Properties --- */
 :root {
+  color-scheme: light;
+
   /* Background */
   --bg: #fafaf7;
   --bg-surface: #ffffff;
   --bg-surface-hover: #f0f0ec;
+  --header-bg: #ffffff;
+  --code-bg: #eeeee9;
+  --mobile-hero-bg: rgba(255, 255, 255, 0.92);
 
   /* Text */
   --text: #1a1a1a;
   --text-muted: #555555;
+  --text-faint: rgba(26, 26, 26, 0.5);
+  --divider: #1a1a1a;
+  --ink-subtle: rgba(26, 26, 26, 0.1);
+  --ink-muted: rgba(26, 26, 26, 0.15);
+  --table-grid: rgba(26, 26, 26, 0.12);
+  --table-stripe: rgba(26, 26, 26, 0.03);
 
   /* Memphis Palette */
   --teal: #2ec4b6;
@@ -21,6 +32,7 @@
   --yellow: #ffd166;
   --black: #1a1a1a;
   --white: #fafaf7;
+  --accent-ink: #1a1a1a;
 
   /* Spacing scale */
   --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
@@ -69,6 +81,41 @@
   --font-mono: "JetBrains Mono", ui-monospace, "Fira Code", monospace;
 }
 
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #17191d;
+  --bg-surface: #22252b;
+  --bg-surface-hover: #2c3037;
+  --header-bg: #1d2025;
+  --code-bg: #252930;
+  --mobile-hero-bg: rgba(23, 25, 29, 0.94);
+
+  --text: #f4f0e6;
+  --text-muted: #bbb6ac;
+  --text-faint: rgba(244, 240, 230, 0.6);
+  --divider: #777d86;
+  --ink-subtle: rgba(244, 240, 230, 0.12);
+  --ink-muted: rgba(244, 240, 230, 0.18);
+  --table-grid: rgba(244, 240, 230, 0.16);
+  --table-stripe: rgba(244, 240, 230, 0.05);
+
+  --teal: #4fd6ca;
+  --coral: #ff8585;
+  --pink: #ffb6c1;
+  --yellow: #ffd166;
+  --black: #f4f0e6;
+  --white: #17191d;
+}
+
+/* Keep persistent page chrome dark even if a cached component stylesheet is
+   still present during a development hot reload. */
+:root[data-theme="dark"] .site-header,
+:root[data-theme="dark"] .site-footer {
+  background-color: var(--header-bg);
+  border-color: var(--divider);
+}
+
 /* ==========================================================================
    CSS Reset
    ========================================================================== */
@@ -83,6 +130,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   -moz-tab-size: 4;
@@ -100,6 +148,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 img,
@@ -294,7 +343,7 @@ samp {
 }
 
 :not(pre) > code {
-  background: #eeeee9;
+  background: var(--code-bg);
   padding: 0.15em 0.4em;
   border-radius: var(--radius-sm);
   border: 2px solid var(--black);
@@ -304,7 +353,7 @@ samp {
 pre {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  background: #eeeee9;
+  background: var(--code-bg);
   border: 3px solid var(--black);
   border-radius: var(--radius-md);
   padding: var(--space-md);
@@ -322,7 +371,7 @@ pre > code {
 
 mark {
   background: var(--yellow);
-  color: var(--black);
+  color: var(--accent-ink);
   padding: 0.1em 0.25em;
   border-radius: var(--radius-sm);
 }

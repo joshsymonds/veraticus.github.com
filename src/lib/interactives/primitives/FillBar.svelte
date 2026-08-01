@@ -34,7 +34,7 @@
   .fill-bar {
     position: relative;
     height: 10px;
-    background: rgba(26, 26, 26, 0.1);
+    background: var(--ink-subtle, rgba(26, 26, 26, 0.1));
     border: 2px solid var(--black);
     overflow: visible;
   }
