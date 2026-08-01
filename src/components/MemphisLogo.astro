@@ -9,13 +9,13 @@ interface Props {
 const { size = 'hero', as = 'h1' } = Astro.props;
 const Tag = as;
 
-const fontSize = size === 'header' ? '1.5rem' : 'clamp(3rem, 6vw, 5.5rem)';
+const fontSize = size === 'header' ? 'clamp(1.15rem, 5.6vw, 1.5rem)' : 'clamp(3rem, 6vw, 5.5rem)';
 const margin = size === 'header' ? '0' : '0 0 1.25rem';
 const borderWidth = size === 'header' ? '2px' : '3px';
-const circleSize = size === 'header' ? '14px' : '0.55em';
+const circleSize = size === 'header' ? '0.58em' : '0.55em';
 ---
 
-<Tag class="memphis-logo" style={`--logo-font-size: ${fontSize}; --logo-margin: ${margin}; --logo-border: ${borderWidth}; --circle-size: ${circleSize};`}>
+<Tag class={`memphis-logo memphis-logo--${size}`} style={`--logo-font-size: ${fontSize}; --logo-margin: ${margin}; --logo-border: ${borderWidth}; --circle-size: ${circleSize};`}>
   <span class="word-josh">
     <span class="letter">J</span><span class="letter letter-o"><span class="o-circle"></span></span><span class="letter">s</span><span class="letter">h</span>
     <span class="squiggle-window">
@@ -47,6 +47,10 @@ const circleSize = size === 'header' ? '14px' : '0.55em';
     display: inline-flex;
     align-items: baseline;
     position: relative;
+  }
+
+  .memphis-logo--header {
+    flex-wrap: nowrap;
   }
 
   .letter {

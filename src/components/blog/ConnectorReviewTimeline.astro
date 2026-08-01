@@ -1,14 +1,53 @@
 <figure
   class="connector-timeline"
-  aria-label="Savecraft connector review timeline. Anthropic received two submissions in March, sent an automated support response in April, confirmed the review in May and June, then closed the queue in July and asked for a new submission--illustrated by a flaming train falling from a crumbling track. OpenAI received a submission in March and approved it in April."
+  aria-label="Savecraft connector review timeline. OpenAI received a submission in March and approved it in April. Anthropic received two submissions in March, sent an automated support response in April, confirmed the review in May and June, then closed the queue in July and asked for a new submission--illustrated by a flaming train falling from a crumbling track."
 >
   <figcaption>
     <strong>Exhibit A: The Anthropic Developer Experience.</strong>
     <span>Savecraft connector review, 2026</span>
   </figcaption>
 
-  <div class="timeline-scroll" tabindex="0">
+  <div class="timeline-scroll">
     <div class="timeline-board">
+      <section class="timeline-lane openai-lane" aria-label="OpenAI timeline">
+        <div class="provider" role="heading" aria-level="3">OpenAI</div>
+        <div class="track">
+          <span class="rail" aria-hidden="true"></span>
+          <div class="event column-1">
+            <time datetime="2026-03">March</time>
+            <span>Submitted</span>
+          </div>
+          <div class="event approved column-2">
+            <span class="happy-arrival" aria-hidden="true">
+              <svg viewBox="0 0 96 68">
+                <g class="happy-smoke" transform="translate(66 0) scale(-1 1)">
+                  <circle cx="20" cy="19" r="4" />
+                  <circle cx="13" cy="14" r="5" />
+                  <circle cx="6" cy="18" r="3" />
+                </g>
+                <g class="happy-train" transform="translate(66 0) scale(-1 1)">
+                  <path class="happy-cab" d="M34 27h25v24H34z" />
+                  <path class="happy-roof" d="M30 27h34l-5-6H35z" />
+                  <path class="happy-window" d="M41 32h11v9H41z" />
+                  <rect class="happy-boiler" x="7" y="34" width="31" height="17" rx="7" />
+                  <path class="happy-stack" d="M13 22h11l-2 5v9h-7v-9z" />
+                  <path class="happy-base" d="M5 49h58v5H5z" />
+                  <circle class="happy-wheel" cx="18" cy="56" r="6" />
+                  <circle class="happy-wheel" cx="49" cy="56" r="6" />
+                  <circle class="happy-hub" cx="18" cy="56" r="2" />
+                  <circle class="happy-hub" cx="49" cy="56" r="2" />
+                </g>
+                <text class="toot-caption" x="3" y="8">TOOT!</text>
+                <path class="confetti" d="m76 14 4-5m1 15 6 1m-13 6-4 5" />
+              </svg>
+            </span>
+            <span class="check" aria-hidden="true">✓</span>
+            <time datetime="2026-04">April</time>
+            <span>Approved</span>
+          </div>
+        </div>
+      </section>
+
       <section class="timeline-lane anthropic-lane" aria-label="Anthropic timeline">
         <div class="provider" role="heading" aria-level="3">Anthropic</div>
         <div class="track">
@@ -80,44 +119,6 @@
         </div>
       </section>
 
-      <section class="timeline-lane openai-lane" aria-label="OpenAI timeline">
-        <div class="provider" role="heading" aria-level="3">OpenAI</div>
-        <div class="track">
-          <span class="rail" aria-hidden="true"></span>
-          <div class="event column-1">
-            <time datetime="2026-03">March</time>
-            <span>Submitted</span>
-          </div>
-          <div class="event approved column-2">
-            <span class="happy-arrival" aria-hidden="true">
-              <svg viewBox="0 0 96 68">
-                <g class="happy-smoke" transform="translate(66 0) scale(-1 1)">
-                  <circle cx="20" cy="19" r="4" />
-                  <circle cx="13" cy="14" r="5" />
-                  <circle cx="6" cy="18" r="3" />
-                </g>
-                <g class="happy-train" transform="translate(66 0) scale(-1 1)">
-                  <path class="happy-cab" d="M34 27h25v24H34z" />
-                  <path class="happy-roof" d="M30 27h34l-5-6H35z" />
-                  <path class="happy-window" d="M41 32h11v9H41z" />
-                  <rect class="happy-boiler" x="7" y="34" width="31" height="17" rx="7" />
-                  <path class="happy-stack" d="M13 22h11l-2 5v9h-7v-9z" />
-                  <path class="happy-base" d="M5 49h58v5H5z" />
-                  <circle class="happy-wheel" cx="18" cy="56" r="6" />
-                  <circle class="happy-wheel" cx="49" cy="56" r="6" />
-                  <circle class="happy-hub" cx="18" cy="56" r="2" />
-                  <circle class="happy-hub" cx="49" cy="56" r="2" />
-                </g>
-                <text class="toot-caption" x="3" y="8">TOOT!</text>
-                <path class="confetti" d="m76 14 4-5m1 15 6 1m-13 6-4 5" />
-              </svg>
-            </span>
-            <span class="check" aria-hidden="true">✓</span>
-            <time datetime="2026-04">April</time>
-            <span>Approved</span>
-          </div>
-        </div>
-      </section>
     </div>
   </div>
 </figure>
@@ -579,21 +580,143 @@
     font-weight: 800;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 845px) {
     figcaption {
       align-items: flex-start;
       flex-direction: column;
       gap: 0.1rem;
     }
 
-    .timeline-scroll::after {
-      content: "Scroll →";
+    .timeline-scroll {
+      overflow: visible;
+    }
+
+    .timeline-board {
+      min-width: 0;
+      padding: 1rem 0.8rem;
+    }
+
+    .timeline-lane {
       display: block;
-      padding: 0 1rem 0.5rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      text-align: right;
+    }
+
+    .timeline-lane + .timeline-lane {
+      margin-top: 0.8rem;
+      padding-top: 1rem;
+    }
+
+    .provider {
+      margin: 0;
+    }
+
+    .track,
+    .anthropic-lane .track,
+    .openai-lane .track {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.2rem;
+      margin-top: 0.55rem;
+    }
+
+    .column-1,
+    .column-2,
+    .column-3,
+    .column-4,
+    .column-5 {
+      grid-column: 1;
+    }
+
+    .rail,
+    .anthropic-lane .rail,
+    .openai-lane .rail {
+      width: 3px;
+      height: auto;
+      left: 1.2rem;
+      right: auto;
+      top: 1.5rem;
+      bottom: 1.5rem;
+      box-shadow: 7px 0 0 var(--divider);
+    }
+
+    .openai-lane .rail {
+      background: var(--teal);
+      box-shadow: 7px 0 0 var(--teal);
+    }
+
+    .rail::before,
+    .anthropic-lane .rail::before,
+    .openai-lane .rail::before {
+      inset: 0 -11px 0 -4px;
+      background: repeating-linear-gradient(
+        180deg,
+        transparent 0 11px,
+        var(--table-grid) 11px 15px,
+        transparent 15px 25px
+      );
+    }
+
+    .openai-lane .rail::before {
+      background: repeating-linear-gradient(
+        180deg,
+        transparent 0 11px,
+        color-mix(in srgb, var(--teal) 55%, var(--bg-surface)) 11px 15px,
+        transparent 15px 25px
+      );
+    }
+
+    .event,
+    .anthropic-lane .event:not(.derail),
+    .openai-lane .event {
+      min-height: 2.4rem;
+      display: grid;
+      grid-template-columns: 3.6rem minmax(0, 1fr);
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.4rem 0.55rem 3.25rem;
+      text-align: left;
+    }
+
+    .event::before,
+    .anthropic-lane .event:not(.derail)::before,
+    .openai-lane .event:not(.approved)::before {
+      left: 1.42rem;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .event > span:last-child {
+      margin-top: 0;
+    }
+
+    .approved {
+      min-height: 0 !important;
+      padding-top: 5.25rem !important;
+    }
+
+    .happy-arrival {
+      left: 3.25rem;
+      top: 0;
+      transform: none;
+    }
+
+    .check {
+      left: 7.25rem;
+      top: 2.7rem;
+      transform: none;
+    }
+
+    .derail {
+      min-height: 0 !important;
+      padding-top: 6rem !important;
+    }
+
+    .derailment {
+      width: 132px;
+      height: 79px;
+      left: 3.15rem;
+      top: 0;
+      transform: none;
     }
   }
 
