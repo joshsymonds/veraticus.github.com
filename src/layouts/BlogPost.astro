@@ -252,6 +252,15 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
     width: 100%;
   }
 
+  .prose :global(.evidence--thread figcaption)::before {
+    content: "Scroll →";
+    float: right;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-style: normal;
+  }
+
   .prose :global(.evidence-pair) {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 20rem));

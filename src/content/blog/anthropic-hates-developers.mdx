@@ -9,7 +9,9 @@ import TrustPathDiagram from '../../components/blog/TrustPathDiagram.astro';
 
 <ConnectorReviewTimeline />
 
-> Anthropic's enterprise account team and Platform Operations both explicitly assured me my MCP was proceeding through the normal review queue. Four months after my first submission, an automated email admitted that the queue had been abandoned and told me to start over. My support requests went unanswered despite $800 per month in personal spending, a six-figure enterprise relationship I helped drive, and open-source tooling I maintain for Claude Code. Claude is extraordinary. The company surrounding it is quite the opposite. Receipts follow.
+> Anthropic's enterprise account team and Platform Operations both explicitly assured me my MCP was proceeding through the normal review queue. Four months after my first submission, an automated email admitted that the queue had been abandoned and told me to start over. My support requests went unanswered despite $800 per month in personal spending, a six-figure enterprise relationship I helped drive, and open-source tooling I maintain for Claude Code.
+>
+> Claude is extraordinary. The company surrounding it is quite the opposite. Receipts follow.
 
 Anthropic hates developers.
 
@@ -25,9 +27,7 @@ I am quite confident that this does not make me Anthropic's largest customer. It
 
 Instead, my requests are lost, shuffled between departments, answered inaccurately, and often simply ignored. And my experience outside of requests is one of frustration, absent ownership and accountability, and degraded service.
 
-Anthropic's commitment to developers seems to begin and end with making increasingly capable models and releasing them into the world. I love better models -- Claude is an extraordinary piece of software! That is why I have spent so much money on it and invested so much time building around it.
-
-But the experience of depending on an AI platform does not end at model intelligence: it includes availability, tooling, documentation, support, billing, quotas, communication, ecosystem stewardship, and the ability to report a serious defect without arguing with a chatbot that insists the defect does not exist.
+Anthropic's commitment to developers seems to begin and end with releasing increasingly capable models into the world. I love better models -- Claude is an extraordinary piece of software, and it is why I have spent so much money and time here! But the experience of depending on an AI platform does not end at model intelligence: it includes availability, tooling, documentation, support, billing, quotas, communication, ecosystem stewardship, and the ability to report a serious defect without arguing with a chatbot that insists the defect does not exist.
 
 And everything surrounding Claude is so consistently hostile and alienating that "Anthropic hates developers" has become the most parsimonious explanation for me.
 
@@ -144,7 +144,7 @@ Savecraft is my cleanest example of this unbalanced relationship, but it is not 
 
 I maintain a [public Nix configuration](https://github.com/joshsymonds/nix-config) with hundreds of GitHub stars. It includes extensive tooling and documentation for installing and managing Claude Code on NixOS and other Nix-managed systems, and has appeared in several community collections of useful Claude Code projects.
 
-I submitted it to Anthropic's Claude for Open Source program because it seemed almost comically aligned with the program's stated purpose. Yet: I received neither a rejection nor an acceptance, a request for more information, or even confirmation that anyone reviewed it. I do not know whether it remains in another abandoned queue or whether the application form was connected to anything at all.
+I submitted it to Anthropic's Claude for Open Source program because it seemed almost comically aligned with the program's stated purpose. Yet: I received no rejection, no acceptance, no request for more information -- not even confirmation that anyone reviewed it. I do not know whether it remains in another abandoned queue or whether the application form was connected to anything at all.
 
 Anthropic says it values open-source developers. My experience is that it solicits their work and then provides no evidence that anyone is listening.
 
@@ -188,7 +188,7 @@ More recently, users discovered that Fable's supposedly terse personality is at 
 
 Fable generates text during agentic work that never reaches the user. The model behaves as though it delivered the text, but the client transcript contains nothing. It may refer to an explanation, warning, list, or question that the user never saw. It may then execute tools based on the assumption that both parties share context that only the model possesses.
 
-A community-developed script can detect one specific signature of this failure in local Claude Code session data.
+A community-developed script can detect one specific signature of this failure in local Claude Code session data. The script is conservative to a fault: it flags only text blocks that exist on disk in the session files but never appear in the client transcript -- words the model demonstrably wrote and the user demonstrably never saw. Subtler failure modes escape it entirely.
 
 When I ran it against my own sessions, the result was not subtle:
 
