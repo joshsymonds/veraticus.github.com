@@ -6,14 +6,14 @@ import Page from "../layouts/Page.astro";
   <div class="resume">
     <header class="resume-header">
       <h1>Josh Symonds</h1>
-      <p class="tagline">Builds agent platforms engineering orgs run on, and proves they pay for themselves.</p>
+      <p class="tagline">Turns frontier models into engineering infrastructure.</p>
       <div class="contact-row">
         <a class="pill" href="mailto:josh@joshsymonds.com">josh@joshsymonds.com</a>
         <span class="pill">+1-773-480-4810</span>
         <a class="pill" href="https://github.com/joshsymonds">github.com/joshsymonds</a>
         <a class="pill pill-download" href="/joshsymonds_resume.pdf">Download PDF</a>
       </div>
-      <p class="summary">Hands-on engineering leader with fifteen years of infrastructure and security engineering, now aimed at making coding agents reliable, cheap, and adopted.</p>
+      <p class="summary">Built a company-wide agent platform used by 100+ people, cut agentic code-review cost 16&times; with production-replay evaluations, and shipped an AI product spanning 14 games. Fifteen years of infrastructure and security engineering.</p>
     </header>
 
     <section class="section">
@@ -33,7 +33,7 @@ import Page from "../layouts/Page.astro";
           <li><strong>Orchestration:</strong> Engineered the Go/Kubernetes orchestration: ephemeral agent workers on a Nix-built image, per-user OAuth tool credentials, immutable versioned model routes with live provider preflight and pointer-flip rollback.</li>
           <li><strong>Code Review:</strong> Shipped multi-stage agentic code review with independent verification and materiality filtering, posting inline GitLab comments: 2,100+ reviews, 87% positive on 300+ explicit ratings.</li>
           <li><strong>Evaluation:</strong> Built a production-replay evaluation harness with frozen dev/holdout cases and a version-pinned LLM judge. Blind adjudication showed the incumbent verifier wrong on 37% of disputed verdicts; migrated review to open-weight models, cutting average cost per review 16&times; month over month while median wall time halved.</li>
-          <li><strong>Incident Investigation:</strong> Automated investigation of 2,170+ alert threads, gathering evidence through kubectl, BigQuery, and logs before posting assessments or escalating. Validated through continuous synthetic canaries and blackbox acceptance tests against a fresh cluster per run.</li>
+          <li><strong>Incident Investigation:</strong> Automated investigation of 2,170+ alert threads, gathering evidence through kubectl, BigQuery, and logs before posting assessments or escalating. Validated by continuous synthetic canaries and blackbox acceptance tests on a fresh cluster per run.</li>
           <li><strong>Agent-Ready Monorepo:</strong> Built the layered documentation, agent skill framework, and progressive context disclosure that make a large fintech monorepo work under coding agents, shared by Marvin and engineers&rsquo; local Claude Code sessions.</li>
         </ul>
       </article>
