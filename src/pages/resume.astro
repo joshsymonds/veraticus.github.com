@@ -31,6 +31,7 @@ import Page from "../layouts/Page.astro";
         <ul>
           <li><strong>Marvin:</strong> Built and operate Marvin, a company-wide agent platform for code review, incident investigation, and internal workflows: 116 users across engineering, support, and operations in five months, about 50 weekly active.</li>
           <li><strong>Orchestration:</strong> Engineered the Go/Kubernetes orchestration: ephemeral agent workers on a Nix-built image, per-user OAuth tool credentials, immutable versioned model routes with live provider preflight and pointer-flip rollback.</li>
+          <li><strong>LLM Gateway:</strong> Built the org-wide model gateway: SSO keys, stable model aliases, audit logs, zero-retention providers.</li>
           <li><strong>Code Review:</strong> Shipped multi-stage agentic code review with independent verification and materiality filtering, posting inline GitLab comments: 2,100+ reviews, 87% positive on 300+ explicit ratings.</li>
           <li><strong>Evaluation:</strong> Built a production-replay evaluation harness with frozen dev/holdout cases and a version-pinned LLM judge. Blind adjudication showed the incumbent verifier wrong on 37% of disputed verdicts; migrated review to open-weight models, cutting average cost per review 16&times; month over month while median wall time halved.</li>
           <li><strong>Incident Investigation:</strong> Automated investigation of 2,170+ alert threads, gathering evidence through kubectl, BigQuery, and logs before posting assessments or escalating. Validated by continuous synthetic canaries and blackbox acceptance tests on a fresh cluster per run.</li>
@@ -92,7 +93,7 @@ import Page from "../layouts/Page.astro";
           <span class="location">Go, TypeScript, Rust, WebAssembly, MCP</span>
         </div>
         <ul>
-          <li>Built and shipped an AI gaming companion spanning 14 games: open-source Go client with sandboxed WASM parsers, installer, and self-updater; hosted MCP tools authenticated through OAuth 2.1. Raw saves stay local; assistants receive structured game state and domain tools.</li>
+          <li>Built and shipped an AI gaming companion spanning 14 games: open-source Go client with sandboxed WASM parsers; hosted MCP tools behind OAuth 2.1. Raw saves stay local; assistants receive structured game state and domain tools.</li>
           <li>Shipped a Go service pooling warm LuaJIT processes so agents can test build changes against <a href="/blog/path-of-building-doesnt-fit/">Path of Building&rsquo;s calculation engine</a>. Ported its perturbation algorithms to Go; measured 40 ms p50 / about 300 ms p99 swap-and-recompute latency with an eight-process pool.</li>
         </ul>
       </article>
