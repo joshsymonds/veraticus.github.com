@@ -77,6 +77,7 @@ for (const s of data.subs) {
       <div class="detail-foot">
         <span class="detail-votes"></span>
         <span class="detail-score"></span>
+        <span class="detail-second" hidden>A second reader didn't count this one</span>
       </div>
     </div>
     <button type="button" class="shuffle">Show me one</button>
@@ -86,7 +87,7 @@ for (const s of data.subs) {
 </figure>
 
 <script>
-  type Card = { sub: string; title: string; text: string; votes: number | null; score: number };
+  type Card = { sub: string; title: string; text: string; votes: number | null; score: number; second_reader: boolean };
   type Sub = { k: string; a: number; i: number; b: number; ac: Card | null; ic: Card | null; bc: Card | null };
   type Arm = 'a' | 'i' | 'b';
 
@@ -132,6 +133,7 @@ for (const s of data.subs) {
       q('.detail-votes').textContent = card.votes == null ? '' : `${card.votes.toLocaleString('en-US')} ${card.votes === 1 ? 'upvote' : 'upvotes'}`;
       // A 1 only counts when it is one of IHRA's two subtler cases.
       q('.detail-score').textContent = card.score === 1 ? 'Score 1 of 3 · counted as an IHRA double standard or scapegoating' : `Score ${card.score} of 3`;
+      q('.detail-second').hidden = card.second_reader;
       q('.detail-text').classList.remove('open');
       requestAnimationFrame(() => {
         const t = q('.detail-text');
@@ -610,8 +612,15 @@ for (const s of data.subs) {
     cursor: pointer;
   }
 
+  .detail-second {
+    padding: 0 0.35rem;
+    background: var(--pink);
+    color: var(--accent-ink);
+  }
+
   .detail-foot {
     display: flex;
+    flex-wrap: wrap;
     gap: 1.25rem;
     margin-top: 0.7rem;
     color: var(--text-muted);

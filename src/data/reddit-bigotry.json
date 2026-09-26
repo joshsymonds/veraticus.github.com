@@ -30,6 +30,13 @@
    "a": 279,
    "b": 51
   },
+  "both_readers": {
+   "ratio": 7.68,
+   "lo": 4.22,
+   "hi": 17.56,
+   "a": 146,
+   "b": 19
+  },
   "no_top3": {
    "ratio": 4.53,
    "lo": 2.74,
@@ -64,6 +71,23 @@
   "ABoringDystopia",
   "Documentaries"
  ],
+ "second_reader": {
+  "antisemitism": {
+   "counted": 279,
+   "agreed": 146,
+   "communities": 68
+  },
+  "islamophobia": {
+   "counted": 67,
+   "agreed": 30,
+   "communities": 24
+  },
+  "antiblack": {
+   "counted": 51,
+   "agreed": 19,
+   "communities": 14
+  }
+ },
  "kinds": [
   "News & politics",
   "Countries & cities",
@@ -191,7 +215,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "'cancerous tendrils have infested every western institution' plus blackmail over everyone with money or power — dehumanization fused with control conspiracy"
+    "reason": "'cancerous tendrils have infested every western institution' plus blackmail over everyone with money or power — dehumanization fused with control conspiracy",
+    "second_reader": true
    },
    "i_card": {
     "arm": "islamophobia",
@@ -210,7 +235,8 @@
      "Stereotype",
      "Dehumanization"
     ],
-    "reason": "asserts that many Middle Eastern and African countries rape and eat children, a demonizing collective predation myth extended to Arab/Muslim-majority populations"
+    "reason": "asserts that many Middle Eastern and African countries rape and eat children, a demonizing collective predation myth extended to Arab/Muslim-majority populations",
+    "second_reader": true
    }
   },
   {
@@ -235,7 +261,8 @@
      "Criminality",
      "Stereotype"
     ],
-    "reason": "Israel sexually exploiting children to blackmail Western politicians: blood-libel-variant child conspiracy plus control of Western leaders"
+    "reason": "Israel sexually exploiting children to blackmail Western politicians: blood-libel-variant child conspiracy plus control of Western leaders",
+    "second_reader": true
    }
   },
   {
@@ -293,7 +320,8 @@
     "mechanisms": [
      "double standard"
     ],
-    "reason": "whataboutist insertion of Israel into a Ukraine thread, equating Israeli human-shield claims with Russian lies and casting US support as reflexive blank-check"
+    "reason": "whataboutist insertion of Israel into a Ukraine thread, equating Israeli human-shield claims with Russian lies and casting US support as reflexive blank-check",
+    "second_reader": false
    }
   },
   {
@@ -316,7 +344,8 @@
     "mechanisms": [
      "Stereotype"
     ],
-    "reason": "endorses parent's claim that a Christian/Catholic majority is why this regime change can succeed where Muslim countries failed"
+    "reason": "endorses parent's claim that a Christian/Catholic majority is why this regime change can succeed where Muslim countries failed",
+    "second_reader": true
    },
    "b_card": {
     "arm": "antiblack",
@@ -333,7 +362,8 @@
      "Says the bigotry is made up",
      "illegitimacy"
     ],
-    "reason": "generalized 'anti-white racism is foundational to the Left' inversion framing"
+    "reason": "generalized 'anti-white racism is foundational to the Left' inversion framing",
+    "second_reader": false
    }
   },
   {
@@ -356,7 +386,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "'How long have we been a slave to Israel?'"
+    "reason": "'How long have we been a slave to Israel?'",
+    "second_reader": true
    }
   },
   {
@@ -379,7 +410,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "In answer to how Charlie Kirk 'strayed' from the handlers who 'groomed' him, implies Israel is behind his assassination for criticizing it; conspiratorial attribution of control over US political figures and of a killing with no plausible connection"
+    "reason": "In answer to how Charlie Kirk 'strayed' from the handlers who 'groomed' him, implies Israel is behind his assassination for criticizing it; conspiratorial attribution of control over US political figures and of a killing with no plausible connection",
+    "second_reader": true
    }
   },
   {
@@ -439,7 +471,8 @@
      "double standard",
      "Stereotype"
     ],
-    "reason": "top comment falsely claims US taxpayers fully fund Israel's healthcare and parental benefits, blaming Israel for Americans' lack of a safety net"
+    "reason": "top comment falsely claims US taxpayers fully fund Israel's healthcare and parental benefits, blaming Israel for Americans' lack of a safety net",
+    "second_reader": true
    }
   },
   {
@@ -462,7 +495,8 @@
     "mechanisms": [
      "double standard"
     ],
-    "reason": "gratuitously ties US aid to Israel to a Texas city's water crisis with no argument for relevance"
+    "reason": "gratuitously ties US aid to Israel to a Texas city's water crisis with no argument for relevance",
+    "second_reader": true
    }
   },
   {
@@ -500,7 +534,8 @@
      "Stereotype",
      "Collective guilt"
     ],
-    "reason": "'Muslim countries are not ready for democracy' — political incapacity attributed to the religious category"
+    "reason": "'Muslim countries are not ready for democracy' — political incapacity attributed to the religious category",
+    "second_reader": true
    }
   },
   {
@@ -523,7 +558,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "insinuates governments are bound to an 'Epstein / Israel' scheme, alongside credit for pizzagate; Israel as hidden controller of governments"
+    "reason": "insinuates governments are bound to an 'Epstein / Israel' scheme, alongside credit for pizzagate; Israel as hidden controller of governments",
+    "second_reader": false
    }
   },
   {
@@ -554,7 +590,8 @@
      "nazi comparison",
      "genocide apartheid"
     ],
-    "reason": "Gaza as a 'concentration camp' being 'liquidated' — Holocaust-inversion/extermination framing"
+    "reason": "Gaza as a 'concentration camp' being 'liquidated' — Holocaust-inversion/extermination framing",
+    "second_reader": true
    }
   },
   {
@@ -577,7 +614,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "asserts Mossad is behind the Epstein cover-up, invoking Israeli intelligence control of US justice with no evidence"
+    "reason": "asserts Mossad is behind the Epstein cover-up, invoking Israeli intelligence control of US justice with no evidence",
+    "second_reader": true
    }
   },
   {
@@ -601,7 +639,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "Claims US soldiers die for Israel rather than their own country — wars-for-Israel / foreign control of US policy trope"
+    "reason": "Claims US soldiers die for Israel rather than their own country — wars-for-Israel / foreign control of US policy trope",
+    "second_reader": false
    }
   },
   {
@@ -625,7 +664,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "claims Israel drags the US into any war it wants, i.e. control of US foreign policy"
+    "reason": "claims Israel drags the US into any war it wants, i.e. control of US foreign policy",
+    "second_reader": true
    }
   },
   {
@@ -683,7 +723,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "quip asserting Mossad controls what the US government redacts in the Epstein files, invoking the Israeli-intelligence-controls-America conspiracy"
+    "reason": "quip asserting Mossad controls what the US government redacts in the Epstein files, invoking the Israeli-intelligence-controls-America conspiracy",
+    "second_reader": true
    },
    "i_card": {
     "arm": "islamophobia",
@@ -701,7 +742,8 @@
      "Criminality",
      "Collective guilt"
     ],
-    "reason": "'a daily stabbing by someone yelling Allahu Akbar' — Muslims as routine perpetrators of terror violence"
+    "reason": "'a daily stabbing by someone yelling Allahu Akbar' — Muslims as routine perpetrators of terror violence",
+    "second_reader": false
    }
   },
   {
@@ -731,7 +773,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "places Israel alongside Russia and India as a coordinated foreign actor running troll operations to divide America"
+    "reason": "places Israel alongside Russia and India as a coordinated foreign actor running troll operations to divide America",
+    "second_reader": false
    }
   },
   {
@@ -761,7 +804,8 @@
     "mechanisms": [
      "Stereotype"
     ],
-    "reason": "\"zionist\" used as a pejorative descriptor of mainstream publications, alongside corporatist/establishment"
+    "reason": "\"zionist\" used as a pejorative descriptor of mainstream publications, alongside corporatist/establishment",
+    "second_reader": true
    }
   },
   {
@@ -791,7 +835,8 @@
     "mechanisms": [
      "illegitimacy"
     ],
-    "reason": "censored spelling plus refusal to recognize Israel's existence"
+    "reason": "censored spelling plus refusal to recognize Israel's existence",
+    "second_reader": true
    }
   },
   {
@@ -814,7 +859,8 @@
     "mechanisms": [
      "illegitimacy"
     ],
-    "reason": "frames Israel as a fellow settler-colonial state built on stolen land, implying colonial illegitimacy"
+    "reason": "frames Israel as a fellow settler-colonial state built on stolen land, implying colonial illegitimacy",
+    "second_reader": true
    }
   },
   {
@@ -844,7 +890,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "bare assertion that a Mossad connection is 'the untold story' of the Epstein blackmail/nuclear-secrets network"
+    "reason": "bare assertion that a Mossad connection is 'the untold story' of the Epstein blackmail/nuclear-secrets network",
+    "second_reader": false
    }
   },
   {
@@ -868,7 +915,8 @@
      "double standard",
      "Says the bigotry is made up"
     ],
-    "reason": "white people cast as the true victims of racism, using George Floyd's death as the contrast and treating the outrage over it as proof of an unfair world"
+    "reason": "white people cast as the true victims of racism, using George Floyd's death as the contrast and treating the outrage over it as proof of an unfair world",
+    "second_reader": true
    }
   },
   {
@@ -892,7 +940,8 @@
      "Stereotype",
      "illegitimacy"
     ],
-    "reason": "colonial 'deepest darkest Africa' idiom invoked as the nadir of poverty and backwardness"
+    "reason": "colonial 'deepest darkest Africa' idiom invoked as the nadir of poverty and backwardness",
+    "second_reader": false
    }
   },
   {
@@ -915,7 +964,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "asserts Epstein shared blackmail on US elites with 'his Israeli buddies' — evidence-free claim of Israeli leverage over US figures"
+    "reason": "asserts Epstein shared blackmail on US elites with 'his Israeli buddies' — evidence-free claim of Israeli leverage over US figures",
+    "second_reader": true
    }
   },
   {
@@ -945,7 +995,8 @@
     "mechanisms": [
      "double standard"
     ],
-    "reason": "ties US healthcare costs to Israel in an unrelated domestic thread; singles out Israel with a false 'we pay for their healthcare' claim"
+    "reason": "ties US healthcare costs to Israel in an unrelated domestic thread; singles out Israel with a false 'we pay for their healthcare' claim",
+    "second_reader": true
    }
   },
   {
@@ -969,7 +1020,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "Israel as one of two powers holding 'strings' on the US president and pushing the US into war"
+    "reason": "Israel as one of two powers holding 'strings' on the US president and pushing the US into war",
+    "second_reader": false
    }
   },
   {
@@ -1027,7 +1079,8 @@
     "mechanisms": [
      "double standard"
     ],
-    "reason": "volunteers a longstanding personal boycott of an Israeli pharmacy chain as an aside in a thread about Greenland policy; ties Israel to an unrelated matter with no argument for relevance"
+    "reason": "volunteers a longstanding personal boycott of an Israeli pharmacy chain as an aside in a thread about Greenland policy; ties Israel to an unrelated matter with no argument for relevance",
+    "second_reader": false
    }
   },
   {
@@ -1050,7 +1103,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "casts Israel (with the US) as the controlling power behind Pakistan and behind an Indian minister's domestic fuel policy; conspiratorial blame for an unconnected event"
+    "reason": "casts Israel (with the US) as the controlling power behind Pakistan and behind an Indian minister's domestic fuel policy; conspiratorial blame for an unconnected event",
+    "second_reader": true
    },
    "i_card": {
     "arm": "islamophobia",
@@ -1067,7 +1121,8 @@
      "Control & conspiracy",
      "Stereotype"
     ],
-    "reason": "invokes the Islamization conspiracy, casting the opposition and its supporters as wanting to bring sharia law to India"
+    "reason": "invokes the Islamization conspiracy, casting the opposition and its supporters as wanting to bring sharia law to India",
+    "second_reader": false
    }
   },
   {
@@ -1097,7 +1152,8 @@
     "mechanisms": [
      "Says the bigotry is made up"
     ],
-    "reason": "tells the poster his Black friend was 'looking for opportunities to be offended', dismissing a specific report of racism as bad faith"
+    "reason": "tells the poster his Black friend was 'looking for opportunities to be offended', dismissing a specific report of racism as bad faith",
+    "second_reader": true
    }
   },
   {
@@ -1122,7 +1178,8 @@
      "double standard",
      "Criminality"
     ],
-    "reason": "approvingly cites (\"ahead of his time\") Turner's accusation that Israel commits terror while framing Palestinian suicide bombings sympathetically as all they have; listed among his virtues"
+    "reason": "approvingly cites (\"ahead of his time\") Turner's accusation that Israel commits terror while framing Palestinian suicide bombings sympathetically as all they have; listed among his virtues",
+    "second_reader": true
    }
   },
   {
@@ -1189,7 +1246,8 @@
      "Collective guilt",
      "Criminality"
     ],
-    "reason": "sarcastic \"certain peaceful religion\" implying Islam is inherently violent, plus blaming Muslim/refugee presence for Wedding and Neukölln being miserable"
+    "reason": "sarcastic \"certain peaceful religion\" implying Islam is inherently violent, plus blaming Muslim/refugee presence for Wedding and Neukölln being miserable",
+    "second_reader": true
    }
   },
   {
@@ -1220,7 +1278,8 @@
      "Slur",
      "illegitimacy"
     ],
-    "reason": "\"Zionist brand\" used as an epithet plus derogatory \"ishell\" deformation of Israel"
+    "reason": "\"Zionist brand\" used as an epithet plus derogatory \"ishell\" deformation of Israel",
+    "second_reader": false
    }
   },
   {
@@ -1272,7 +1331,8 @@
      "Stereotype",
      "Slur"
     ],
-    "reason": "\"Jewish\" used as a pejorative for stingy/greedy (Spotify withholds features unless you pay)"
+    "reason": "\"Jewish\" used as a pejorative for stingy/greedy (Spotify withholds features unless you pay)",
+    "second_reader": true
    }
   },
   {
@@ -1313,18 +1373,20 @@
     "arm": "islamophobia",
     "sub": "Chennai",
     "title": "Tamilnadu Tops with Temples count yet religious Sanghis can't break our Unity is absolute flex",
-    "text": "When your house area will have WAQF claim you can't sell or buy property , you cannot register your property at that time you will remember all this amaidhi poonga , nanaga la anna thambi is just an eye wash Example -Thiruchendurai village Trichy district",
-    "votes": 6,
+    "text": "Also a reason that tamiliand don't have much fear of islam nor they know how dangerous it is in north and west where there have been a lot of massacres a lot of genocides destruction of temples mass rapes of hindu women idol destruction beheading of children the memories still carry from language culture play behaviour stories passed down by elders the horrors remain till date that's why there is a. Very strong sentiment against muslims in other regions while islam did not came through genocides",
+    "votes": 17,
     "score": 2,
     "counted": true,
     "rung": "direct",
     "target": "muslims",
-    "link": "proxy",
+    "link": "direct",
     "mechanisms": [
-     "Control & conspiracy",
-     "Stereotype"
+     "Collective guilt",
+     "Stereotype",
+     "Criminality"
     ],
-    "reason": "warning that Muslim Waqf claims will seize readers' homes and that communal harmony is an eyewash; land-takeover framing"
+    "reason": "Islam framed as inherently dangerous, Muslims collectively credited with genocides, rapes and child beheadings, and anti-Muslim sentiment presented as justified",
+    "second_reader": true
    }
   },
   {
@@ -1375,7 +1437,8 @@
     "mechanisms": [
      "Slur"
     ],
-    "reason": "slur pun applied to the Black vendor depicted in the mural"
+    "reason": "slur pun applied to the Black vendor depicted in the mural",
+    "second_reader": false
    }
   },
   {
@@ -1462,7 +1525,8 @@
      "Stereotype",
      "illegitimacy"
     ],
-    "reason": "denies the takbir is a religious phrase, framing it as inherently a terror signal"
+    "reason": "denies the takbir is a religious phrase, framing it as inherently a terror signal",
+    "second_reader": false
    }
   },
   {
@@ -1515,7 +1579,8 @@
      "Stereotype",
      "Criminality"
     ],
-    "reason": "racial slur plus mock dialect casting Black people as menacing criminals the mayor fears"
+    "reason": "racial slur plus mock dialect casting Black people as menacing criminals the mayor fears",
+    "second_reader": true
    }
   },
   {
@@ -1546,7 +1611,8 @@
      "Stereotype",
      "Collective guilt"
     ],
-    "reason": "asserts men from the Muslim Old City would be 'even more disgusting', a collective stereotype of greater predation"
+    "reason": "asserts men from the Muslim Old City would be 'even more disgusting', a collective stereotype of greater predation",
+    "second_reader": false
    }
   },
   {
@@ -1573,8 +1639,8 @@
     "arm": "islamophobia",
     "sub": "IndianDankMemes",
     "title": "Please guys don't do this 🙏",
-    "text": "This meme evolved a lot. From don't judge all from some to don't judge all from 90% to don't judge all from 99.9% to don't judge all from all .... 🥀🥀🥀🥀🥀",
-    "votes": 45,
+    "text": "100% bad muslims ke karan 0.0℅ Muslims ko galat mat bola karo yaar 🥺",
+    "votes": 3,
     "score": 2,
     "counted": true,
     "rung": "direct",
@@ -1584,7 +1650,8 @@
      "Collective guilt",
      "Stereotype"
     ],
-    "reason": "approvingly traces the meme to 'don't judge all from all', endorsing total collective guilt"
+    "reason": "explicitly states 100% of Muslims are bad, 0.0% wrongly accused",
+    "second_reader": true
    }
   },
   {
@@ -1611,19 +1678,20 @@
     "arm": "islamophobia",
     "sub": "IndiaSpeaks",
     "title": "Reality ✅ Propaganda ❌",
-    "text": "And the khangress blinded by socialism, minority pleasing tactics, ignored and supported the genocide. Warning, GOI eliminated Naxalites , can replicate there too. colonize the state like Israel did to Palestine",
-    "votes": 21,
-    "score": 3,
+    "text": "People who did not leave their properties in 1947 and go to a piece of land created for them now blame others of propaganda and want to create unrest in the place they chose to stay. If this isn't जिस थाली में खाना उसमे छेद करना, i don't know what is.",
+    "votes": 30,
+    "score": 2,
     "counted": true,
     "rung": "direct",
     "target": "muslims",
     "link": "direct",
     "mechanisms": [
-     "Cheers violence",
-     "genocide apartheid",
-     "Collective guilt"
+     "Dual loyalty",
+     "Collective guilt",
+     "illegitimacy"
     ],
-    "reason": "urges replicating Naxalite 'elimination' in Kashmir and colonizing the state 'like Israel did to Palestine'"
+    "reason": "Indian Muslims framed as guests who should have gone to Pakistan in 1947 and are now ungrateful troublemakers",
+    "second_reader": true
    }
   },
   {
@@ -1660,7 +1728,8 @@
     "mechanisms": [
      "Says the bigotry is made up"
     ],
-    "reason": "Accuses critics of willfully confusing anti-Israel criticism with antisemitism, i.e. bad-faith weaponization, and urges hitting back"
+    "reason": "Accuses critics of willfully confusing anti-Israel criticism with antisemitism, i.e. bad-faith weaponization, and urges hitting back",
+    "second_reader": false
    }
   },
   {
@@ -1692,7 +1761,8 @@
      "Slur",
      "Collective guilt"
     ],
-    "reason": "calls Zionists 'dogs' (siyonist itleri) and holds them collectively guilty of killing babies"
+    "reason": "calls Zionists 'dogs' (siyonist itleri) and holds them collectively guilty of killing babies",
+    "second_reader": true
    },
    "i_card": {
     "arm": "islamophobia",
@@ -1709,7 +1779,8 @@
      "Dehumanization",
      "Collective guilt"
     ],
-    "reason": "sarcastic response to Palestinian-solidarity art calling the Oct 7 attackers 'subhumans' while framing the artwork as deserving of that retort"
+    "reason": "sarcastic response to Palestinian-solidarity art calling the Oct 7 attackers 'subhumans' while framing the artwork as deserving of that retort",
+    "second_reader": false
    }
   },
   {
@@ -1739,7 +1810,8 @@
     "mechanisms": [
      "Stereotype"
     ],
-    "reason": "repeated 'I mustn't make stereotype jokes' as a wink invoking the Jews-and-money stereotype"
+    "reason": "repeated 'I mustn't make stereotype jokes' as a wink invoking the Jews-and-money stereotype",
+    "second_reader": true
    }
   },
   {
@@ -1786,19 +1858,21 @@
    "i_card": {
     "arm": "islamophobia",
     "sub": "KGBTR",
-    "title": "Senin gibi ana muhalefetin anasını sikeyim",
-    "text": "Ülkenin anası bitti, bacısını sikiyolar bu piç hala, zaten siki taşşağına denk olan kürt ve suriyelileri düşünüyor be senin şerefini sikiyim ya",
-    "votes": 25,
+    "title": "Müslo dolmuş suba",
+    "text": "Müslümanlar özgürlük hak etmiyor yarram elalemin özgürlüğünü alanlar kendileri",
+    "votes": 1,
     "score": 2,
     "counted": true,
     "rung": "direct",
-    "target": "arabs",
+    "target": "muslims",
     "link": "direct",
     "mechanisms": [
+     "Collective guilt",
      "Stereotype",
-     "Dehumanization"
+     "illegitimacy"
     ],
-    "reason": "crude collective degradation of Kurds and Syrians as inferior"
+    "reason": "Muslims collectively do not deserve freedom because they take others' freedom",
+    "second_reader": true
    }
   },
   {
@@ -1871,7 +1945,8 @@
      "Control & conspiracy",
      "Stereotype"
     ],
-    "reason": "'Zionist elders' controlling the US president — Elders of Zion-style control conspiracy"
+    "reason": "'Zionist elders' controlling the US president — Elders of Zion-style control conspiracy",
+    "second_reader": true
    },
    "b_card": {
     "arm": "antiblack",
@@ -1888,7 +1963,8 @@
      "Slur",
      "Stereotype"
     ],
-    "reason": "uses 'esos negros, pobres y becados' as racialized contempt for government supporters, treating dark skin as a mark of degradation"
+    "reason": "uses 'esos negros, pobres y becados' as racialized contempt for government supporters, treating dark skin as a mark of degradation",
+    "second_reader": true
    }
   },
   {
@@ -1919,7 +1995,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "US government portrayed as subservient to Israel and national debt/poverty blamed on aid to it"
+    "reason": "US government portrayed as subservient to Israel and national debt/poverty blamed on aid to it",
+    "second_reader": true
    }
   },
   {
@@ -1946,8 +2023,8 @@
     "arm": "antisemitism",
     "sub": "newjersey",
     "title": "Breaking: Former Rep. Tom Malinowski concedes, congratulates Analilia Mejia on a positive and well-run campaign, blames AIPAC for his loss, and promises to vigorously oppose anyone AIPAC backs against Mejia in June",
-    "text": "This will hopefully be the democratic playbook going forward. Blame AIPAC and then disavow. Get foreign money and influence out of our elections.",
-    "votes": 355,
+    "text": "He went after the biggest player actively trying to subvert democracy rather than attacking the winner. Him saying he won't support any candidate that accepts AICAP money should be the democratic norm moving forward.",
+    "votes": 108,
     "score": 2,
     "counted": true,
     "rung": "direct",
@@ -1955,9 +2032,10 @@
     "link": "proxy",
     "mechanisms": [
      "Control & conspiracy",
-     "Dual loyalty"
+     "double standard"
     ],
-    "reason": "recasts a domestic lobby as 'foreign money and influence' corrupting US elections"
+    "reason": "AIPAC named as 'the biggest player actively trying to subvert democracy'",
+    "second_reader": true
    }
   },
   {
@@ -1976,19 +2054,19 @@
    "a_card": {
     "arm": "antisemitism",
     "sub": "NorthCarolina",
-    "title": "From Sunday to Friday",
-    "text": "All this for a completely unnecessary war at the behest of another country with the intent of distracting from the fact that our President is a pedophile. Great job MAGA! Add in the horrible jobs report for this month and our country is in a great spot.",
-    "votes": 93,
+    "title": "Tom Tillis votes AGAINST resolution limiting war powers",
+    "text": "Owned by AIPAC just like the rest of them",
+    "votes": 48,
     "score": 2,
     "counted": true,
-    "rung": "ihra",
-    "target": "israel",
+    "rung": "direct",
+    "target": "organization",
     "link": "proxy",
     "mechanisms": [
-     "Control & conspiracy",
-     "Dual loyalty"
+     "Control & conspiracy"
     ],
-    "reason": "US waged war on Iran 'at the behest of another country' — unnamed but clear referent, frames US foreign policy as directed by Israel"
+    "reason": "AIPAC as owning members of Congress",
+    "second_reader": true
    }
   },
   {
@@ -2011,7 +2089,8 @@
     "mechanisms": [
      "double standard"
     ],
-    "reason": "singles out Israel as the sole foreign beneficiary draining American taxes, alongside 'weapons and billionaires', with no argument for relevance to the Norway funding topic"
+    "reason": "singles out Israel as the sole foreign beneficiary draining American taxes, alongside 'weapons and billionaires', with no argument for relevance to the Norway funding topic",
+    "second_reader": false
    }
   },
   {
@@ -2056,7 +2135,8 @@
      "genocide apartheid",
      "Collective guilt"
     ],
-    "reason": "groups Israelis with Serbs and Japanese as peoples who deny or glorify genocide, attributing collective character defect"
+    "reason": "groups Israelis with Serbs and Japanese as peoples who deny or glorify genocide, attributing collective character defect",
+    "second_reader": true
    }
   },
   {
@@ -2086,7 +2166,8 @@
     "mechanisms": [
      "illegitimacy"
     ],
-    "reason": "denies Israel's existence as a state, off-topic in a food ranking thread"
+    "reason": "denies Israel's existence as a state, off-topic in a food ranking thread",
+    "second_reader": true
    }
   },
   {
@@ -2152,7 +2233,8 @@
      "Slur",
      "illegitimacy"
     ],
-    "reason": "degrading renaming of the state ('Pissrael') as inherently the problem"
+    "reason": "degrading renaming of the state ('Pissrael') as inherently the problem",
+    "second_reader": false
    }
   },
   {
@@ -2214,18 +2296,19 @@
     "arm": "antisemitism",
     "sub": "Suomi",
     "title": "Miksi Mordor saa osallistua Keski-Maan Sävelkisaan?",
-    "text": "Taustalla on varmaan se idealistinen ajatus Mordorista Ensimmäiseltä Ajalta, ennen kuin Sauron otti sen omakseen. Tähän liittynee se, miten jotkut edelleenkin kuvittelevat sen olevan jotenkin Melkorin erityinen paratiisi, ymmärtämättä, että se arvo ei tule maasta, vaan siitä ideaalista.",
-    "votes": 184,
+    "text": "Mordor luvattiin örkeille jo 3000 vuotta sitten",
+    "votes": 68,
     "score": 2,
     "counted": true,
-    "rung": "ihra",
-    "target": "zionism",
+    "rung": "direct",
+    "target": "jews",
     "link": "proxy",
     "mechanisms": [
-     "illegitimacy",
-     "doctrine critique"
+     "Dehumanization",
+     "illegitimacy"
     ],
-    "reason": "maps Jewish/Zionist attachment to the land onto devotion to Tolkien's satanic figure and dismisses the claim as a misunderstanding"
+    "reason": "mocks the 3000-year promise of the land and makes its claimants orcs",
+    "second_reader": true
    }
   },
   {
@@ -2256,7 +2339,8 @@
      "Dual loyalty",
      "Stereotype"
     ],
-    "reason": "explains US Commerce Secretary's stance toward Switzerland by speculating he is Jewish and holding a WWII grudge; attributes policy to ethnic motive"
+    "reason": "explains US Commerce Secretary's stance toward Switzerland by speculating he is Jewish and holding a WWII grudge; attributes policy to ethnic motive",
+    "second_reader": true
    }
   },
   {
@@ -2280,7 +2364,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "approvingly amplifies 'Mossad Minns' nickname, casting the premier as an agent of Israeli intelligence"
+    "reason": "approvingly amplifies 'Mossad Minns' nickname, casting the premier as an agent of Israeli intelligence",
+    "second_reader": false
    }
   },
   {
@@ -2307,18 +2392,20 @@
     "arm": "antisemitism",
     "sub": "Thailand",
     "title": "TRT World - 'Thailand is not for sale': Protests in Bangkok over Israeli land purchases",
-    "text": "but the hasbara on this sub will still try to convince me it's only farang antisemites who have a problem with that",
-    "votes": 148,
+    "text": "It's strange how those child killers try to buy lands all around the world....",
+    "votes": 16,
     "score": 2,
     "counted": true,
-    "rung": "direct",
-    "target": "jews",
+    "rung": "ihra",
+    "target": "israelis",
     "link": "direct",
     "mechanisms": [
-     "Says the bigotry is made up",
-     "Control & conspiracy"
+     "Criminality",
+     "Control & conspiracy",
+     "Collective guilt"
     ],
-    "reason": "calls fellow users 'hasbara' and dismisses antisemitism concerns as bad-faith propaganda"
+    "reason": "'those child killers' buying land 'all around the world' — collective criminality plus global land-grab conspiracy",
+    "second_reader": true
    }
   },
   {
@@ -2370,7 +2457,8 @@
      "Stereotype",
      "illegitimacy"
     ],
-    "reason": "Palestinian and Syrian refugees framed as shattering the country's ethnic structure and causing grave future problems"
+    "reason": "Palestinian and Syrian refugees framed as shattering the country's ethnic structure and causing grave future problems",
+    "second_reader": true
    }
   },
   {
@@ -2393,7 +2481,8 @@
     "mechanisms": [
      "Slur"
     ],
-    "reason": "uses racial slur for Black people as a punchline in political joke"
+    "reason": "uses racial slur for Black people as a punchline in political joke",
+    "second_reader": false
    }
   },
   {
@@ -2423,7 +2512,8 @@
     "mechanisms": [
      "Says the bigotry is made up"
     ],
-    "reason": "preemptively casts antisemitism accusations against the Green leader as a fabricated smear derived from mere criticism of Israel"
+    "reason": "preemptively casts antisemitism accusations against the Green leader as a fabricated smear derived from mere criticism of Israel",
+    "second_reader": false
    }
   },
   {
@@ -2490,25 +2580,26 @@
      "Criminality",
      "Collective guilt"
     ],
-    "reason": "'the engineers and doctors who live on that street' — sarcastic refugee trope casting Arab/Muslim migrants as the diseased clientele of a red-light street"
+    "reason": "'the engineers and doctors who live on that street' — sarcastic refugee trope casting Arab/Muslim migrants as the diseased clientele of a red-light street",
+    "second_reader": false
    },
    "b_card": {
     "arm": "antiblack",
     "sub": "ActualPublicFreakouts",
     "title": "Guy gets stabbed in a metro bus over Epic Rap Battles",
-    "text": "You know, they act this exact way, but if someone else does it they get stabbed… interesting.",
-    "votes": 550,
+    "text": "We've been taught the white person is always the villain. But it's not racism.",
+    "votes": 282,
     "score": 2,
     "counted": true,
-    "rung": "direct",
+    "rung": "extended",
     "target": "black_people",
     "link": "direct",
     "mechanisms": [
-     "Collective guilt",
-     "double standard",
-     "Stereotype"
+     "Says the bigotry is made up",
+     "double standard"
     ],
-    "reason": "coded 'they' generalizes the assault to Black people and asserts a racial double standard"
+    "reason": "inversion framing: white people as the real victims of racism, with anti-white bias cast as the only racism",
+    "second_reader": true
    }
   },
   {
@@ -2657,7 +2748,8 @@
     "mechanisms": [
      "Slur"
     ],
-    "reason": "'Nate higgerson' meme name constructed to deliver the n-word slur"
+    "reason": "'Nate higgerson' meme name constructed to deliver the n-word slur",
+    "second_reader": true
    }
   },
   {
@@ -2682,7 +2774,8 @@
      "Dual loyalty",
      "Stereotype"
     ],
-    "reason": "invokes the trope of Sharia law being permitted in the UK and poised to undermine government authority, a Muslim-takeover conspiracy framing"
+    "reason": "invokes the trope of Sharia law being permitted in the UK and poised to undermine government authority, a Muslim-takeover conspiracy framing",
+    "second_reader": false
    }
   },
   {
@@ -2712,7 +2805,8 @@
     "mechanisms": [
      "Stereotype"
     ],
-    "reason": "entire country characterized as low-IQ and inbred"
+    "reason": "entire country characterized as low-IQ and inbred",
+    "second_reader": false
    }
   },
   {
@@ -2764,7 +2858,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "Israel (with Russia) cast as Trump's 'bosses' — foreign control of the US president"
+    "reason": "Israel (with Russia) cast as Trump's 'bosses' — foreign control of the US president",
+    "second_reader": true
    }
   },
   {
@@ -2788,24 +2883,27 @@
      "Stereotype",
      "Collective guilt"
     ],
-    "reason": "generalizes that people in 'religious nutjob countries', including progressive Muslim women, are incapable of being better"
+    "reason": "generalizes that people in 'religious nutjob countries', including progressive Muslim women, are incapable of being better",
+    "second_reader": true
    },
    "b_card": {
     "arm": "antiblack",
     "sub": "NoahGetTheBoat",
-    "title": "Two men randomly attack a 77-year-old man who was walking",
-    "text": "If the colors were switched it would be a front page news hate crime, perhaps even a street protest and millions of dollars pumped into activism.",
-    "votes": 550,
-    "score": 2,
+    "title": "Raping festival in Nigeria",
+    "text": "IQs and breeding patterns of fruit flies.",
+    "votes": 76,
+    "score": 3,
     "counted": true,
-    "rung": "extended",
+    "rung": "direct",
     "target": "black_people",
     "link": "direct",
     "mechanisms": [
-     "double standard",
-     "Says the bigotry is made up"
+     "Dehumanization",
+     "Stereotype",
+     "Collective guilt"
     ],
-    "reason": "'if the colors were switched' double standard, casting anti-Black hate-crime attention and activism as opportunistic"
+    "reason": "Nigerians likened to fruit flies in IQ and breeding; dehumanizing essentialism",
+    "second_reader": true
    }
   },
   {
@@ -2850,7 +2948,8 @@
      "Says the bigotry is made up",
      "Collective guilt"
     ],
-    "reason": "asserts Zionists deliberately weaponize the conflation in bad faith"
+    "reason": "asserts Zionists deliberately weaponize the conflation in bad faith",
+    "second_reader": true
    }
   },
   {
@@ -2875,7 +2974,8 @@
      "Stereotype",
      "double standard"
     ],
-    "reason": "asserts she is really Turkish not British and sneers that she would never accomplish anything"
+    "reason": "asserts she is really Turkish not British and sneers that she would never accomplish anything",
+    "second_reader": false
    },
    "b_card": {
     "arm": "antiblack",
@@ -2892,7 +2992,8 @@
      "Stereotype",
      "Slur"
     ],
-    "reason": "uses stereotypically Black name 'Keisha' as a mocking racial epithet for the woman"
+    "reason": "uses stereotypically Black name 'Keisha' as a mocking racial epithet for the woman",
+    "second_reader": false
    }
   },
   {
@@ -2947,18 +3048,19 @@
     "arm": "antiblack",
     "sub": "trashy",
     "title": "Argentine woman in the US for the World Cup says black behavior made her understand why slavery existed",
-    "text": "Hood culture and behavior sucks balls, idc what race you are.",
-    "votes": 135,
+    "text": "Seems like some creative editing there. So these poor innocent black people were just sitting quietly minding their own business and this woman just started berating them? Seems odd.",
+    "votes": 123,
     "score": 2,
     "counted": true,
     "rung": "direct",
     "target": "black_people",
     "link": "direct",
     "mechanisms": [
-     "Stereotype",
-     "Collective guilt"
+     "Criminality",
+     "Says the bigotry is made up"
     ],
-    "reason": "\"hood culture\" as a proxy epithet under a video of an anti-Black rant, with a race-neutral disclaimer"
+    "reason": "sarcastically presumes the Black people must have misbehaved, excusing the rant",
+    "second_reader": true
    }
   },
   {
@@ -3006,19 +3108,18 @@
     "arm": "antisemitism",
     "sub": "WatchPeopleDieInside",
     "title": "A man is detained in the UK after being caught trying to meet a child",
-    "text": "He’s gonna go straight to Isreal after this ordeal and live happily ever after",
-    "votes": 542,
+    "text": "Netanyahu will see this and scream \"antisemitic!\"",
+    "votes": 290,
     "score": 2,
     "counted": true,
     "rung": "direct",
     "target": "jews",
     "link": "proxy",
     "mechanisms": [
-     "Stereotype",
-     "Criminality",
-     "Collective guilt"
+     "Says the bigotry is made up"
     ],
-    "reason": "Israel as a haven where a caught pedophile will 'live happily ever after'; ties Jewishness to immunity from justice"
+    "reason": "antisemitism accusations framed as a bad-faith shield reflexively deployed to cover wrongdoing",
+    "second_reader": true
    }
   },
   {
@@ -3056,7 +3157,8 @@
      "Stereotype",
      "illegitimacy"
     ],
-    "reason": "\"ghetto\" deployed as a contemptuous racial proxy epithet for the people in the video"
+    "reason": "\"ghetto\" deployed as a contemptuous racial proxy epithet for the people in the video",
+    "second_reader": false
    }
   },
   {
@@ -3103,19 +3205,19 @@
    "a_card": {
     "arm": "antisemitism",
     "sub": "4chan",
-    "title": "Anon notices something.",
-    "text": "PLAPPLAPPLAPPLAPPLAP GO PUBLIC GO PUBLIC GO PUBLIC -Rotschilds",
-    "votes": 363,
+    "title": "You Can’t Hate Boomers Enough",
+    "text": "Believe it or not, this too is because of the Jews (AIPAC)",
+    "votes": 44,
     "score": 2,
     "counted": true,
     "rung": "direct",
     "target": "jews",
     "link": "direct",
     "mechanisms": [
-     "Control & conspiracy",
-     "Stereotype"
+     "Control & conspiracy"
     ],
-    "reason": "Rothschilds framed as the force demanding Valve go public"
+    "reason": "blames Jews/AIPAC for gerontocracy in US politics, an unrelated phenomenon",
+    "second_reader": true
    },
    "i_card": {
     "arm": "islamophobia",
@@ -3132,7 +3234,8 @@
      "Stereotype",
      "Collective guilt"
     ],
-    "reason": "Middle Easterners as inherently unable to be peaceful and as importing violence when they immigrate"
+    "reason": "Middle Easterners as inherently unable to be peaceful and as importing violence when they immigrate",
+    "second_reader": true
    },
    "b_card": {
     "arm": "antiblack",
@@ -3149,7 +3252,8 @@
      "illegitimacy",
      "Stereotype"
     ],
-    "reason": "Obama's two terms framed as something the nation was punished with because he is 'an ethnic'; racial illegitimacy of a Black president"
+    "reason": "Obama's two terms framed as something the nation was punished with because he is 'an ethnic'; racial illegitimacy of a Black president",
+    "second_reader": true
    }
   },
   {
@@ -3201,7 +3305,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "frames US politics as a proxy war between 'Russian-bought' and 'Israeli-bought' Republicans, asserting foreign purchase/control of US legislators by Israel"
+    "reason": "frames US politics as a proxy war between 'Russian-bought' and 'Israeli-bought' Republicans, asserting foreign purchase/control of US legislators by Israel",
+    "second_reader": false
    }
   },
   {
@@ -3214,8 +3319,8 @@
     "arm": "antisemitism",
     "sub": "agedlikemilk",
     "title": "They stand by nothing",
-    "text": "Or he agrees with whatever Israel thinks",
-    "votes": 127,
+    "text": "This is it.",
+    "votes": 44,
     "score": 2,
     "counted": true,
     "rung": "direct",
@@ -3225,7 +3330,8 @@
      "Dual loyalty",
      "Stereotype"
     ],
-    "reason": "attributes Adam Sandler's views to reflexively agreeing with Israel, a dual-loyalty inference with no evidence"
+    "reason": "endorses the dual-loyalty explanation of Sandler's positions",
+    "second_reader": true
    }
   },
   {
@@ -3291,7 +3397,8 @@
      "Control & conspiracy",
      "Stereotype"
     ],
-    "reason": "Great Replacement trope: children living 'under muslim boot,' Muslims as future conquerors justifying ICE"
+    "reason": "Great Replacement trope: children living 'under muslim boot,' Muslims as future conquerors justifying ICE",
+    "second_reader": true
    }
   },
   {
@@ -3450,7 +3557,8 @@
      "Criminality",
      "Dehumanization"
     ],
-    "reason": "IDF soldiers collectively cast as rapists publicly honored for it, in an unrelated thread"
+    "reason": "IDF soldiers collectively cast as rapists publicly honored for it, in an unrelated thread",
+    "second_reader": false
    }
   },
   {
@@ -3582,19 +3690,19 @@
     "arm": "antisemitism",
     "sub": "cursedimages",
     "title": "Cursed_interaction",
-    "text": "They found common ground in their shared love of genociding Arabs",
-    "votes": 685,
+    "text": "Not a surprise at all, nazis loves israel coz they want an ethno state and israel is a prime example.",
+    "votes": 5,
     "score": 2,
     "counted": true,
-    "rung": "direct",
-    "target": "jews",
-    "link": "direct",
+    "rung": "ihra",
+    "target": "israel",
+    "link": "proxy",
     "mechanisms": [
-     "genocide apartheid",
      "nazi comparison",
-     "Collective guilt"
+     "illegitimacy"
     ],
-    "reason": "Attributes shared 'love of genociding Arabs' to the apparently Jewish user alongside a Nazi cosplayer"
+    "reason": "Israel as a Nazi-admired ethnostate; delegitimizing plus Nazi comparison",
+    "second_reader": true
    }
   },
   {
@@ -3627,9 +3735,9 @@
    "a_card": {
     "arm": "antisemitism",
     "sub": "dankmemes",
-    "title": "Surprise",
-    "text": "Two Israeli presidents were on his Island and Maxwell's dad was high up in Mossad. It's those spooky russians planting evidence!",
-    "votes": 134,
+    "title": "Wow, that's crazy!!",
+    "text": "One factor is that the pool has never been a Israeli honeypot op",
+    "votes": 61,
     "score": 2,
     "counted": true,
     "rung": "ihra",
@@ -3638,7 +3746,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "Mossad/Israeli-presidents insinuation that Israel ran the Epstein blackmail operation"
+    "reason": "Epstein as an Israeli intelligence honeypot operation blackmailing US elites",
+    "second_reader": true
    }
   },
   {
@@ -3787,7 +3896,8 @@
     "mechanisms": [
      "double standard"
     ],
-    "reason": "uses 'israel enthusiast' as a throwaway pejorative in an unrelated Elon Musk argument, with no argument for relevance"
+    "reason": "uses 'israel enthusiast' as a throwaway pejorative in an unrelated Elon Musk argument, with no argument for relevance",
+    "second_reader": false
    }
   },
   {
@@ -3811,7 +3921,8 @@
      "Collective guilt",
      "double standard"
     ],
-    "reason": "dismisses and curses a band solely for being Israeli in an otherwise unrelated joke thread; hostility on national-origin grounds with no argument"
+    "reason": "dismisses and curses a band solely for being Israeli in an otherwise unrelated joke thread; hostility on national-origin grounds with no argument",
+    "second_reader": false
    }
   },
   {
@@ -3911,7 +4022,8 @@
     "mechanisms": [
      "Stereotype"
     ],
-    "reason": "explicit big-nose Jewish caricature stereotype"
+    "reason": "explicit big-nose Jewish caricature stereotype",
+    "second_reader": true
    }
   },
   {
@@ -4173,7 +4285,8 @@
      "Stereotype",
      "Criminality"
     ],
-    "reason": "gratuitously predicts a terrorist attack on the new Egyptian museum, treating terrorism as an inevitable feature of the country with no argument for relevance"
+    "reason": "gratuitously predicts a terrorist attack on the new Egyptian museum, treating terrorism as an inevitable feature of the country with no argument for relevance",
+    "second_reader": false
    }
   },
   {
@@ -4224,7 +4337,8 @@
     "mechanisms": [
      "Collective guilt"
     ],
-    "reason": "says an exclusionary sign would be 'much better' if aimed at Israelis, who 'have blame' — collective guilt"
+    "reason": "says an exclusionary sign would be 'much better' if aimed at Israelis, who 'have blame' — collective guilt",
+    "second_reader": true
    }
   },
   {
@@ -4237,19 +4351,20 @@
     "arm": "antisemitism",
     "sub": "MemeVideos",
     "title": "Real",
-    "text": "Both the IDF and xenomorphs both like forcing themselves on and laying their seeds in unwilling prisoners and hosts. Hell, one of the largest protest in Israel in the last couple of years was when they were protesting soldiers getting arrested for raping prisoners after a video of it was leaked.",
-    "votes": 129,
+    "text": "https://preview.redd.it/nvtzjr228lbg1.png?width=1080&format=png&auto=webp&s=a6deafce767c9eb9e176514c0b6a19caa969a621 Israeli Defense Forces seeing a child breathing and an innocent man or woman they haven't sodomized",
+    "votes": 26,
     "score": 3,
     "counted": true,
     "rung": "ihra",
     "target": "israelis",
     "link": "direct",
     "mechanisms": [
-     "Dehumanization",
      "Collective guilt",
-     "Criminality"
+     "Criminality",
+     "Stereotype"
     ],
-    "reason": "equates the IDF with parasitic aliens that implant seeds in captive hosts and asserts Israelis broadly celebrate raping prisoners"
+    "reason": "image caption depicting the IDF as killing any breathing child on sight and sodomizing innocents",
+    "second_reader": true
    }
   },
   {
@@ -4314,7 +4429,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "claims Bush's invasions were launched 'partially on Israel's behest' — Israel steering US foreign policy and wars"
+    "reason": "claims Bush's invasions were launched 'partially on Israel's behest' — Israel steering US foreign policy and wars",
+    "second_reader": false
    }
   },
   {
@@ -4414,7 +4530,8 @@
     "mechanisms": [
      "Slur"
     ],
-    "reason": "n-word rendered as a horse pun (\"neighga\"), slur used for shock humor rather than quoted or condemned"
+    "reason": "n-word rendered as a horse pun (\"neighga\"), slur used for shock humor rather than quoted or condemned",
+    "second_reader": false
    }
   },
   {
@@ -4472,7 +4589,8 @@
     "mechanisms": [
      "Dehumanization"
     ],
-    "reason": "joke that the 'macaw sighting' is the Black man in the photo, likening him to an exotic animal"
+    "reason": "joke that the 'macaw sighting' is the Black man in the photo, likening him to an exotic animal",
+    "second_reader": false
    }
   },
   {
@@ -4593,7 +4711,8 @@
     "mechanisms": [
      "nazi comparison"
     ],
-    "reason": "places a Jewish French politician at the head of an 'association of former Nazis'"
+    "reason": "places a Jewish French politician at the head of an 'association of former Nazis'",
+    "second_reader": false
    }
   },
   {
@@ -4883,7 +5002,8 @@
      "Stereotype",
      "Collective guilt"
     ],
-    "reason": "lists 'muslims being aggressive towards anyone else to the point of harassment and violence' as a general property of Muslims rather than of a movement, government, or doctrine"
+    "reason": "lists 'muslims being aggressive towards anyone else to the point of harassment and violence' as a general property of Muslims rather than of a movement, government, or doctrine",
+    "second_reader": true
    }
   },
   {
@@ -4928,7 +5048,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "'America is a puppet military for ol Ben' — Israel/Netanyahu as controlling US military policy"
+    "reason": "'America is a puppet military for ol Ben' — Israel/Netanyahu as controlling US military policy",
+    "second_reader": true
    }
   },
   {
@@ -4980,7 +5101,8 @@
      "Control & conspiracy",
      "Criminality"
     ],
-    "reason": "conspiracy riff placing Epstein alive and protected in Israel alongside ritual child-cannibalism claims"
+    "reason": "conspiracy riff placing Epstein alive and protected in Israel alongside ritual child-cannibalism claims",
+    "second_reader": false
    }
   },
   {
@@ -5053,7 +5175,8 @@
      "genocide apartheid",
      "illegitimacy"
     ],
-    "reason": "reads the comic's elimination of the circles as the story of Israel's founding, framing the state as founded on extermination"
+    "reason": "reads the comic's elimination of the circles as the story of Israel's founding, framing the state as founded on extermination",
+    "second_reader": false
    }
   },
   {
@@ -5175,7 +5298,8 @@
      "Slur",
      "Stereotype"
     ],
-    "reason": "retells Ray Charles joke using the racial slur 'Neger' and explicitly defends using the uncensored slur as more 'authentic'; punchline treats being Black as worse than blindness"
+    "reason": "retells Ray Charles joke using the racial slur 'Neger' and explicitly defends using the uncensored slur as more 'authentic'; punchline treats being Black as worse than blindness",
+    "second_reader": true
    }
   },
   {
@@ -5206,7 +5330,8 @@
      "Stereotype",
      "illegitimacy"
     ],
-    "reason": "frames literature curriculum authors as unqualified and chosen only for skin color, presumed incompetence of non-white (implicitly Black) writers"
+    "reason": "frames literature curriculum authors as unqualified and chosen only for skin color, presumed incompetence of non-white (implicitly Black) writers",
+    "second_reader": false
    }
   },
   {
@@ -5290,7 +5415,8 @@
     "target": "organization",
     "link": "proxy",
     "mechanisms": [],
-    "reason": "whitewashes Hamas as the group that 'filled the vacuum' and provides services, omitting atrocities and casting criticism as media distortion"
+    "reason": "whitewashes Hamas as the group that 'filled the vacuum' and provides services, omitting atrocities and casting criticism as media distortion",
+    "second_reader": true
    },
    "i_card": {
     "arm": "islamophobia",
@@ -5307,7 +5433,8 @@
      "Collective guilt",
      "Stereotype"
     ],
-    "reason": "collective guilt: Gazans as 'so hateful' they chose terrorists, used to rebut sympathy for civilians being bombed"
+    "reason": "collective guilt: Gazans as 'so hateful' they chose terrorists, used to rebut sympathy for civilians being bombed",
+    "second_reader": true
    }
   },
   {
@@ -5390,18 +5517,19 @@
     "arm": "islamophobia",
     "sub": "askgaybros",
     "title": "Just don't go Turkey",
-    "text": "Im surprised that all the pro-Islamism gays🍉 & Qatari-🤖s aren’t spamming this post right now calling us “racist” & “bigoted” & “genocidal” for noticing things and having this discussion.",
-    "votes": 24,
+    "text": "Our community for whatever reason is agnostic to the idea that Islam is the actual Enemy of our rights and freedom and yet somehow just turns a blind eye .. even Muslims themselves or at least formerly Muslim attest to this - such a joke. Irans playbook in the 70s - exploit the “liberal left” to impose their theocratic socialism then quite literally do away with / murder the left and there by the homosexuals. lol. Wake up everyone. Edit* Not just turns a blind eye but welcomes islam and",
+    "votes": 59,
     "score": 2,
     "counted": true,
-    "rung": "direct",
-    "target": "muslims",
-    "link": "direct",
+    "rung": "extended",
+    "target": "islam",
+    "link": "proxy",
     "mechanisms": [
-     "Says the bigotry is made up",
-     "Control & conspiracy"
+     "doctrine critique",
+     "illegitimacy"
     ],
-    "reason": "pre-emptively casts charges of racism as bad-faith noise from \"pro-Islamism gays\" and \"Qatari bots\""
+    "reason": "\"Islam is the actual enemy of our rights and freedom\" as a totalizing claim about the religion, plus faulting the community for welcoming Islam",
+    "second_reader": true
    }
   },
   {
@@ -5803,7 +5931,8 @@
      "Stereotype",
      "double standard"
     ],
-    "reason": "invokes the paradox to cast Islam in Europe as the intolerance that must not be tolerated, a totalizing claim about the religion rather than a movement or doctrine"
+    "reason": "invokes the paradox to cast Islam in Europe as the intolerance that must not be tolerated, a totalizing claim about the religion rather than a movement or doctrine",
+    "second_reader": true
    }
   },
   {
@@ -5980,7 +6109,8 @@
     "mechanisms": [
      "Says the bigotry is made up"
     ],
-    "reason": "asserts the ADL hates Christians, recasting a specific antisemitism designation as anti-Christian animus"
+    "reason": "asserts the ADL hates Christians, recasting a specific antisemitism designation as anti-Christian animus",
+    "second_reader": true
    },
    "b_card": {
     "arm": "antiblack",
@@ -5997,7 +6127,8 @@
      "Says the bigotry is made up",
      "Stereotype"
     ],
-    "reason": "treats other cultures as 'barbaric' and complaints of oppression as imaginary ('magical oppressors'), dismissing reports of racism as fabricated"
+    "reason": "treats other cultures as 'barbaric' and complaints of oppression as imaginary ('magical oppressors'), dismissing reports of racism as fabricated",
+    "second_reader": false
    }
   },
   {
@@ -6119,7 +6250,8 @@
      "Stereotype",
      "Collective guilt"
     ],
-    "reason": "blanket claim that anyone displaying the Israeli flag is automatically a warning sign; flag as mark of bad faith"
+    "reason": "blanket claim that anyone displaying the Israeli flag is automatically a warning sign; flag as mark of bad faith",
+    "second_reader": true
    }
   },
   {
@@ -6214,7 +6346,8 @@
      "Collective guilt",
      "Stereotype"
     ],
-    "reason": "attributes gun crime to Black population as such via statistical correlation framing"
+    "reason": "attributes gun crime to Black population as such via statistical correlation framing",
+    "second_reader": false
    }
   },
   {
@@ -6245,7 +6378,8 @@
      "Stereotype",
      "Dehumanization"
     ],
-    "reason": "gives the raccoon a Black-coded woman's name in a thread sexualizing the animal, mapping a Black stereotype onto an animal"
+    "reason": "gives the raccoon a Black-coded woman's name in a thread sexualizing the animal, mapping a Black stereotype onto an animal",
+    "second_reader": false
    }
   },
   {
@@ -6311,7 +6445,8 @@
      "Dehumanization",
      "Stereotype"
     ],
-    "reason": "coy one-liner on a video of a caretaker with baby apes, functioning as a wink at the Black-people-as-apes comparison; heavily downvoted and removed"
+    "reason": "coy one-liner on a video of a caretaker with baby apes, functioning as a wink at the Black-people-as-apes comparison; heavily downvoted and removed",
+    "second_reader": false
    }
   },
   {
@@ -6531,7 +6666,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "casts Israel as McConnell's 'overlords' directing a US senator"
+    "reason": "casts Israel as McConnell's 'overlords' directing a US senator",
+    "second_reader": true
    }
   },
   {
@@ -6590,7 +6726,8 @@
      "genocide apartheid",
      "Collective guilt"
     ],
-    "reason": "genocide framing plus extending depravity from Netanyahu to Israelis generally"
+    "reason": "genocide framing plus extending depravity from Netanyahu to Israelis generally",
+    "second_reader": true
    }
   },
   {
@@ -6707,18 +6844,20 @@
    "a_card": {
     "arm": "antisemitism",
     "sub": "RedditPregunta",
-    "title": "¿Por que a algunos cristianos les molesta que Jesús haya sido moreno, de pelo negro y ojos café?",
-    "text": "Los colonos actuales son de raza askenazi. Hace decenas de años eran europeos llegando a la \"tierra prometida\".",
-    "votes": 7,
+    "title": "Cristianos que apoyan a Trump, ¿Enserio piensan que alguien como Jesús estaria de acuerdo con ese tipo?",
+    "text": "Si Jesus estuviera en la tierra en la actualidad, sería tomado como terrorista, ya habría sido encarcelado y ejecutado por el estado Israeli y ... Un segundo eso ya ocurrió... Ya en serio, los gringos (no solo ellos) han usado el cristianismo como una forma de justificar sus actos horribles. Cristo vino para acompañar a los débiles y menos afortunados, ni siquiera le interesaba ayudar a quienes creían en el o no, simplemente hacía lo correcto.",
+    "votes": 2,
     "score": 2,
     "counted": true,
-    "rung": "ihra",
-    "target": "israelis",
+    "rung": "direct",
+    "target": "jews",
     "link": "proxy",
     "mechanisms": [
-     "illegitimacy"
+     "Collective guilt",
+     "double standard"
     ],
-    "reason": "describes present-day Israelis as 'colonos' of Ashkenazi race who were Europeans arriving at the so-called 'promised land', the settler-colonial delegitimization framing"
+    "reason": "jokes that the Israeli state would execute Jesus and 'oh wait, that already happened', collapsing modern Israel and ancient Judeans into one actor guilty of killing Christ",
+    "second_reader": true
    }
   },
   {
@@ -6911,7 +7050,8 @@
      "Stereotype",
      "Collective guilt"
     ],
-    "reason": "frames child sexual exploitation as a defining 'Muslim' phenomenon and treats it as suppressed truth"
+    "reason": "frames child sexual exploitation as a defining 'Muslim' phenomenon and treats it as suppressed truth",
+    "second_reader": false
    }
   },
   {
@@ -6956,7 +7096,8 @@
      "Collective guilt",
      "Stereotype"
     ],
-    "reason": "extends Taliban extremism to Afghan migrants generally and laments that hundreds of thousands 'succeeded' in reaching the West"
+    "reason": "extends Taliban extremism to Afghan migrants generally and laments that hundreds of thousands 'succeeded' in reaching the West",
+    "second_reader": false
    }
   },
   {
@@ -6979,7 +7120,8 @@
     "mechanisms": [
      "Slur"
     ],
-    "reason": "approving amplification of speech using 'Zionist hoodlums' as epithet, offered in a thread praising celebrity activism"
+    "reason": "approving amplification of speech using 'Zionist hoodlums' as epithet, offered in a thread praising celebrity activism",
+    "second_reader": true
    }
   },
   {
@@ -7116,7 +7258,8 @@
      "double standard",
      "Criminality"
     ],
-    "reason": "off-topic injection casting Israel as the world's worst rapist-colonizer and blaming the entire Israeli population for endorsing it"
+    "reason": "off-topic injection casting Israel as the world's worst rapist-colonizer and blaming the entire Israeli population for endorsing it",
+    "second_reader": true
    }
   },
   {
@@ -7272,7 +7415,8 @@
     "mechanisms": [
      "Slur"
     ],
-    "reason": "deliberate misspelling of the surname to produce the n-word as a punchline; slur used, not quoted or mocked"
+    "reason": "deliberate misspelling of the surname to produce the n-word as a punchline; slur used, not quoted or mocked",
+    "second_reader": true
    }
   },
   {
@@ -7352,7 +7496,8 @@
      "Says the bigotry is made up",
      "illegitimacy"
     ],
-    "reason": "accuses interlocutors of playing the antisemitism card, dismissing the charge as a bad-faith move"
+    "reason": "accuses interlocutors of playing the antisemitism card, dismissing the charge as a bad-faith move",
+    "second_reader": false
    }
   },
   {
@@ -7445,7 +7590,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "conspiracy that Israel had Charlie Kirk assassinated over Epstein files stance"
+    "reason": "conspiracy that Israel had Charlie Kirk assassinated over Epstein files stance",
+    "second_reader": true
    }
   },
   {
@@ -7776,7 +7922,8 @@
     "mechanisms": [
      "Slur"
     ],
-    "reason": "self-censored racial slur dropped as a punchline into a currency-name joke, with no reportive or critical framing"
+    "reason": "self-censored racial slur dropped as a punchline into a currency-name joke, with no reportive or critical framing",
+    "second_reader": false
    }
   },
   {
@@ -7824,17 +7971,19 @@
     "arm": "antisemitism",
     "sub": "Documentaries",
     "title": "Epstein & Israel: Every Link Explained | Covert Connections (2026) [08:05]",
-    "text": "Just here to see how long it takes for someone to call this antisemitic.",
-    "votes": 109,
+    "text": "Whaaaaat youre telling me Mr. Honeypot Epstein was an Israeli funded agent using USA funds given to israel to then turn back on rich and powerful americans to blackmail them so Israel's money never stops flowing?? That connection?? No waaaaaaay.../s",
+    "votes": 10,
     "score": 2,
     "counted": true,
-    "rung": "direct",
-    "target": "jews",
-    "link": "direct",
+    "rung": "ihra",
+    "target": "israel",
+    "link": "proxy",
     "mechanisms": [
-     "Says the bigotry is made up"
+     "Control & conspiracy",
+     "Dual loyalty"
     ],
-    "reason": "preemptive 'someone will call this antisemitic' sneer, treating antisemitism concerns as a predictable deflection"
+    "reason": "Epstein as an Israeli-funded honeypot blackmailing powerful Americans so US aid keeps flowing; full control conspiracy",
+    "second_reader": true
    },
    "i_card": {
     "arm": "islamophobia",
@@ -7850,7 +7999,8 @@
     "mechanisms": [
      "Collective guilt"
     ],
-    "reason": "assigns the Lebanese Civil War collectively to the Palestinian refugees depicted in the film"
+    "reason": "assigns the Lebanese Civil War collectively to the Palestinian refugees depicted in the film",
+    "second_reader": true
    }
   },
   {
@@ -8177,20 +8327,21 @@
    "a_card": {
     "arm": "antisemitism",
     "sub": "hiphopheads",
-    "title": "Macklemore Donating $1 Million Salary from Ed Sheeran Tour to Support Palestine: ‘I Invite Robert Kraft to Match My Donation’",
-    "text": "Bobby Kraft going to get to sign the bomb that kills a kid himself",
-    "votes": 690,
+    "title": "Macklemore Dropped From Ed Sheeran Tour After Onstage 'Free Palestine' Statements",
+    "text": "Man Zionists do themselves lots of favors proving their enemies right constantly.",
+    "votes": 233,
     "score": 2,
     "counted": true,
-    "rung": "direct",
-    "target": "individual",
-    "link": "direct",
+    "rung": "ihra",
+    "target": "zionism",
+    "link": "proxy",
     "mechanisms": [
-     "Stereotype",
-     "Criminality",
-     "Collective guilt"
+     "Control & conspiracy",
+     "Collective guilt",
+     "Stereotype"
     ],
-    "reason": "depicts a Jewish individual as personally relishing the killing of a child"
+    "reason": "'Zionists' as a single actor whose conduct proves the conspiracy claims against them true",
+    "second_reader": true
    }
   },
   {
@@ -8221,7 +8372,8 @@
      "Says the bigotry is made up",
      "double standard"
     ],
-    "reason": "under a Jim Crow civil rights story, frames Black students' affinity-space demands as the 'pendulum swinging back', i.e. Black people as the real segregationists, minimizing the historical racism the article documents"
+    "reason": "under a Jim Crow civil rights story, frames Black students' affinity-space demands as the 'pendulum swinging back', i.e. Black people as the real segregationists, minimizing the historical racism the article documents",
+    "second_reader": false
    }
   },
   {
@@ -8356,7 +8508,8 @@
     "mechanisms": [
      "Says the bigotry is made up"
     ],
-    "reason": "dismisses a specific antisemitism concern as 'false antisemitism', i.e. fabricated"
+    "reason": "dismisses a specific antisemitism concern as 'false antisemitism', i.e. fabricated",
+    "second_reader": false
    }
   },
   {
@@ -8416,7 +8569,8 @@
      "Criminality",
      "Stereotype"
     ],
-    "reason": "contrasts saying 'Wallahi' favorably with 'kissing the Wall' (Western Wall) and 'paying millions for unalived children and women', using a Jewish religious practice as shorthand for complicity in killing children and women"
+    "reason": "contrasts saying 'Wallahi' favorably with 'kissing the Wall' (Western Wall) and 'paying millions for unalived children and women', using a Jewish religious practice as shorthand for complicity in killing children and women",
+    "second_reader": true
    }
   },
   {
@@ -8447,7 +8601,8 @@
      "genocide apartheid",
      "illegitimacy"
     ],
-    "reason": "Palestinians killed 'for merely existing on their ancestral land' — exterminatory intent plus colonial-illegitimacy framing"
+    "reason": "Palestinians killed 'for merely existing on their ancestral land' — exterminatory intent plus colonial-illegitimacy framing",
+    "second_reader": false
    }
   },
   {
@@ -8521,7 +8676,8 @@
      "Dehumanization",
      "double standard"
     ],
-    "reason": "claims Israel's 'favourite hobby is killing aid workers', asserting deliberate, pleasurable killing"
+    "reason": "claims Israel's 'favourite hobby is killing aid workers', asserting deliberate, pleasurable killing",
+    "second_reader": false
    }
   },
   {
@@ -8860,7 +9016,8 @@
      "Stereotype",
      "Cheers violence"
     ],
-    "reason": "racial joke turning 'black' into the reason violence was deserved"
+    "reason": "racial joke turning 'black' into the reason violence was deserved",
+    "second_reader": false
    }
   },
   {
@@ -9058,7 +9215,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "crude chain claiming Trump is subservient to Israel; Israel controls the US president"
+    "reason": "crude chain claiming Trump is subservient to Israel; Israel controls the US president",
+    "second_reader": false
    }
   },
   {
@@ -9151,7 +9309,8 @@
     "mechanisms": [
      "Says the bigotry is made up"
     ],
-    "reason": "waves away a specific report of 'thug' as a racial dog whistle and calls the person raising it 'suspect'"
+    "reason": "waves away a specific report of 'thug' as a racial dog whistle and calls the person raising it 'suspect'",
+    "second_reader": false
    }
   },
   {
@@ -9324,7 +9483,8 @@
      "Criminality",
      "Stereotype"
     ],
-    "reason": "blames 'Merkel's guests' refugees for ruining the scene, says their culture does not fit the country, and adds a racial epithet about skin and hair"
+    "reason": "blames 'Merkel's guests' refugees for ruining the scene, says their culture does not fit the country, and adds a racial epithet about skin and hair",
+    "second_reader": true
    }
   },
   {
@@ -9683,7 +9843,8 @@
     "mechanisms": [
      "Stereotype"
     ],
-    "reason": "invokes Jewish wealth stereotype off the sight of a yarmulke"
+    "reason": "invokes Jewish wealth stereotype off the sight of a yarmulke",
+    "second_reader": true
    }
   },
   {
@@ -9776,7 +9937,8 @@
     "mechanisms": [
      "Says the bigotry is made up"
     ],
-    "reason": "Nazi apologia: claims Nazi racism was a fabrication and 'kilos of propaganda', citing supposed Jews in the Wehrmacht"
+    "reason": "Nazi apologia: claims Nazi racism was a fabrication and 'kilos of propaganda', citing supposed Jews in the Wehrmacht",
+    "second_reader": true
    },
    "i_card": {
     "arm": "islamophobia",
@@ -9793,7 +9955,8 @@
      "Slur",
      "Stereotype"
     ],
-    "reason": "asserts approvingly that most Spanish women hate 'moros', normalizing hostility to Moroccans as a group"
+    "reason": "asserts approvingly that most Spanish women hate 'moros', normalizing hostility to Moroccans as a group",
+    "second_reader": true
    },
    "b_card": {
     "arm": "antiblack",
@@ -9810,7 +9973,8 @@
      "illegitimacy",
      "Stereotype"
     ],
-    "reason": "nostalgia for 'when white heterosexuality dominated the world' endorses racial hierarchy over non-white people in the sport and generally"
+    "reason": "nostalgia for 'when white heterosexuality dominated the world' endorses racial hierarchy over non-white people in the sport and generally",
+    "second_reader": true
    }
   },
   {
@@ -9910,7 +10074,8 @@
     "mechanisms": [
      "double standard"
     ],
-    "reason": "lists Israel in a string of unrelated bad things as shorthand for 'bad', with no argument for relevance"
+    "reason": "lists Israel in a string of unrelated bad things as shorthand for 'bad', with no argument for relevance",
+    "second_reader": false
    }
   },
   {
@@ -9962,7 +10127,8 @@
      "Dehumanization",
      "Slur"
     ],
-    "reason": "calls a Black player a monkey"
+    "reason": "calls a Black player a monkey",
+    "second_reader": false
    }
   },
   {
@@ -10062,7 +10228,8 @@
     "mechanisms": [
      "Says the bigotry is made up"
     ],
-    "reason": "pre-emptively frames any anti-Arab racism claim about Salah as bad-faith invention"
+    "reason": "pre-emptively frames any anti-Arab racism claim about Salah as bad-faith invention",
+    "second_reader": false
    }
   },
   {
@@ -10142,7 +10309,8 @@
      "nazi comparison",
      "Collective guilt"
     ],
-    "reason": "Israelis said to have done more damage to Jews than the Nazis ever did; Holocaust minimization via inversion"
+    "reason": "Israelis said to have done more damage to Jews than the Nazis ever did; Holocaust minimization via inversion",
+    "second_reader": true
    }
   },
   {
@@ -10201,7 +10369,8 @@
      "illegitimacy",
      "double standard"
     ],
-    "reason": "'ain't a brother' because of his political associations — treating a Black person's politics as disqualifying him from blackness"
+    "reason": "'ain't a brother' because of his political associations — treating a Black person's politics as disqualifying him from blackness",
+    "second_reader": true
    }
   },
   {
@@ -10246,7 +10415,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "'United States of Israel' — Israel as controlling/owning the American state"
+    "reason": "'United States of Israel' — Israel as controlling/owning the American state",
+    "second_reader": true
    }
   },
   {
@@ -10298,7 +10468,8 @@
      "illegitimacy",
      "Cheers violence"
     ],
-    "reason": "\"is-not-real\" denies Israel's legitimacy/existence, plus \"IOF\" epithet and hope soldiers are killed"
+    "reason": "\"is-not-real\" denies Israel's legitimacy/existence, plus \"IOF\" epithet and hope soldiers are killed",
+    "second_reader": true
    }
   },
   {
@@ -10749,7 +10920,8 @@
      "Control & conspiracy",
      "Says the bigotry is made up"
     ],
-    "reason": "frames the 2020 racial justice moment as a manufactured psyop and social engineering, dismissing it as fabricated"
+    "reason": "frames the 2020 racial justice moment as a manufactured psyop and social engineering, dismissing it as fabricated",
+    "second_reader": false
    }
   },
   {
@@ -10780,7 +10952,8 @@
      "Stereotype",
      "Collective guilt"
     ],
-    "reason": "trope that Muslims consider harming 'the infidel' permissible and deceitfully evade their own rules, generalized to 'they'"
+    "reason": "trope that Muslims consider harming 'the infidel' permissible and deceitfully evade their own rules, generalized to 'they'",
+    "second_reader": true
    }
   },
   {
@@ -10912,19 +11085,20 @@
     "arm": "islamophobia",
     "sub": "GodofWar",
     "title": "Why does GoW include other cultures religion’s pantheons but not Christianity?",
-    "text": "Not sure why you got downvoted. Just look at what happened to the offices of Charlie Hebdo...",
-    "votes": 28,
+    "text": "They would get bombed if they added Islam",
+    "votes": 72,
     "score": 2,
     "counted": true,
     "rung": "direct",
     "target": "muslims",
     "link": "direct",
     "mechanisms": [
-     "Collective guilt",
      "Stereotype",
+     "Collective guilt",
      "Criminality"
     ],
-    "reason": "defends the claim by generalizing the Charlie Hebdo attack to Muslims as a whole"
+    "reason": "Muslims as collectively liable to respond to a game depiction with terrorist bombing",
+    "second_reader": true
    }
   },
   {
@@ -11193,7 +11367,8 @@
      "Dual loyalty",
      "Stereotype"
     ],
-    "reason": "casts a Jewish VA's pro-Israel advocacy as 'Israeli propaganda' and treats her non-firing as an anomaly"
+    "reason": "casts a Jewish VA's pro-Israel advocacy as 'Israeli propaganda' and treats her non-firing as an anomaly",
+    "second_reader": false
    }
   },
   {
@@ -11239,7 +11414,8 @@
      "Control & conspiracy",
      "nazi comparison"
     ],
-    "reason": "Rothschild surname called the worst in history, equated with Hitler's; invokes the Rothschild conspiracy mythology and extends guilt from one patent troll to the whole name"
+    "reason": "Rothschild surname called the worst in history, equated with Hitler's; invokes the Rothschild conspiracy mythology and extends guilt from one patent troll to the whole name",
+    "second_reader": true
    }
   },
   {
@@ -11437,7 +11613,8 @@
     "mechanisms": [
      "Slur"
     ],
-    "reason": "\"Nate Higgerson\" is a coded rendering of the n-word deployed as a joke"
+    "reason": "\"Nate Higgerson\" is a coded rendering of the n-word deployed as a joke",
+    "second_reader": true
    }
   },
   {
@@ -11537,7 +11714,8 @@
     "mechanisms": [
      "illegitimacy"
     ],
-    "reason": "approving amplification of a voice actor's anti-Zionist advocacy as 'the cause', in a chain framing Israelis as home-crushers"
+    "reason": "approving amplification of a voice actor's anti-Zionist advocacy as 'the cause', in a chain framing Israelis as home-crushers",
+    "second_reader": false
    }
   },
   {
@@ -12015,7 +12193,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "names Israel as harvesting blackmail material on millions from an unrelated ChatGPT feature; conspiracy of covert Israeli leverage"
+    "reason": "names Israel as harvesting blackmail material on millions from an unrelated ChatGPT feature; conspiracy of covert Israeli leverage",
+    "second_reader": true
    }
   },
   {
@@ -12080,7 +12259,8 @@
     "mechanisms": [
      "Slur"
     ],
-    "reason": "uses \"Israeli\" as an interchangeable insult in a joke whose premise is that the label is shameful"
+    "reason": "uses \"Israeli\" as an interchangeable insult in a joke whose premise is that the label is shameful",
+    "second_reader": true
    }
   },
   {
@@ -12636,7 +12816,8 @@
      "Control & conspiracy",
      "Slur"
     ],
-    "reason": "\"Usrael\" epithet fusing the US and Israel into one actor, blaming it for Canadian diesel prices"
+    "reason": "\"Usrael\" epithet fusing the US and Israel into one actor, blaming it for Canadian diesel prices",
+    "second_reader": false
    }
   },
   {
@@ -12815,7 +12996,8 @@
      "Criminality",
      "Stereotype"
     ],
-    "reason": "Israel depicted as rabid and eager to kill women, children and hospital patients; dehumanizing bloodlust imagery"
+    "reason": "Israel depicted as rabid and eager to kill women, children and hospital patients; dehumanizing bloodlust imagery",
+    "second_reader": true
    }
   },
   {
@@ -13014,7 +13196,8 @@
      "Control & conspiracy",
      "Stereotype"
     ],
-    "reason": "endorses parent and says Zcash is \"run by the tribe,\" a dog whistle for covert Jewish control"
+    "reason": "endorses parent and says Zcash is \"run by the tribe,\" a dog whistle for covert Jewish control",
+    "second_reader": true
    }
   },
   {
@@ -13583,7 +13766,8 @@
     "mechanisms": [
      "nazi comparison"
     ],
-    "reason": "off-topic attack labeling prominent Jewish pro-Israel financier a 'Nazi' twice in an unrelated Venezuela bond thread"
+    "reason": "off-topic attack labeling prominent Jewish pro-Israel financier a 'Nazi' twice in an unrelated Venezuela bond thread",
+    "second_reader": false
    }
   },
   {
@@ -13809,7 +13993,8 @@
     "mechanisms": [
      "figure"
     ],
-    "reason": "approvingly quotes Andrew Tate as authority (\"He's right\"), a listed figure"
+    "reason": "approvingly quotes Andrew Tate as authority (\"He's right\"), a listed figure",
+    "second_reader": true
    }
   },
   {
@@ -14134,7 +14319,8 @@
      "Control & conspiracy",
      "Stereotype"
     ],
-    "reason": "conspiracy that insurance is 'invented and owned by the Epstein elites' who live off compounding interest as 'part of their identity' — coded usury/financial-control trope"
+    "reason": "conspiracy that insurance is 'invented and owned by the Epstein elites' who live off compounding interest as 'part of their identity' — coded usury/financial-control trope",
+    "second_reader": false
    }
   },
   {
@@ -14186,7 +14372,8 @@
      "Control & conspiracy",
      "Stereotype"
     ],
-    "reason": "'pre-Islamic architecture' insinuates a Muslim takeover of London, a Great Replacement gag on an unrelated architecture photo"
+    "reason": "'pre-Islamic architecture' insinuates a Muslim takeover of London, a Great Replacement gag on an unrelated architecture photo",
+    "second_reader": true
    }
   },
   {
@@ -14862,7 +15049,8 @@
      "Criminality",
      "Dehumanization"
     ],
-    "reason": "\"Hood Rats\" as coded epithet for fuel thieves, combining a racialized proxy term with vermin language"
+    "reason": "\"Hood Rats\" as coded epithet for fuel thieves, combining a racialized proxy term with vermin language",
+    "second_reader": false
    }
   },
   {
@@ -15061,7 +15249,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "claims Netanyahu directs US federal spending and orders Trump to bomb Iran; foreign-control conspiracy trope"
+    "reason": "claims Netanyahu directs US federal spending and orders Trump to bomb Iran; foreign-control conspiracy trope",
+    "second_reader": true
    }
   },
   {
@@ -15504,7 +15693,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "recasts Western Middle East policy as serving a 'greater Israel project', implying Israel directs the West"
+    "reason": "recasts Western Middle East policy as serving a 'greater Israel project', implying Israel directs the West",
+    "second_reader": true
    }
   },
   {
@@ -15695,7 +15885,8 @@
     "mechanisms": [
      "Stereotype"
     ],
-    "reason": "generalizes young Middle Eastern men as low-class school dropouts in fake luxury goods"
+    "reason": "generalizes young Middle Eastern men as low-class school dropouts in fake luxury goods",
+    "second_reader": true
    }
   },
   {
@@ -15739,7 +15930,8 @@
     "mechanisms": [
      "Control & conspiracy"
     ],
-    "reason": "implies US military action is driven by Israel's disapproval, sarcastic 'Greatest Ally™' framing of Israel steering US foreign policy"
+    "reason": "implies US military action is driven by Israel's disapproval, sarcastic 'Greatest Ally™' framing of Israel steering US foreign policy",
+    "second_reader": false
    }
   },
   {
@@ -15874,7 +16066,8 @@
     "mechanisms": [
      "Stereotype"
     ],
-    "reason": "Holocaust punchline linking a German car 'smoker' to Anne Frank; trivializes the Holocaust as a joke"
+    "reason": "Holocaust punchline linking a German car 'smoker' to Anne Frank; trivializes the Holocaust as a joke",
+    "second_reader": false
    }
   },
   {
@@ -15898,7 +16091,8 @@
      "Stereotype",
      "Criminality"
     ],
-    "reason": "'Nigerian prince' ties OP to the African-scammer fraud stereotype with no relevance beyond apparent race"
+    "reason": "'Nigerian prince' ties OP to the African-scammer fraud stereotype with no relevance beyond apparent race",
+    "second_reader": false
    }
   },
   {
@@ -16237,7 +16431,8 @@
      "Says the bigotry is made up",
      "double standard"
     ],
-    "reason": "deflects and erases Israeli hostages taken on Oct 7, recasting them as nonexistent in favor of 'Palestinian hostages held by Israel'"
+    "reason": "deflects and erases Israeli hostages taken on Oct 7, recasting them as nonexistent in favor of 'Palestinian hostages held by Israel'",
+    "second_reader": true
    }
   },
   {
@@ -16288,7 +16483,8 @@
     "mechanisms": [
      "double standard"
     ],
-    "reason": "off-topic injection of Israel into an unrelated thread about a Swedish thrift mall, insinuating wrongdoing with no argument for relevance"
+    "reason": "off-topic injection of Israel into an unrelated thread about a Swedish thrift mall, insinuating wrongdoing with no argument for relevance",
+    "second_reader": false
    }
   },
   {
@@ -16424,7 +16620,8 @@
      "Says the bigotry is made up",
      "Collective guilt"
     ],
-    "reason": "sarcasm asserting the antisemitism charge against Ms Rachel is fabricated, framed as 'telling jews not to murder'"
+    "reason": "sarcasm asserting the antisemitism charge against Ms Rachel is fabricated, framed as 'telling jews not to murder'",
+    "second_reader": true
    }
   },
   {
@@ -16687,7 +16884,8 @@
      "Slur",
      "Stereotype"
     ],
-    "reason": "boycott urged solely because the company is Israeli, with '$' money trope and 'Zios' as epithet"
+    "reason": "boycott urged solely because the company is Israeli, with '$' money trope and 'Zios' as epithet",
+    "second_reader": true
    }
   },
   {
@@ -16746,7 +16944,8 @@
      "Control & conspiracy",
      "Dual loyalty"
     ],
-    "reason": "US as 'subserviant to a foreign power' — control/dual-loyalty trope in an Israel-Iran war context"
+    "reason": "US as 'subserviant to a foreign power' — control/dual-loyalty trope in an Israel-Iran war context",
+    "second_reader": true
    }
   },
   {
@@ -16959,7 +17158,8 @@
    "target": "",
    "link": "",
    "mechanisms": [],
-   "reason": ""
+   "reason": "",
+   "second_reader": false
   },
   {
    "arm": "islamophobia",
@@ -16975,7 +17175,8 @@
    "mechanisms": [
     "Stereotype"
    ],
-   "reason": "coded 'Europe has fallen' decline framing attached to a street-prostitution video, no group named"
+   "reason": "coded 'Europe has fallen' decline framing attached to a street-prostitution video, no group named",
+   "second_reader": false
   },
   {
    "arm": "antiblack",
@@ -16991,7 +17192,8 @@
    "mechanisms": [
     "Stereotype"
    ],
-   "reason": "likens the Liberian crowd to zombies; crowd-behavior joke rather than explicit racial claim, but dehumanizing imagery aimed at an African crowd"
+   "reason": "likens the Liberian crowd to zombies; crowd-behavior joke rather than explicit racial claim, but dehumanizing imagery aimed at an African crowd",
+   "second_reader": false
   },
   {
    "arm": "antisemitism",
@@ -17008,7 +17210,8 @@
     "Control & conspiracy",
     "Dual loyalty"
    ],
-   "reason": "'United States of Israel' — Israel as controlling/owning the American state"
+   "reason": "'United States of Israel' — Israel as controlling/owning the American state",
+   "second_reader": true
   },
   {
    "arm": "islamophobia",
@@ -17025,7 +17228,8 @@
     "Control & conspiracy",
     "Stereotype"
    ],
-   "reason": "Great Replacement trope: children living 'under muslim boot,' Muslims as future conquerors justifying ICE"
+   "reason": "Great Replacement trope: children living 'under muslim boot,' Muslims as future conquerors justifying ICE",
+   "second_reader": true
   },
   {
    "arm": "antiblack",
@@ -17043,7 +17247,8 @@
     "Criminality",
     "Dehumanization"
    ],
-   "reason": "\"Hood Rats\" as coded epithet for fuel thieves, combining a racialized proxy term with vermin language"
+   "reason": "\"Hood Rats\" as coded epithet for fuel thieves, combining a racialized proxy term with vermin language",
+   "second_reader": false
   },
   {
    "arm": "antisemitism",
@@ -17061,7 +17266,8 @@
     "Control & conspiracy",
     "Dual loyalty"
    ],
-   "reason": "'cancerous tendrils have infested every western institution' plus blackmail over everyone with money or power — dehumanization fused with control conspiracy"
+   "reason": "'cancerous tendrils have infested every western institution' plus blackmail over everyone with money or power — dehumanization fused with control conspiracy",
+   "second_reader": true
   },
   {
    "arm": "antiblack",
@@ -17078,7 +17284,8 @@
     "Dehumanization",
     "Slur"
    ],
-   "reason": "calls a Black player a monkey"
+   "reason": "calls a Black player a monkey",
+   "second_reader": false
   }
  ]
 }

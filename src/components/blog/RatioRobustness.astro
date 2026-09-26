@@ -3,15 +3,16 @@ import data from '../../data/reddit-bigotry.json';
 
 const ROWS = [
   { key: 'headline', name: 'IHRA definition', note: 'The headline number' },
+  { key: 'both_readers', name: 'Both readers agree', note: 'A second, stricter model counts it too' },
   { key: 'no_top3', name: 'Without the three biggest sources', note: data.top3.map((s) => `r/${s}`).join(', ') },
   { key: 'symmetric', name: 'Clear bigotry only', note: "Drops IHRA's two subtler cases" },
   { key: 'personal', name: 'My personal rubric', note: 'Adds genocide framing and the rest' },
   { key: 'borderline', name: 'Borderline counted too', note: 'For all three groups' },
 ] as const;
-// Log scale from 1× to 16×, so 2× is as far from 4× as 4× is from 8×.
-const MAX = 16;
+// Log scale from 1× to 32×, so 2× is as far from 4× as 4× is from 8×.
+const MAX = 32;
 const x = (v: number) => `${((Math.log2(Math.max(1, Math.min(MAX, v))) / Math.log2(MAX)) * 100).toFixed(2)}%`;
-const TICKS = [1, 2, 4, 8, 16];
+const TICKS = [1, 2, 4, 8, 16, 32];
 const v = data.variants as Record<string, { ratio: number; lo: number; hi: number; a: number; b: number }>;
 ---
 
