@@ -75,17 +75,23 @@
   "antisemitism": {
    "counted": 279,
    "agreed": 146,
-   "communities": 68
+   "communities": 68,
+   "decoys": 271,
+   "decoys_counted": 3
   },
   "islamophobia": {
    "counted": 67,
    "agreed": 30,
-   "communities": 24
+   "communities": 24,
+   "decoys": 66,
+   "decoys_counted": 0
   },
   "antiblack": {
    "counted": 51,
    "agreed": 19,
-   "communities": 14
+   "communities": 14,
+   "decoys": 51,
+   "decoys_counted": 0
   }
  },
  "kinds": [

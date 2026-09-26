@@ -5,7 +5,11 @@ const h = data.headline;
 const max = h.ihra;
 const pct = (n: number) => `${((n / max) * 100).toFixed(2)}%`;
 const fmt = (n: number) => n.toLocaleString('en-US');
-const ratio = (n: number) => (h.ihra / n).toFixed(1);
+const RATES = [
+  { name: 'Antisemitism', key: 'antisemitism' },
+  { name: 'Islamophobia', key: 'islamophobia' },
+  { name: 'Anti-Black racism', key: 'antiblack' },
+] as const;
 ---
 
 <figure class="counts" aria-label={`Out of ${fmt(data.sample.comments)} comments, each read once for each bigotry: ${h.ihra} antisemitic under the IHRA definition, ${h.direct} of them aimed at Jews directly and ${h.ihra - h.direct} reaching Jews through Israel; ${h.islamophobia} Islamophobic; ${h.antiblack} anti-Black.`}>
@@ -49,9 +53,14 @@ const ratio = (n: number) => (h.ihra / n).toFixed(1);
     </div>
   </div>
 
-  <div class="multipliers">
-    <div><strong>{ratio(h.antiblack)}×</strong><span>as common as anti-Black racism</span></div>
-    <div><strong>{ratio(h.islamophobia)}×</strong><span>as common as Islamophobia</span></div>
+  <div class="rates">
+    {RATES.map((r) => (
+      <div>
+        <span class="rate-name">{r.name}</span>
+        <strong>{h.per_1000[r.key].toFixed(2)}</strong>
+        <span>per 1,000 comments · {h.communities[r.key]} subreddits</span>
+      </div>
+    ))}
   </div>
 </figure>
 
@@ -83,7 +92,7 @@ const ratio = (n: number) => (h.ihra / n).toFixed(1);
   figcaption span,
   .label,
   .keys,
-  .multipliers span {
+  .rates span {
     font-family: var(--font-mono);
     font-size: 0.7rem;
     font-weight: 700;
@@ -176,24 +185,24 @@ const ratio = (n: number) => (h.ihra / n).toFixed(1);
     background: var(--coral);
   }
 
-  .multipliers {
+  .rates {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     border-top: 3px solid var(--black);
   }
 
-  .multipliers div {
+  .rates div {
     display: flex;
-    align-items: baseline;
-    gap: 0.6rem;
+    flex-direction: column;
+    gap: 0.3rem;
     padding: 0.8rem 1rem;
   }
 
-  .multipliers div + div {
+  .rates div + div {
     border-left: 3px solid var(--black);
   }
 
-  .multipliers strong {
+  .rates strong {
     font-family: var(--font-heading);
     font-size: clamp(1.9rem, 1.4rem + 2vw, 2.6rem);
     font-weight: 800;
@@ -201,8 +210,12 @@ const ratio = (n: number) => (h.ihra / n).toFixed(1);
     letter-spacing: -0.03em;
   }
 
-  .multipliers span {
+  .rates span {
     color: var(--text-muted);
+  }
+
+  .rates .rate-name {
+    color: var(--text);
   }
 
   @media (max-width: 640px) {
@@ -229,11 +242,11 @@ const ratio = (n: number) => (h.ihra / n).toFixed(1);
       margin-left: 0;
     }
 
-    .multipliers {
+    .rates {
       grid-template-columns: 1fr;
     }
 
-    .multipliers div + div {
+    .rates div + div {
       border-left: 0;
       border-top: 3px solid var(--black);
     }
