@@ -73,6 +73,7 @@ for (const s of data.subs) {
       </div>
       <p class="detail-title"></p>
       <blockquote class="detail-text"></blockquote>
+      <button type="button" class="detail-more" hidden>Read the whole comment</button>
       <div class="detail-foot">
         <span class="detail-votes"></span>
         <span class="detail-score"></span>
@@ -132,6 +133,10 @@ for (const s of data.subs) {
       // A 1 only counts when it is one of IHRA's two subtler cases.
       q('.detail-score').textContent = card.score === 1 ? 'Score 1 of 3 · counted as an IHRA double standard or scapegoating' : `Score ${card.score} of 3`;
       q('.detail-text').classList.remove('open');
+      requestAnimationFrame(() => {
+        const t = q('.detail-text');
+        q('.detail-more').hidden = t.scrollHeight <= t.clientHeight + 2;
+      });
       cardEl.hidden = false;
       empty.hidden = true;
     }
@@ -196,7 +201,12 @@ for (const s of data.subs) {
     });
     for (const b of switches) b.addEventListener('click', () => setArm(b.dataset.key as Arm));
     // On phones the quote is clamped; a tap opens it in full.
-    q('.detail-text').addEventListener('click', (e) => (e.currentTarget as HTMLElement).classList.toggle('open'));
+    const expand = () => {
+      q('.detail-text').classList.add('open');
+      q('.detail-more').hidden = true;
+    };
+    q('.detail-text').addEventListener('click', expand);
+    q('.detail-more').addEventListener('click', expand);
     focusable();
     fig.querySelector('.shuffle')!.addEventListener('click', () => {
       const on = lit().filter((c) => c !== active);
@@ -586,6 +596,20 @@ for (const s of data.subs) {
     font-style: normal;
   }
 
+  .detail-more {
+    margin-top: 0.45rem;
+    padding: 0.2rem 0.45rem;
+    background: none;
+    border: 2px solid var(--black);
+    color: var(--black);
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
   .detail-foot {
     display: flex;
     gap: 1.25rem;
@@ -722,7 +746,7 @@ for (const s of data.subs) {
       margin-top: 0.45rem;
       overflow: hidden;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 6;
       cursor: pointer;
     }
 
