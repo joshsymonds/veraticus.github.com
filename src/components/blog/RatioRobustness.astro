@@ -1,0 +1,230 @@
+---
+import data from '../../data/reddit-bigotry.json';
+
+const ROWS = [
+  { key: 'headline', name: 'IHRA definition', note: 'The headline number' },
+  { key: 'no_top3', name: 'Without the three biggest sources', note: data.top3.map((s) => `r/${s}`).join(', ') },
+  { key: 'symmetric', name: 'Clear bigotry only', note: "Drops IHRA's two subtler cases" },
+  { key: 'personal', name: 'My personal rubric', note: 'Adds genocide framing and the rest' },
+  { key: 'borderline', name: 'Borderline counted too', note: 'For all three groups' },
+] as const;
+// Log scale from 1× to 16×, so 2× is as far from 4× as 4× is from 8×.
+const MAX = 16;
+const x = (v: number) => `${((Math.log2(Math.max(1, Math.min(MAX, v))) / Math.log2(MAX)) * 100).toFixed(2)}%`;
+const TICKS = [1, 2, 4, 8, 16];
+const v = data.variants as Record<string, { ratio: number; lo: number; hi: number; a: number; b: number }>;
+---
+
+<figure class="robust" aria-label={`How many times more common antisemitism is than anti-Black racism under each version of the analysis: ${ROWS.map((r) => `${r.name}, ${v[r.key].ratio}× (range ${v[r.key].lo} to ${v[r.key].hi})`).join('; ')}.`}>
+  <figcaption>
+    <strong>The ratio under each analysis</strong>
+    <span>Antisemitism ÷ anti-Black racism · bars show the plausible range</span>
+  </figcaption>
+  <div class="plot">
+    <div class="axis" aria-hidden="true">
+      {TICKS.map((t) => (
+        <span class="tick" style={`left:${x(t)}`}>{t}×{t === 1 && <span class="equal"> · equal</span>}</span>
+      ))}
+    </div>
+    {ROWS.map((r) => {
+      const d = v[r.key];
+      return (
+        <div class:list={['row', { lead: r.key === 'headline' }]}>
+          <div class="label">
+            <strong>{r.name}</strong>
+            <span>{r.note}</span>
+          </div>
+          <div class="track">
+            {TICKS.map((t) => (
+              <span class="grid" style={`left:${x(t)}`} />
+            ))}
+            <span class="range" style={`left:${x(d.lo)};width:calc(${x(d.hi)} - ${x(d.lo)})`} />
+            <span class="point" style={`left:${x(d.ratio)}`} />
+          </div>
+          <b class="value">{d.ratio.toFixed(1)}×</b>
+        </div>
+      );
+    })}
+  </div>
+</figure>
+
+<style>
+  .robust {
+    margin: 2.25rem 0 2.5rem;
+    background: var(--bg-surface);
+    border: 3px solid var(--black);
+    box-shadow: 6px 6px 0 var(--coral);
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.8rem 1rem;
+    background: var(--black);
+    color: var(--white);
+  }
+
+  figcaption strong {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  figcaption span,
+  .label span,
+  .tick {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .plot {
+    --label: 15rem;
+    --value: 3.5rem;
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .axis {
+    position: relative;
+    height: 1.4rem;
+    margin: 0 calc(var(--value) + 0.75rem) 0 calc(var(--label) + 0.75rem);
+  }
+
+  .tick {
+    position: absolute;
+    bottom: 0.2rem;
+    transform: translateX(-50%);
+    color: var(--text-muted);
+  }
+
+  .tick:first-child {
+    transform: none;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: var(--label) minmax(0, 1fr) var(--value);
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.55rem 0;
+    border-top: 2px solid var(--ink-muted);
+  }
+
+  .row.lead {
+    border-top: 3px solid var(--black);
+    border-bottom: 3px solid var(--black);
+  }
+
+  .label {
+    display: grid;
+    gap: 0.1rem;
+  }
+
+  .label strong {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .label span {
+    color: var(--text-muted);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .track {
+    position: relative;
+    height: 1.6rem;
+  }
+
+  .grid {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--ink-muted);
+  }
+
+  .grid:first-child {
+    width: 3px;
+    background: var(--black);
+  }
+
+  .range {
+    position: absolute;
+    top: 50%;
+    height: 0.6rem;
+    transform: translateY(-50%);
+    background: color-mix(in srgb, var(--coral) 58%, var(--bg-surface));
+    border: 2px solid var(--black);
+  }
+
+  .point {
+    position: absolute;
+    top: 50%;
+    width: 1.1rem;
+    height: 1.1rem;
+    transform: translate(-50%, -50%);
+    background: var(--coral);
+    border: 3px solid var(--black);
+  }
+
+  .lead .point {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .value {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    text-align: right;
+  }
+
+  .lead .value {
+    font-size: 1.7rem;
+  }
+
+  @media (max-width: 640px) {
+    .plot {
+      --value: 3.4rem;
+      padding: 0.4rem 0.75rem 0.8rem;
+    }
+
+    .axis {
+      margin-left: 0;
+    }
+
+    .row {
+      grid-template-columns: minmax(0, 1fr) var(--value);
+      grid-template-areas: 'label label' 'track value';
+      gap: 0.35rem 0.75rem;
+    }
+
+    .label {
+      grid-area: label;
+    }
+
+    .track {
+      grid-area: track;
+    }
+
+    .value {
+      grid-area: value;
+    }
+
+    .lead .value {
+      font-size: 1.5rem;
+    }
+
+    .equal {
+      display: none;
+    }
+  }
+</style>

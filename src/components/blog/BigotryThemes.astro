@@ -1,0 +1,141 @@
+---
+import data from '../../data/reddit-bigotry.json';
+
+interface Props {
+  arm: 'antisemitism' | 'islamophobia' | 'antiblack';
+}
+const { arm } = Astro.props;
+const NAME = { antisemitism: 'antisemitic', islamophobia: 'Islamophobic', antiblack: 'anti-Black' }[arm];
+const CLS = { antisemitism: 'a', islamophobia: 'i', antiblack: 'b' }[arm];
+const t = data.themes[arm];
+const names = data.mechanism_names as Record<string, string>;
+// Every chart lists the same rows in the same order on the same axis, so the
+// three read as one comparison.
+const rows = Object.keys(names).map((key) => ({ key, name: names[key], share: t.share[key as keyof typeof t.share] }));
+const pct = (x: number) => `${Math.round(x * 100)}%`;
+---
+
+<figure class={`themes themes-${CLS}`} aria-label={`Tropes in ${t.n} ${NAME} comments: ${rows.map((r) => `${r.name} ${pct(r.share)}`).join(', ')}.`}>
+  <figcaption>
+    <strong>Tropes in {t.n} {NAME} comments</strong>
+    <span>A comment can use several</span>
+  </figcaption>
+  <div class="rows">
+    {rows.map((r) => (
+      <div class:list={['row', { zero: r.share === 0 }]}>
+        <span class="name">{r.name}</span>
+        <span class="track">
+          <span class="bar" style={`--v:${r.share}`} />
+          <span class="value">{pct(r.share)}</span>
+        </span>
+      </div>
+    ))}
+  </div>
+</figure>
+
+<style>
+  .themes {
+    --arm: var(--coral);
+    margin: 1.75rem 0 2rem;
+    background: var(--bg-surface);
+    border: 3px solid var(--black);
+    box-shadow: 6px 6px 0 var(--arm);
+  }
+
+  .themes-i {
+    --arm: var(--teal);
+  }
+
+  .themes-b {
+    --arm: var(--yellow);
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.7rem 1rem;
+    background: var(--arm);
+    border-bottom: 3px solid var(--black);
+    color: var(--accent-ink);
+  }
+
+  figcaption strong {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  figcaption span,
+  .name,
+  .value {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .rows {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1rem;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .track {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    height: 1.1rem;
+    border-left: 3px solid var(--black);
+  }
+
+  /* One scale for all three charts, 80% at full width: the largest share, the
+     Islamophobic stereotype, is 73%. */
+  .bar {
+    flex: none;
+    width: calc(var(--v) / 0.8 * (100% - 2.75rem));
+    height: 100%;
+    background: var(--arm);
+    border: 2px solid var(--black);
+    border-left: 0;
+  }
+
+  .zero .bar {
+    display: none;
+  }
+
+  .value {
+    font-size: 0.8rem;
+  }
+
+  .zero .name,
+  .zero .value {
+    color: var(--text-faint);
+  }
+
+  .zero .value {
+    padding-left: 0.3rem;
+  }
+
+  @media (max-width: 640px) {
+    .row {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
+
+    .rows {
+      gap: 0.55rem;
+      padding: 0.8rem;
+    }
+  }
+</style>

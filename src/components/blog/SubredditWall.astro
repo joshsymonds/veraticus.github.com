@@ -1,0 +1,753 @@
+---
+import data from '../../data/reddit-bigotry.json';
+
+type Arm = 'a' | 'i' | 'b';
+const ARMS: { key: Arm; name: string; field: 'antisemitism' | 'islamophobia' | 'antiblack' }[] = [
+  { key: 'a', name: 'Antisemitism', field: 'antisemitism' },
+  { key: 'i', name: 'Islamophobia', field: 'islamophobia' },
+  { key: 'b', name: 'Anti-Black racism', field: 'antiblack' },
+];
+const bands = data.kinds.map((kind) => ({ kind, subs: data.subs.filter((s) => s.kind === kind) }));
+const fmt = (n: number) => n.toLocaleString('en-US');
+
+// Only subreddits that light up under some arm need anything client-side.
+const payload: Record<string, unknown> = {};
+for (const s of data.subs) {
+  if (s.a || s.i || s.b) {
+    payload[s.name] = { k: s.kind, a: s.a, i: s.i, b: s.b, ac: s.a_card ?? null, ic: s.i_card ?? null, bc: s.b_card ?? null };
+  }
+}
+---
+
+<figure class="wall" data-arm="a" aria-label={`A grid of the ${fmt(data.sample.subs)} subreddits in the study, one square per subreddit, grouped by kind. Antisemitism turned up in ${data.headline.communities.antisemitism} of them, spread across every kind; Islamophobia in ${data.headline.communities.islamophobia} and anti-Black racism in ${data.headline.communities.antiblack}, concentrated in country and crime-video subreddits.`}>
+  <figcaption>
+    <strong>Subreddits with bigoted comments</strong>
+    <span>{fmt(data.sample.subs)} subreddits · one mark each</span>
+  </figcaption>
+
+  <div class="switches" role="radiogroup" aria-label="Show one bigotry">
+    {ARMS.map((arm, n) => (
+      <button type="button" role="radio" class={`switch switch-${arm.key}`} data-key={arm.key} aria-checked={n === 0 ? 'true' : 'false'}>
+        <span class="switch-name">{arm.name}</span>
+        <span class="switch-box" aria-hidden="true"></span>
+        <span class="switch-count">{data.headline.communities[arm.field]}</span>
+        <span class="switch-unit">subreddits</span>
+      </button>
+    ))}
+  </div>
+
+  <div class="grid">
+    {bands.map((band) => (
+      <div class="band">
+        <span class="band-label">{band.kind}</span>
+        <div class="cells">
+          {band.subs.map((s) =>
+            s.a || s.i || s.b ? (
+              <span class="cell" data-sub={s.name} data-a={s.a || undefined} data-i={s.i || undefined} data-b={s.b || undefined}>
+                r/{s.name}
+              </span>
+            ) : (
+              <span class="cell" />
+            ),
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="legend" aria-hidden="true">
+    <span><i class="chip one">r/name</i>1 comment</span>
+    <span><i class="chip many" data-n="7">r/name</i>2 or more, with the count</span>
+    <span><i class="dot"></i>None found</span>
+  </div>
+
+  <div class="detail" aria-live="polite">
+    <div class="detail-empty">
+      <p>Hover or tap a subreddit to read what was said there.</p>
+    </div>
+    <div class="detail-card" hidden>
+      <div class="detail-head">
+        <strong class="detail-sub"></strong>
+        <span class="detail-kind"></span>
+        <span class="detail-count"></span>
+      </div>
+      <p class="detail-title"></p>
+      <blockquote class="detail-text"></blockquote>
+      <div class="detail-foot">
+        <span class="detail-votes"></span>
+        <span class="detail-score"></span>
+      </div>
+    </div>
+    <button type="button" class="shuffle">Show me one</button>
+  </div>
+
+  <script type="application/json" class="wall-data" set:html={JSON.stringify(payload)} />
+</figure>
+
+<script>
+  type Card = { sub: string; title: string; text: string; votes: number | null; score: number };
+  type Sub = { k: string; a: number; i: number; b: number; ac: Card | null; ic: Card | null; bc: Card | null };
+  type Arm = 'a' | 'i' | 'b';
+
+  const NAMES: Record<Arm, string> = { a: 'antisemitic', i: 'Islamophobic', b: 'anti-Black' };
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  for (const fig of document.querySelectorAll<HTMLElement>('figure.wall')) {
+    const subs: Record<string, Sub> = JSON.parse(fig.querySelector('.wall-data')!.textContent!);
+    const cells = [...fig.querySelectorAll<HTMLElement>('.cell[data-sub]')];
+    const switches = [...fig.querySelectorAll<HTMLButtonElement>('.switch')];
+    const empty = fig.querySelector<HTMLElement>('.detail-empty')!;
+    const cardEl = fig.querySelector<HTMLElement>('.detail-card')!;
+    const q = (sel: string) => fig.querySelector<HTMLElement>(sel)!;
+    let arm: Arm = 'a';
+    let active: HTMLElement | null = null;
+
+    const lit = () => cells.filter((c) => c.dataset[arm]);
+
+    function stagger() {
+      const on = lit();
+      for (const c of cells) c.style.removeProperty('--delay');
+      if (reduced) return;
+      on.forEach((c) => c.style.setProperty('--delay', `${Math.round(Math.random() * 700)}ms`));
+    }
+
+    function show(cell: HTMLElement | null) {
+      active?.classList.remove('active');
+      active = cell;
+      if (!cell) {
+        cardEl.hidden = true;
+        empty.hidden = false;
+        return;
+      }
+      cell.classList.add('active');
+      const s = subs[cell.dataset.sub!];
+      const card = s[`${arm}c` as const]!;
+      const n = s[arm];
+      q('.detail-sub').textContent = `r/${card.sub}`;
+      q('.detail-kind').textContent = s.k;
+      q('.detail-count').textContent = `${n} ${NAMES[arm]} comment${n === 1 ? '' : 's'}`;
+      q('.detail-title').textContent = card.title ? `Under “${card.title}”` : '';
+      q('.detail-text').textContent = card.text;
+      q('.detail-votes').textContent = card.votes == null ? '' : `${card.votes.toLocaleString('en-US')} ${card.votes === 1 ? 'upvote' : 'upvotes'}`;
+      // A 1 only counts when it is one of IHRA's two subtler cases.
+      q('.detail-score').textContent = card.score === 1 ? 'Score 1 of 3 · counted as an IHRA double standard or scapegoating' : `Score ${card.score} of 3`;
+      q('.detail-text').classList.remove('open');
+      cardEl.hidden = false;
+      empty.hidden = true;
+    }
+
+    // Lit chips lead their band, most comments first, and only they are
+    // reachable by keyboard.
+    function focusable() {
+      for (const c of cells) {
+        const n = Number(c.dataset[arm] ?? 0);
+        if (n) {
+          c.style.order = String(-n);
+          c.tabIndex = 0;
+          c.setAttribute('role', 'button');
+        } else {
+          c.style.removeProperty('order');
+          c.removeAttribute('tabindex');
+          c.removeAttribute('role');
+        }
+      }
+    }
+
+    function setArm(next: Arm) {
+      arm = next;
+      fig.dataset.arm = next;
+      for (const b of switches) b.setAttribute('aria-checked', String(b.dataset.key === next));
+      focusable();
+      stagger();
+      show(null);
+    }
+
+    // The nearest lit square within reach of the pointer, so small squares
+    // still work under a fingertip.
+    function nearest(x: number, y: number, reach: number) {
+      let best: HTMLElement | null = null;
+      let dist = reach * reach;
+      for (const c of lit()) {
+        const r = c.getBoundingClientRect();
+        const dx = Math.max(r.left - x, 0, x - r.right);
+        const dy = Math.max(r.top - y, 0, y - r.bottom);
+        const d = dx * dx + dy * dy;
+        if (d <= dist) {
+          dist = d;
+          best = c;
+        }
+      }
+      return best;
+    }
+
+    const grid = fig.querySelector<HTMLElement>('.grid')!;
+    grid.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const c = nearest(e.clientX, e.clientY, 4);
+      if (c && c !== active) show(c);
+    });
+    grid.addEventListener('click', (e) => {
+      const c = nearest(e.clientX, e.clientY, 18);
+      if (c) show(c);
+    });
+    grid.addEventListener('focusin', (e) => {
+      const c = (e.target as HTMLElement).closest<HTMLElement>('.cell[data-sub]');
+      if (c?.dataset[arm]) show(c);
+    });
+    for (const b of switches) b.addEventListener('click', () => setArm(b.dataset.key as Arm));
+    // On phones the quote is clamped; a tap opens it in full.
+    q('.detail-text').addEventListener('click', (e) => (e.currentTarget as HTMLElement).classList.toggle('open'));
+    focusable();
+    fig.querySelector('.shuffle')!.addEventListener('click', () => {
+      const on = lit().filter((c) => c !== active);
+      show(on[Math.floor(Math.random() * on.length)]);
+    });
+
+    fig.classList.add('dim');
+    new IntersectionObserver(
+      (entries, obs) => {
+        if (!entries[0].isIntersecting) return;
+        obs.disconnect();
+        stagger();
+        requestAnimationFrame(() => fig.classList.remove('dim'));
+      },
+      { threshold: 0.25 },
+    ).observe(grid);
+  }
+</script>
+
+<style>
+  :global(html[data-theme='dark']) .wall {
+    --faint-mix: 82%;
+  }
+
+  .wall {
+    --faint-mix: 55%;
+    --arm: var(--coral);
+    --dot: 7px;
+    width: min(calc(100vw - 2rem), 64rem);
+    margin: 2.5rem 0 3rem calc(50% - min(calc(100vw - 2rem), 64rem) / 2);
+    background: var(--bg-surface);
+    border: 3px solid var(--black);
+    box-shadow: 8px 8px 0 var(--arm);
+    transition: box-shadow var(--transition-base);
+  }
+
+  .wall[data-arm='i'] {
+    --arm: var(--teal);
+  }
+
+  .wall[data-arm='b'] {
+    --arm: var(--yellow);
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.8rem 1rem;
+    background: var(--black);
+    color: var(--white);
+  }
+
+  figcaption strong {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  figcaption span,
+  .band-label,
+  .legend,
+  .switch-name,
+  .switch-unit,
+  .detail-kind,
+  .detail-count,
+  .detail-foot,
+  .shuffle {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Raised buttons, the chosen one pressed in, so the three read as controls. */
+  .switches {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 1rem 1.25rem 1.2rem 1rem;
+    border-bottom: 3px solid var(--black);
+  }
+
+  .switch {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 'name name box' 'count unit unit';
+    align-items: end;
+    gap: 0.1rem 0.5rem;
+    padding: 0.7rem 0.9rem 0.65rem;
+    background: var(--bg-surface);
+    border: 3px solid var(--black);
+    box-shadow: 5px 5px 0 var(--black);
+    color: var(--black);
+    text-align: left;
+    cursor: pointer;
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  .switch:hover {
+    background: var(--bg-surface-hover);
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--black);
+  }
+
+  .switch[aria-checked='true'] {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 var(--black);
+    cursor: default;
+  }
+
+  .switch-box {
+    grid-area: box;
+    align-self: start;
+    width: 1rem;
+    height: 1rem;
+    border: 3px solid currentColor;
+  }
+
+  .switch[aria-checked='true'] .switch-box {
+    background: currentColor;
+    box-shadow: inset 0 0 0 2px var(--arm);
+  }
+
+  .switch:focus-visible,
+  .shuffle:focus-visible {
+    outline: 3px solid var(--black);
+    outline-offset: -6px;
+  }
+
+  .switch-name {
+    grid-area: name;
+  }
+
+  .switch-count {
+    grid-area: count;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+
+  .switch-unit {
+    grid-area: unit;
+    padding-bottom: 0.2rem;
+    opacity: 0.7;
+  }
+
+  .switch-a[aria-checked='true'] {
+    background: var(--coral);
+  }
+
+  .switch-i[aria-checked='true'] {
+    background: var(--teal);
+  }
+
+  .switch-b[aria-checked='true'] {
+    background: var(--yellow);
+  }
+
+  .switch[aria-checked='true'] {
+    color: var(--accent-ink);
+  }
+
+  .grid {
+    display: grid;
+    gap: 0.55rem;
+    padding: 1rem;
+    cursor: crosshair;
+    touch-action: manipulation;
+  }
+
+  .band {
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    align-items: start;
+    gap: 0.75rem;
+  }
+
+  .band-label {
+    padding-top: 0.05rem;
+    color: var(--text-muted);
+    line-height: 1.25;
+    text-align: right;
+  }
+
+  /* Each band leads with a named chip for every subreddit where the bigotry
+     turned up, then one dot for every subreddit where it didn't. */
+  .cells {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .cell {
+    flex: none;
+    width: var(--dot);
+    height: var(--dot);
+    overflow: hidden;
+    background: var(--ink-muted);
+    color: transparent;
+    font-size: 0;
+    transition: background 220ms ease-out var(--delay, 0ms);
+  }
+
+  .wall[data-arm='a'] .cell[data-a],
+  .wall[data-arm='i'] .cell[data-i],
+  .wall[data-arm='b'] .cell[data-b] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: auto;
+    height: 1.45rem;
+    margin: 1px 0;
+    padding: 0 0.4rem;
+    background: var(--arm);
+    border: 2px solid var(--black);
+    color: var(--accent-ink);
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    cursor: pointer;
+    order: -1;
+  }
+
+  .wall[data-arm='a'] .cell[data-a='1'],
+  .wall[data-arm='i'] .cell[data-i='1'],
+  .wall[data-arm='b'] .cell[data-b='1'] {
+    background: color-mix(in srgb, var(--arm) var(--faint-mix), var(--bg-surface));
+    color: var(--accent-ink);
+  }
+
+  .wall[data-arm='a'] .cell[data-a]:not([data-a='1'])::after,
+  .wall[data-arm='i'] .cell[data-i]:not([data-i='1'])::after,
+  .wall[data-arm='b'] .cell[data-b]:not([data-b='1'])::after {
+    padding: 0 0.25rem;
+    background: var(--accent-ink);
+    color: var(--arm);
+  }
+
+  .wall[data-arm='a'] .cell[data-a]:not([data-a='1'])::after {
+    content: attr(data-a);
+  }
+
+  .wall[data-arm='i'] .cell[data-i]:not([data-i='1'])::after {
+    content: attr(data-i);
+  }
+
+  .wall[data-arm='b'] .cell[data-b]:not([data-b='1'])::after {
+    content: attr(data-b);
+  }
+
+  .wall.dim .cell {
+    background: var(--ink-muted) !important;
+    transition: none;
+  }
+
+  .cell:focus-visible {
+    outline: 3px solid var(--black);
+    outline-offset: 2px;
+  }
+
+  .cell.active {
+    box-shadow: 3px 3px 0 var(--black);
+    transform: translate(-1px, -1px);
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    padding: 0 1rem 0.9rem calc(1rem + 11.75rem);
+    color: var(--text-muted);
+  }
+
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .legend .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    height: 1.3rem;
+    padding: 0 0.35rem;
+    background: var(--arm);
+    border: 2px solid var(--black);
+    color: var(--accent-ink);
+    font-style: normal;
+    text-transform: none;
+  }
+
+  .legend .chip.one {
+    background: color-mix(in srgb, var(--arm) var(--faint-mix), var(--bg-surface));
+    color: var(--accent-ink);
+  }
+
+  .legend .chip.many::after {
+    content: attr(data-n);
+    padding: 0 0.25rem;
+    background: var(--accent-ink);
+    color: var(--arm);
+  }
+
+  .legend .dot {
+    width: var(--dot);
+    height: var(--dot);
+    background: var(--ink-muted);
+  }
+
+  /* Pinned to the bottom of the screen while the wall is in view, so the
+     comment for a square is always visible next to the square. */
+  .detail {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-surface);
+    border-top: 3px solid var(--black);
+  }
+
+  .wall .detail-empty p {
+    margin: 0;
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .detail-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.3rem 0.9rem;
+  }
+
+  .detail-sub {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .detail-kind,
+  .detail-title {
+    color: var(--text-muted);
+  }
+
+  .detail-count {
+    padding: 0.15rem 0.45rem;
+    background: var(--arm);
+    color: var(--accent-ink);
+  }
+
+  .wall .detail-title {
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .wall .detail-text {
+    margin: 0.7rem 0 0;
+    padding: 0.2rem 0 0.2rem 0.9rem;
+    background: none;
+    border: 0;
+    border-left: 6px solid var(--arm);
+    color: var(--black);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    font-style: normal;
+  }
+
+  .detail-foot {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .wall .detail-text::before {
+    display: none;
+  }
+
+  .shuffle {
+    padding: 0.7rem 1rem;
+    background: var(--arm);
+    border: 3px solid var(--black);
+    box-shadow: 4px 4px 0 var(--black);
+    color: var(--accent-ink);
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .shuffle:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--black);
+  }
+
+  .shuffle:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 var(--black);
+  }
+
+  @media (max-width: 900px) {
+    .band {
+      grid-template-columns: 8rem minmax(0, 1fr);
+    }
+
+    .legend {
+      padding-left: calc(1rem + 8.75rem);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .wall {
+      --dot: 4px;
+      box-shadow: 5px 5px 0 var(--arm);
+    }
+
+    .cells {
+      gap: 2px;
+    }
+
+    .wall[data-arm='a'] .cell[data-a],
+    .wall[data-arm='i'] .cell[data-i],
+    .wall[data-arm='b'] .cell[data-b] {
+      gap: 0.25rem;
+      height: 1.2rem;
+      padding: 0 0.25rem;
+      font-size: 0.56rem;
+    }
+
+    .switches {
+      gap: 0.55rem;
+      padding: 0.75rem 0.9rem 0.9rem 0.75rem;
+    }
+
+    .switch {
+      padding: 0.5rem 0.45rem 0.45rem;
+      grid-template-areas: 'name name' 'count box' 'unit unit';
+      grid-template-columns: minmax(0, 1fr) auto;
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .switch:hover {
+      transform: none;
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .switch[aria-checked='true'] {
+      transform: translate(3px, 3px);
+      box-shadow: 0 0 0 var(--black);
+    }
+
+    .switch-box {
+      align-self: center;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-width: 2px;
+    }
+
+    .switch-name,
+    .switch-unit {
+      font-size: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .grid {
+      gap: 0.7rem;
+      padding: 0.75rem;
+    }
+
+    .band {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+
+    .band-label {
+      text-align: left;
+    }
+
+    .legend {
+      padding: 0 0.75rem 0.8rem;
+    }
+
+    .detail {
+      gap: 0.6rem;
+      padding: 0.6rem 0.75rem;
+    }
+
+    .detail-kind {
+      display: none;
+    }
+
+    .wall .detail-title {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .wall .detail-text {
+      display: -webkit-box;
+      margin-top: 0.45rem;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      cursor: pointer;
+    }
+
+    .wall .detail-text.open {
+      display: block;
+    }
+
+    .detail-foot {
+      margin-top: 0.45rem;
+    }
+
+    .shuffle {
+      padding: 0.5rem 0.6rem;
+    }
+
+    .detail-sub {
+      font-size: 1.1rem;
+    }
+
+    .wall .detail-title {
+      font-size: 0.8rem;
+    }
+
+    .wall .detail-text {
+      font-size: 0.98rem;
+    }
+  }
+</style>

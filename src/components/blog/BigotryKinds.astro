@@ -1,0 +1,180 @@
+---
+import data from '../../data/reddit-bigotry.json';
+
+const ARMS = [
+  { field: 'antisemitism', name: 'Antisemitism', cls: 'a' },
+  { field: 'islamophobia', name: 'Islamophobia', cls: 'i' },
+  { field: 'antiblack', name: 'Anti-Black racism', cls: 'b' },
+] as const;
+const pct = (x: number) => `${Math.round(x * 100)}%`;
+---
+
+<figure class="kinds" aria-label={`Share of each bigotry's comments by kind of subreddit. ${ARMS.map((a) => `${a.name}: ${data.kinds.map((k) => `${k} ${pct(data.kind_share[a.field][k as keyof (typeof data.kind_share)['antisemitism']])}`).join(', ')}`).join('. ')}.`}>
+  <figcaption>
+    <strong>Bigoted comments by kind of subreddit</strong>
+    <span>Share of each bigotry's comments · each column adds to 100%</span>
+  </figcaption>
+  <div class="table" role="table">
+    <div class="head" role="row">
+      <span role="columnheader"></span>
+      {ARMS.map((a) => (
+        <span role="columnheader" class={`col col-${a.cls}`}>{a.name} · {data.themes[a.field].n}</span>
+      ))}
+    </div>
+    {data.kinds.map((k) => (
+      <div class="line" role="row">
+        <span role="rowheader" class="kind">{k}</span>
+        {ARMS.map((a) => {
+          const v = data.kind_share[a.field][k as keyof (typeof data.kind_share)['antisemitism']];
+          return (
+            <span role="cell" class={`cell cell-${a.cls}`}>
+              <span class="fill" style={`--v:${v}`} />
+              <b class:list={{ none: v === 0 }}>{v === 0 ? '—' : pct(v)}</b>
+            </span>
+          );
+        })}
+      </div>
+    ))}
+  </div>
+</figure>
+
+<style>
+  .kinds {
+    margin: 2rem 0 2.25rem;
+    background: var(--bg-surface);
+    border: 3px solid var(--black);
+    box-shadow: 6px 6px 0 var(--black);
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.8rem 1rem;
+    background: var(--black);
+    color: var(--white);
+  }
+
+  figcaption strong {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  figcaption span,
+  .col,
+  .kind,
+  .cell b {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .table {
+    display: grid;
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  .head,
+  .line {
+    display: grid;
+    grid-template-columns: 12rem repeat(3, minmax(0, 1fr));
+    gap: 0.4rem;
+  }
+
+  .head {
+    padding-bottom: 0.4rem;
+  }
+
+  .line {
+    padding: 0.2rem 0;
+    border-top: 2px solid var(--ink-muted);
+  }
+
+  .col {
+    padding: 0.3rem 0.45rem;
+    border: 2px solid var(--black);
+    color: var(--accent-ink);
+  }
+
+  .col-a {
+    background: var(--coral);
+  }
+
+  .col-i {
+    background: var(--teal);
+  }
+
+  .col-b {
+    background: var(--yellow);
+  }
+
+  .kind {
+    align-self: center;
+    color: var(--text-muted);
+  }
+
+  .cell {
+    --arm: var(--coral);
+    display: flex;
+    align-items: center;
+    height: 1.7rem;
+  }
+
+  .cell-i {
+    --arm: var(--teal);
+  }
+
+  .cell-b {
+    --arm: var(--yellow);
+  }
+
+  .fill {
+    flex: none;
+    /* One scale for every column, 40% at full width: no share reaches it. */
+    width: calc(var(--v) / 0.4 * (100% - 2.6rem));
+    height: 100%;
+    background: var(--arm);
+  }
+
+  .cell b {
+    padding-left: 0.35rem;
+    color: var(--black);
+    font-size: 0.75rem;
+  }
+
+  .cell b.none {
+    color: var(--text-faint);
+  }
+
+  @media (max-width: 640px) {
+    .table {
+      padding: 0.6rem 0.6rem 0.8rem;
+    }
+
+    .head,
+    .line {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.3rem;
+    }
+
+    .head span:first-child {
+      display: none;
+    }
+
+    .col {
+      padding: 0.25rem 0.3rem;
+      font-size: 0.56rem;
+      letter-spacing: 0.01em;
+    }
+
+    .kind {
+      grid-column: 1 / -1;
+      padding-top: 0.2rem;
+    }
+  }
+</style>

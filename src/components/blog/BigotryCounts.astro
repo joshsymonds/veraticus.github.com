@@ -1,0 +1,241 @@
+---
+import data from '../../data/reddit-bigotry.json';
+
+const h = data.headline;
+const max = h.ihra;
+const pct = (n: number) => `${((n / max) * 100).toFixed(2)}%`;
+const fmt = (n: number) => n.toLocaleString('en-US');
+const ratio = (n: number) => (h.ihra / n).toFixed(1);
+---
+
+<figure class="counts" aria-label={`Out of ${fmt(data.sample.comments)} comments, each read once for each bigotry: ${h.ihra} antisemitic under the IHRA definition, ${h.direct} of them aimed at Jews directly and ${h.ihra - h.direct} reaching Jews through Israel; ${h.islamophobia} Islamophobic; ${h.antiblack} anti-Black.`}>
+  <figcaption>
+    <strong>{fmt(data.sample.comments)} comments judged</strong>
+    <span>Bigoted comments counted</span>
+  </figcaption>
+
+  <div class="rows">
+    <div class="row">
+      <span class="label">Antisemitism</span>
+      <div class="track">
+        <span class="bar bar-a direct" style={`width:${pct(h.direct)}`}>
+          <b>{h.direct}</b>
+        </span>
+        <span class="bar bar-a via" style={`width:${pct(h.ihra - h.direct)}`}>
+          <b>{h.ihra - h.direct}</b>
+        </span>
+      </div>
+      <span class="total">{h.ihra}</span>
+    </div>
+    <div class="keys">
+      <span><i class="key direct"></i>Aimed at Jews directly</span>
+      <span><i class="key via"></i>Through Israel, as IHRA defines it</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Islamophobia</span>
+      <div class="track">
+        <span class="bar bar-i" style={`width:${pct(h.islamophobia)}`}></span>
+      </div>
+      <span class="total">{h.islamophobia}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Anti-Black racism</span>
+      <div class="track">
+        <span class="bar bar-b" style={`width:${pct(h.antiblack)}`}></span>
+      </div>
+      <span class="total">{h.antiblack}</span>
+    </div>
+  </div>
+
+  <div class="multipliers">
+    <div><strong>{ratio(h.antiblack)}×</strong><span>as common as anti-Black racism</span></div>
+    <div><strong>{ratio(h.islamophobia)}×</strong><span>as common as Islamophobia</span></div>
+  </div>
+</figure>
+
+<style>
+  .counts {
+    margin: 2.25rem 0 2.5rem;
+    background: var(--bg-surface);
+    border: 3px solid var(--black);
+    box-shadow: 6px 6px 0 var(--coral);
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.8rem 1rem;
+    background: var(--black);
+    color: var(--white);
+  }
+
+  figcaption strong {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  figcaption span,
+  .label,
+  .keys,
+  .multipliers span {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .rows {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1.25rem 1rem 1.1rem;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr) 3.25rem;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .track {
+    display: flex;
+    height: 2.75rem;
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border: 3px solid var(--black);
+    color: var(--accent-ink);
+  }
+
+  .bar + .bar {
+    border-left: 0;
+  }
+
+  .bar b {
+    padding-left: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+
+  .bar-a {
+    background: var(--coral);
+  }
+
+  .bar-a.via,
+  .key.via {
+    background: repeating-linear-gradient(-45deg, var(--coral) 0 7px, color-mix(in srgb, var(--coral) 55%, var(--bg-surface)) 7px 11px);
+  }
+
+  .bar-i {
+    background: var(--teal);
+  }
+
+  .bar-b {
+    background: var(--yellow);
+  }
+
+  .total {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1;
+    text-align: right;
+  }
+
+  .keys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.25rem;
+    margin: -0.35rem 0 0.35rem calc(9.5rem + 0.75rem);
+    color: var(--text-muted);
+  }
+
+  .keys span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .key {
+    width: 0.9rem;
+    height: 0.9rem;
+    border: 2px solid var(--black);
+  }
+
+  .key.direct {
+    background: var(--coral);
+  }
+
+  .multipliers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 3px solid var(--black);
+  }
+
+  .multipliers div {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .multipliers div + div {
+    border-left: 3px solid var(--black);
+  }
+
+  .multipliers strong {
+    font-family: var(--font-heading);
+    font-size: clamp(1.9rem, 1.4rem + 2vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .multipliers span {
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .row {
+      grid-template-columns: minmax(0, 1fr) 2.75rem;
+      grid-template-areas: 'label label' 'track total';
+      gap: 0.3rem 0.6rem;
+    }
+
+    .label {
+      grid-area: label;
+    }
+
+    .track {
+      grid-area: track;
+      height: 2.25rem;
+    }
+
+    .total {
+      grid-area: total;
+    }
+
+    .keys {
+      margin-left: 0;
+    }
+
+    .multipliers {
+      grid-template-columns: 1fr;
+    }
+
+    .multipliers div + div {
+      border-left: 0;
+      border-top: 3px solid var(--black);
+    }
+  }
+</style>

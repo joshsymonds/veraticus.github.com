@@ -1,0 +1,281 @@
+---
+import data from '../../data/reddit-bigotry.json';
+
+type Card = {
+  arm: 'antisemitism' | 'islamophobia' | 'antiblack';
+  sub: string;
+  title: string;
+  text: string;
+  votes: number | null;
+  score: number;
+};
+const ARM = {
+  antisemitism: { name: 'Antisemitism', cls: 'a' },
+  islamophobia: { name: 'Islamophobia', cls: 'i' },
+  antiblack: { name: 'Anti-Black', cls: 'b' },
+} as const;
+const COLUMNS = [
+  { score: 0, name: 'Nothing', note: 'Not bigoted' },
+  { score: 1, name: 'Borderline', note: 'Close, but not counted' },
+  { score: 2, name: 'Clearly bigoted', note: 'Counted' },
+  { score: 3, name: 'Severe', note: 'Counted' },
+];
+// Why each comment landed where it did, in plain words, from the reader's own
+// stated reason (or, for the score of 0, the rule it didn't break).
+const WHY: Record<string, string> = {
+  pics: 'Wants a head of state arrested on an ICC warrant. Criticizing a government or its leader never counts.',
+  ActualPublicFreakouts: 'Says Europe has fallen, but never says to whom.',
+  LivestreamFail: 'Calls a Liberian crowd zombies: a joke about a crowd, short of a claim about race.',
+  ufc: 'Says Israel secretly owns the United States: a control conspiracy aimed at Jews through Israel.',
+  AteTheOnion: 'Casts Muslims as future conquerors: the Great Replacement.',
+  MechanicAdvice: '"Hood rats" as a stand-in for Black people, and calls them vermin.',
+  ABoringDystopia: 'Jews as a cancer with blackmail on everyone in power.',
+  mlb: 'Calls a Black ballplayer a monkey.',
+};
+const cards = data.cards as Card[];
+const fmt = (n: number) => n.toLocaleString('en-US');
+---
+
+<figure class="line" aria-label="Eight real comments on a scale from 0 to 3. Comments scored 2 or 3 were counted.">
+  <figcaption>
+    <strong>Eight comments scored</strong>
+    <span>2s and 3s count</span>
+  </figcaption>
+
+  <div class="ruler">
+    {COLUMNS.map((col) => (
+      <section class:list={['col', `col-${col.score}`, { counted: col.score >= 2 }]} aria-label={`Score ${col.score}: ${col.name}`}>
+        <header>
+          <b>{col.score}</b>
+          <span>
+            <strong>{col.name}</strong>
+            <small>{col.note}</small>
+          </span>
+        </header>
+        <div class="stack">
+          {cards
+            .filter((c) => c.score === col.score)
+            .map((c) => (
+              <article class={`card card-${ARM[c.arm].cls}`}>
+                <div class="tag">
+                  <span>{ARM[c.arm].name}</span>
+                  <span class="sub">r/{c.sub}</span>
+                </div>
+                <blockquote>{c.text}</blockquote>
+                <p class="why">{WHY[c.sub]}</p>
+                {c.votes != null && <p class="votes">{fmt(c.votes)} {c.votes === 1 ? 'upvote' : 'upvotes'}</p>}
+              </article>
+            ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</figure>
+
+<style>
+  .line {
+    width: min(calc(100vw - 2rem), 64rem);
+    margin: 2.5rem 0 3rem calc(50% - min(calc(100vw - 2rem), 64rem) / 2);
+    background: var(--bg-surface);
+    border: 3px solid var(--black);
+    box-shadow: 8px 8px 0 var(--black);
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.8rem 1rem;
+    background: var(--black);
+    color: var(--white);
+  }
+
+  figcaption strong {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
+  figcaption span,
+  header small,
+  .tag,
+  .votes {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .ruler {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .col + .col {
+    border-left: 2px solid var(--ink-muted);
+  }
+
+  /* The line itself: everything right of it was counted. */
+  .ruler .col-2 {
+    border-left: 6px solid var(--black);
+  }
+
+  .col.counted {
+    background: color-mix(in srgb, var(--black) 4%, var(--bg-surface));
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 0.85rem;
+    border-bottom: 3px solid var(--black);
+  }
+
+  header b {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 3px solid var(--black);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .counted header b {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .col-1 header b {
+    background: var(--pink);
+    color: var(--accent-ink);
+  }
+
+  header span {
+    display: grid;
+    line-height: 1.2;
+  }
+
+  header strong {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  header small {
+    color: var(--text-muted);
+  }
+
+  .stack {
+    display: grid;
+    align-content: start;
+    gap: 0.85rem;
+    padding: 0.85rem;
+  }
+
+  .card {
+    --arm: var(--coral);
+    background: var(--bg-surface);
+    border: 3px solid var(--black);
+    box-shadow: 4px 4px 0 var(--arm);
+  }
+
+  .card-i {
+    --arm: var(--teal);
+  }
+
+  .card-b {
+    --arm: var(--yellow);
+  }
+
+  .tag {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 0.5rem;
+    padding: 0.35rem 0.55rem;
+    background: var(--arm);
+    border-bottom: 3px solid var(--black);
+    color: var(--accent-ink);
+  }
+
+  .tag .sub {
+    text-transform: none;
+  }
+
+  .line blockquote {
+    margin: 0;
+    padding: 0.7rem 0.7rem 0.4rem;
+    background: none;
+    border: 0;
+    color: var(--black);
+    font-family: var(--font-heading);
+    font-size: 1.02rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .line blockquote::before {
+    display: none;
+  }
+
+  .line .why {
+    margin: 0;
+    padding: 0 0.7rem 0.55rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .line .votes {
+    margin: 0;
+    padding: 0.4rem 0.7rem;
+    border-top: 2px solid var(--ink-muted);
+    color: var(--text-muted);
+  }
+
+  /* Two columns, then one: the line becomes a thick rule above the counted
+     scores instead of beside them. */
+  @media (max-width: 900px) {
+    .ruler {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ruler .col-2 {
+      border-left: 0;
+    }
+
+    .ruler .col-2,
+    .ruler .col-3 {
+      border-top: 6px solid var(--black);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .line {
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    .ruler {
+      grid-template-columns: 1fr;
+    }
+
+    .col + .col {
+      border-left: 0;
+      border-top: 2px solid var(--ink-muted);
+    }
+
+    .ruler .col-2 {
+      border-top: 6px solid var(--black);
+    }
+  }
+</style>
