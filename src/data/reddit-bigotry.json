@@ -17233,22 +17233,21 @@
   },
   {
    "arm": "antiblack",
-   "sub": "MechanicAdvice",
-   "title": "Hole in plastic fuel tank, drilled or something else?",
-   "text": "Looks like you got a case of Hood Rats. Diesels pushing 2x the cost of gas where I am , I've had 3 tanks to replace in the last 2 weeks from being drilled.",
-   "votes": 1240,
+   "sub": "4chan",
+   "title": "You Can’t Hate Boomers Enough",
+   "text": "What did they do to deserve 2 terms by an ethnic?",
+   "votes": 183,
    "score": 2,
    "counted": true,
    "rung": "direct",
-   "target": "black_people",
-   "link": "proxy",
+   "target": "individual",
+   "link": "direct",
    "mechanisms": [
-    "Stereotype",
-    "Criminality",
-    "Dehumanization"
+    "illegitimacy",
+    "Stereotype"
    ],
-   "reason": "\"Hood Rats\" as coded epithet for fuel thieves, combining a racialized proxy term with vermin language",
-   "second_reader": false
+   "reason": "Obama's two terms framed as something the nation was punished with because he is 'an ethnic'; racial illegitimacy of a Black president",
+   "second_reader": true
   },
   {
    "arm": "antisemitism",
@@ -17271,21 +17270,22 @@
   },
   {
    "arm": "antiblack",
-   "sub": "mlb",
-   "title": "[Highlight] Vladimir Guerrero Jr. crushes a grand slam for the Blue Jays",
-   "text": "Grand slam because monkey never cramp.",
-   "votes": 33,
+   "sub": "NoahGetTheBoat",
+   "title": "Raping festival in Nigeria",
+   "text": "IQs and breeding patterns of fruit flies.",
+   "votes": 76,
    "score": 3,
    "counted": true,
    "rung": "direct",
-   "target": "individual",
+   "target": "black_people",
    "link": "direct",
    "mechanisms": [
     "Dehumanization",
-    "Slur"
+    "Stereotype",
+    "Collective guilt"
    ],
-   "reason": "calls a Black player a monkey",
-   "second_reader": false
+   "reason": "Nigerians likened to fruit flies in IQ and breeding; dehumanizing essentialism",
+   "second_reader": true
   }
  ]
 }
