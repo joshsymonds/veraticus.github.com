@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /letters/
 
 Sitemap: https://joshsymonds.com/sitemap-index.xml
