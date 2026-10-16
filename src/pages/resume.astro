@@ -6,14 +6,15 @@ import Page from "../layouts/Page.astro";
   <div class="resume">
     <header class="resume-header">
       <h1>Josh Symonds</h1>
-      <p class="tagline">Turns frontier models into engineering infrastructure.</p>
+      <p class="tagline">Hands-on staff engineer: agent platforms, LLM evaluation, and AI infrastructure.</p>
       <div class="contact-row">
+        <span class="pill">Santa Barbara, CA</span>
         <a class="pill" href="mailto:josh@joshsymonds.com">josh@joshsymonds.com</a>
         <span class="pill">+1-773-480-4810</span>
         <a class="pill" href="https://github.com/joshsymonds">github.com/joshsymonds</a>
         <a class="pill pill-download" href="/joshsymonds_resume.pdf">Download PDF</a>
       </div>
-      <p class="summary">Built a company-wide agent platform used by 100+ people, cut agentic code-review cost 16&times; with production-replay evaluations, and shipped an AI product spanning 14 games. Fifteen years of infrastructure and security engineering.</p>
+      <p class="summary">Built a company-wide agent platform and the production-replay evals that moved its code review to open-weight models at 1/16 the cost, and an eval system that replaced LLM-as-judge with a decider model validated on held-out pairs. Building with coding agents since 2025; fifteen years in infrastructure and security.</p>
     </header>
 
     <section class="section">
@@ -22,22 +23,68 @@ import Page from "../layouts/Page.astro";
       <article class="job">
         <div class="job-header">
           <h3>Attain</h3>
-          <span class="location">Remote &mdash; Santa Barbara, CA</span>
+          <span class="location">Remote</span>
         </div>
         <div class="job-meta">
           <span class="title">Director of SRE, Consumer Product</span>
           <span class="tenure">Mar 2026 &ndash; Present</span>
         </div>
         <ul>
-          <li><strong>Marvin:</strong> Built and operate Marvin, a company-wide agent platform for code review, incident investigation, and internal workflows: 116 users across engineering, support, and operations in five months, about 50 weekly active.</li>
-          <li><strong>Orchestration:</strong> Engineered the Go/Kubernetes orchestration: ephemeral agent workers on a Nix-built image, per-user OAuth tool credentials, immutable versioned model routes with live provider preflight and pointer-flip rollback.</li>
-          <li><strong>LLM Gateway:</strong> Built the org-wide model gateway: SSO keys, stable model aliases, audit logs, zero-retention providers.</li>
-          <li><strong>Code Review:</strong> Shipped multi-stage agentic code review with independent verification and materiality filtering, posting inline GitLab comments: 2,100+ reviews, 87% positive on 300+ explicit ratings.</li>
-          <li><strong>Evaluation:</strong> Built a production-replay evaluation harness with frozen dev/holdout cases and a version-pinned LLM judge. Blind adjudication showed the incumbent verifier wrong on 37% of disputed verdicts; migrated review to open-weight models, cutting average cost per review 16&times; month over month while median wall time halved.</li>
-          <li><strong>Incident Investigation:</strong> Automated investigation of 2,170+ alert threads, gathering evidence through kubectl, BigQuery, and logs before posting assessments, escalating, or opening merge requests that fix the bug, mergeable as written 95% of the time. Validated by continuous synthetic canaries and blackbox acceptance tests on a fresh cluster per run.</li>
-          <li><strong>Agent-Ready Monorepo:</strong> Built the layered documentation, agent skill framework, and progressive context disclosure that make a large fintech monorepo work under coding agents, shared by Marvin and engineers&rsquo; local Claude Code sessions.</li>
+          <li><strong>Marvin:</strong> Created Marvin, a company-wide agent platform in Slack for code review, incident investigation, and internal workflows: 116 users across engineering, support, and operations, about 50 weekly active.</li>
+          <li><strong>Orchestration &amp; Gateway:</strong> Designed Go/Kubernetes orchestration for ephemeral agent workers on a Nix-built image, with per-user OAuth credentials, Cedar tool policies, and versioned model routes with one-step rollback. Launched the company&rsquo;s LLM gateway: SSO-issued keys, request logs, per-person spend, and zero-retention providers only.</li>
+          <li><strong>Code Review:</strong> Shipped multi-stage AI code review with a verifier pass that checks findings and drops nitpicks: 2,100+ reviews, 87% positive (300+ ratings).</li>
+          <li><strong>Evaluation:</strong> Built an evaluation harness that replays production reviews against candidate models, with frozen dev/holdout cases and a version-pinned LLM judge. Blind review found the original verifier wrong on 37% of disputed calls. Moved review to open-weight models: cost per review fell 16&times; in a month, and median review time halved.</li>
+          <li><strong>Incidents:</strong> Automated investigation of 2,170+ alert threads, gathering evidence from kubectl, BigQuery, and logs before escalating or opening a merge request with the fix, mergeable as written 95% of the time.</li>
+          <li><strong>Agent-Ready Monorepo:</strong> Made a large monorepo agent-ready with docs, agent skills, and on-demand context, shared by Marvin and engineers&rsquo; own Claude Code sessions.</li>
         </ul>
       </article>
+    </section>
+
+    <section class="section">
+      <h2>Independent Engineering, Built with Coding Agents</h2>
+
+      <article class="job">
+        <div class="job-header">
+          <h3><a href="https://savecraft.gg">Savecraft</a></h3>
+          <span class="location">Go, TypeScript, Rust, WebAssembly, MCP &middot; 2026</span>
+        </div>
+        <ul>
+          <li>Shipped an AI gaming companion for 14 games, in OpenAI&rsquo;s connector directory: sandboxed WASM save parsers on the player&rsquo;s device, so raw saves never leave it, and MCP tools and the chat loop on Cloudflare Workers behind OAuth 2.1.</li>
+          <li>Built its eval system before choosing a model: 295 scenarios &times; 3 runs from production logs. A 13-model bake-off ranked an open-weight model first, ahead of frontier models costing 14&times; more. Replaced LLM-as-judge with a decider model (Jev) validated on held-out pairs, which picked the stronger model in 95% of pairs vs 88% for the old judge (p = 1.9e-17).</li>
+          <li>Built a Go service pooling warm LuaJIT processes so agents can test builds against <a href="/blog/path-of-building-doesnt-fit/">Path of Building&rsquo;s calculation engine</a> (40 ms median).</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <h3><a href="https://github.com/joshsymonds/gambit">Gambit</a> &amp; Tiltyard</h3>
+          <span class="location">Claude Code, Go</span>
+        </div>
+        <ul>
+          <li>Released Gambit, a Claude Code plugin that takes tasks from spec to release with test-evidence gates. Tiltyard replays real repository tasks to score models and agent harnesses.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <h3>LiveWorld (consulting)</h3>
+          <span class="location">AWS, EKS, Terraform, Flux &middot; 2013 &ndash; Present</span>
+        </div>
+        <ul>
+          <li>Run its AWS/EKS platform and GPU inference for its ML product (Karpenter, KEDA); wrote its SOC 2/GDPR controls.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <h3>Open Source</h3>
+        </div>
+        <p class="project-desc">Original author of <a href="https://rubygems.org/gems/dynamoid">Dynamoid</a>, the Ruby ORM for DynamoDB (13M+ downloads). <a href="https://github.com/joshsymonds/nix-config">nix-config</a>: NixOS and Home Manager for a nine-host fleet (837 stars).</p>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>Previous Roles</h2>
 
       <article class="job">
         <div class="job-header">
@@ -45,13 +92,13 @@ import Page from "../layouts/Page.astro";
           <span class="location">Santa Barbara, CA</span>
         </div>
         <div class="job-meta">
-          <span class="title">Senior Manager, Core Services / Principal Infrastructure Engineer</span>
+          <span class="title">Principal Infrastructure Engineer / Senior Manager, Core Services</span>
           <span class="tenure">Jan 2021 &ndash; Feb 2026</span>
         </div>
         <ul>
-          <li><strong>Go Services &amp; Tooling:</strong> Built production Go services and developer tools used daily across a 30+ microservice platform: Kubernetes service proxy, end-to-end testing framework, unified CLI.</li>
-          <li><strong>Edge &amp; Platform:</strong> Built OS-level provisioning for industrial IoT edge agents and led the migration from k3os to Talos Linux; architected multi-cluster EKS with Flux CD, environment promotion, and rollback.</li>
-          <li><strong>Org:</strong> Established the Core Services function; ran weekly LLM workshops that moved the engineering org onto AI tooling.</li>
+          <li><strong>Platform:</strong> Built the control plane and deploy tool (approval-gated, about 5,800 deploys in 2025), the end-to-end test framework, and the CLIs; ran 9 AWS accounts and 10 EKS clusters.</li>
+          <li><strong>Edge:</strong> Built the industrial IoT edge OS with zero-touch provisioning and over-the-air updates, and led the migration from k3os to Talos Linux as the fleet grew to 123 production deployments.</li>
+          <li><strong>Security &amp; AI:</strong> Led SOC 2 Type 1 and presented an <a href="https://naturalrefrigerationreview.com/cybersecurity-in-automated-industrial-systems/">IIAR paper on industrial cybersecurity</a>. Set the LLM usage policy, ran weekly &ldquo;Cooking with Claude Code&rdquo; workshops, and stood up self-hosted LLM inference for internal search.</li>
         </ul>
       </article>
 
@@ -61,11 +108,11 @@ import Page from "../layouts/Page.astro";
           <span class="location">Chicago, IL</span>
         </div>
         <div class="job-meta">
-          <span class="title">Senior DevOps Engineer &amp; CISO</span>
+          <span class="title">DevOps Engineer &amp; CISO</span>
           <span class="tenure">Oct 2019 &ndash; Dec 2020</span>
         </div>
         <ul>
-          <li><strong>Platform &amp; Security:</strong> Built Kubernetes operators, multi-region failover, and custom Terraform providers; designed NIST CSF and ISO 27001 programs and passed audits by major financial institutions.</li>
+          <li>Kubernetes operators and multi-region failover on AKS, custom Terraform providers, and NIST CSF and ISO 27001 programs that passed bank audits.</li>
         </ul>
       </article>
 
@@ -79,41 +126,8 @@ import Page from "../layouts/Page.astro";
           <span class="tenure">Aug 2015 &ndash; Oct 2019</span>
         </div>
         <ul>
-          <li><strong>Zero to Scale:</strong> Built greenfield AWS infrastructure that scaled M1 from zero to over a million customers; owned deployment pipelines and the security program; operated bare-metal Kubernetes and led the migration to EKS.</li>
+          <li>Employee #8. Built M1&rsquo;s infrastructure from launch to nearly $1B in assets (it has since passed $12B): Chef, then self-run Kubernetes, then EKS. Ran security through SOC 2 and SEC, FINRA, and bank audits.</li>
         </ul>
-      </article>
-    </section>
-
-    <section class="section">
-      <h2>Selected Independent Engineering</h2>
-
-      <article class="job">
-        <div class="job-header">
-          <h3><a href="https://savecraft.gg">Savecraft</a></h3>
-          <span class="location">Go, TypeScript, Rust, WebAssembly, MCP</span>
-        </div>
-        <ul>
-          <li>Built and shipped an AI gaming companion spanning 14 games: open-source Go client with sandboxed WASM parsers; hosted MCP tools behind OAuth 2.1. Raw saves stay local; assistants receive structured game state and domain tools.</li>
-          <li>Shipped a Go service pooling warm LuaJIT processes so agents can test build changes against <a href="/blog/path-of-building-doesnt-fit/">Path of Building&rsquo;s calculation engine</a>. Ported its perturbation algorithms to Go; measured 40 ms p50 / about 300 ms p99 swap-and-recompute latency with an eight-process pool.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-header">
-          <h3><a href="https://github.com/joshsymonds/gambit">Gambit</a> &amp; Tiltyard</h3>
-          <span class="location">Claude Code, Pi, Go</span>
-        </div>
-        <ul>
-          <li>Released Gambit, a contract-to-release coding-agent plugin with isolated workspaces, owned-file boundaries, failure-signature model routing, and evidence-backed gates. Built Tiltyard to replay repository-derived implementation tasks against model and harness combinations, scoring correctness, reliability, quality, discipline, and cost.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-header">
-          <h3><a href="https://github.com/joshsymonds/nix-config">nix-config</a></h3>
-          <span class="location">Nix &middot; 836 stars, 118 forks</span>
-        </div>
-        <p class="project-desc">NixOS and Home Manager configuration for a nine-host fleet.</p>
       </article>
     </section>
 
@@ -127,7 +141,6 @@ import Page from "../layouts/Page.astro";
         </div>
         <div class="job-meta">
           <span class="title">BA in East Asian Languages and Civilizations</span>
-          <span class="tenure">2001 &ndash; 2005</span>
         </div>
       </article>
     </section>
