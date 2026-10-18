@@ -6,7 +6,7 @@ import Page from "../layouts/Page.astro";
   <div class="resume">
     <header class="resume-header">
       <h1>Josh Symonds</h1>
-      <p class="tagline">Hands-on staff engineer: agent platforms, LLM evaluation, and AI infrastructure.</p>
+      <p class="tagline">Hands-on staff engineer: agent platforms, evals and verification, and AI infrastructure.</p>
       <div class="contact-row">
         <span class="pill">Santa Barbara, CA</span>
         <a class="pill" href="mailto:josh@joshsymonds.com">josh@joshsymonds.com</a>
@@ -14,7 +14,7 @@ import Page from "../layouts/Page.astro";
         <a class="pill" href="https://github.com/joshsymonds">github.com/joshsymonds</a>
         <a class="pill pill-download" href="/joshsymonds_resume.pdf">Download PDF</a>
       </div>
-      <p class="summary">Built a company-wide agent platform and the production-replay evals that moved its code review to open-weight models at 1/16 the cost, and an eval system that replaced LLM-as-judge with a decider model validated on held-out pairs. Building with coding agents since 2025; fifteen years in infrastructure and security.</p>
+      <p class="summary">Built a company-wide agent platform and replay evals that moved its review to open-weight models, plus a decider model that replaced LLM-as-judge. Building by directing coding agents since 2025; fifteen years in infrastructure and security.</p>
     </header>
 
     <section class="section">
@@ -30,12 +30,13 @@ import Page from "../layouts/Page.astro";
           <span class="tenure">Mar 2026 &ndash; Present</span>
         </div>
         <ul>
-          <li><strong>Marvin:</strong> Created Marvin, a company-wide agent platform in Slack for code review, incident investigation, and internal workflows: 116 users across engineering, support, and operations, about 50 weekly active.</li>
+          <li><strong>Marvin:</strong> Created Marvin, our company-wide agent platform in Slack; 116 people across engineering, support, and operations use it for code review, incident investigation, and internal workflows, about 50 of them weekly.</li>
           <li><strong>Orchestration &amp; Gateway:</strong> Designed Go/Kubernetes orchestration for ephemeral agent workers on a Nix-built image, with per-user OAuth credentials, Cedar tool policies, and versioned model routes with one-step rollback. Launched the company&rsquo;s LLM gateway: SSO-issued keys, request logs, per-person spend, and zero-retention providers only.</li>
           <li><strong>Code Review:</strong> Shipped multi-stage AI code review with a verifier pass that checks findings and drops nitpicks: 2,100+ reviews, 87% positive (300+ ratings).</li>
-          <li><strong>Evaluation:</strong> Built an evaluation harness that replays production reviews against candidate models, with frozen dev/holdout cases and a version-pinned LLM judge. Blind review found the original verifier wrong on 37% of disputed calls. Moved review to open-weight models: cost per review fell 16&times; in a month, and median review time halved.</li>
+          <li><strong>Evaluation:</strong> Built an evaluation harness that replays production reviews against candidate models, with frozen dev/holdout cases and a version-pinned LLM judge. Blind review found the original verifier wrong on 37% of disputed calls. Moved review to open-weight models; with pipeline changes, cost per review fell 16&times; in a month and median review time halved.</li>
           <li><strong>Incidents:</strong> Automated investigation of 2,170+ alert threads, gathering evidence from kubectl, BigQuery, and logs before escalating or opening a merge request with the fix, mergeable as written 95% of the time.</li>
           <li><strong>Agent-Ready Monorepo:</strong> Made a large monorepo agent-ready with docs, agent skills, and on-demand context, shared by Marvin and engineers&rsquo; own Claude Code sessions.</li>
+          <li><strong>Hiring:</strong> Designed Attain&rsquo;s AI-assisted SRE take-home interview, where candidates work on a real cloud machine with a coding agent and are graded mainly on how they work with it.</li>
         </ul>
       </article>
     </section>
@@ -112,7 +113,7 @@ import Page from "../layouts/Page.astro";
           <span class="tenure">Oct 2019 &ndash; Dec 2020</span>
         </div>
         <ul>
-          <li>Kubernetes operators and multi-region failover on AKS, custom Terraform providers, and NIST CSF and ISO 27001 programs that passed bank audits.</li>
+          <li>Wrote Kubernetes operators and set up multi-region failover on AKS, wrote custom Terraform providers, and ran the NIST CSF and ISO 27001 programs that passed bank audits.</li>
         </ul>
       </article>
 
@@ -126,7 +127,7 @@ import Page from "../layouts/Page.astro";
           <span class="tenure">Aug 2015 &ndash; Oct 2019</span>
         </div>
         <ul>
-          <li>Employee #8. Built M1&rsquo;s infrastructure from launch to nearly $1B in assets: Chef, then self-run Kubernetes, then EKS. Ran security through SOC 2 and SEC, FINRA, and bank audits.</li>
+          <li>Employee #8. Built M1&rsquo;s infrastructure from launch to nearly $1B in assets (Chef, then self-run Kubernetes, then EKS) and ran security through SOC 2 and SEC, FINRA, and bank audits.</li>
         </ul>
       </article>
     </section>
